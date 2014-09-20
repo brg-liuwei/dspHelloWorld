@@ -1,0 +1,720 @@
+!_TAG_FILE_FORMAT	2	
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted/
+!_TAG_PROGRAM_AUTHOR	Joel Stemmer	/stemmertech@gmail.com/
+!_TAG_PROGRAM_NAME	gotags	
+!_TAG_PROGRAM_URL	https://github.com/jstemmer/gotags	
+!_TAG_PROGRAM_VERSION	1.2.0	
+ALLYES	src/common/ad.go	91;"	c	access:public	line:91
+Ad	src/common/ad.go	58;"	t	access:public	line:58	type:struct
+AdOwnerId	src/common/ad.go	111;"	w	access:public	ctype:Order	line:111	type:int
+AdSize	src/common/ad.go	23;"	t	access:public	line:23	type:struct
+AdType	src/common/ad.go	5;"	t	access:public	line:5	type:int
+AddAd	src/manager/manager.go	82;"	c	access:public	line:82
+AddFD	src/github.com/gosexy/redis/fd.go	42;"	m	access:public	ctype:pollServer	line:42	signature:(fd *fileFD, mode int)	type:error
+AddFD	src/github.com/gosexy/redis/fd_darwin.go	35;"	m	access:public	ctype:pollster	line:35	signature:(fd int, mode int, repeat bool)	type:bool, error
+AddFD	src/github.com/gosexy/redis/fd_freebsd.go	34;"	m	access:public	ctype:pollster	line:34	signature:(fd int, mode int, repeat bool)	type:bool, error
+AddFD	src/github.com/gosexy/redis/fd_linux.go	54;"	m	access:public	ctype:pollster	line:54	signature:(fd int, mode int, repeat bool)	type:bool, error
+AddFD	src/github.com/gosexy/redis/fd_netbsd.go	34;"	m	access:public	ctype:pollster	line:34	signature:(fd int, mode int, repeat bool)	type:bool, error
+AddFD	src/github.com/gosexy/redis/fd_openbsd.go	34;"	m	access:public	ctype:pollster	line:34	signature:(fd int, mode int, repeat bool)	type:bool, error
+AddOrder	src/manager/manager.go	81;"	c	access:public	line:81
+AdvertX	src/common/ad.go	130;"	w	access:public	ctype:Order	line:130	type:int
+AdvertXUseMulti	src/common/ad.go	131;"	w	access:public	ctype:Order	line:131	type:bool
+Adx	src/common/ad.go	87;"	t	access:public	line:87	type:int
+AdxList	src/common/ad.go	113;"	w	access:public	ctype:Order	line:113	type:[]Adx
+AnonymousMedia	src/common/ad.go	136;"	w	access:public	ctype:Order	line:136	type:int
+Append	src/github.com/gosexy/redis/main.go	762;"	m	access:public	ctype:Client	line:762	signature:(key string, value interface{})	type:int64, error
+Attr	src/common/ad.go	67;"	w	access:public	ctype:Ad	line:67	type:Attribute
+Attribute	src/common/ad.go	43;"	t	access:public	line:43	type:int
+Auth	src/github.com/gosexy/redis/main.go	780;"	m	access:public	ctype:Client	line:780	signature:(password string)	type:string, error
+BLPop	src/github.com/gosexy/redis/main.go	867;"	m	access:public	ctype:Client	line:867	signature:(timeout uint64, keys )	type:[]string, error
+BRPop	src/github.com/gosexy/redis/main.go	893;"	m	access:public	ctype:Client	line:893	signature:(timeout uint64, keys )	type:[]string, error
+BRPopLPush	src/github.com/gosexy/redis/main.go	919;"	m	access:public	ctype:Client	line:919	signature:(source string, destination string, timeout int64)	type:string, error
+BYCAMPAIGN	src/common/ad.go	105;"	c	access:public	line:105
+BYORDER	src/common/ad.go	104;"	c	access:public	line:104	type:FreqCtrlType
+Banner	src/common/ad.go	8;"	c	access:public	line:8	type:AdType
+BenchmarkAlphazeroRedisGet	src/github.com/gosexy/redis/_benchmarks/alphazero_redis_test.go	51;"	f	access:public	line:51	signature:(b *testing.B)
+BenchmarkAlphazeroRedisIncr	src/github.com/gosexy/redis/_benchmarks/alphazero_redis_test.go	62;"	f	access:public	line:62	signature:(b *testing.B)
+BenchmarkAlphazeroRedisLPush	src/github.com/gosexy/redis/_benchmarks/alphazero_redis_test.go	73;"	f	access:public	line:73	signature:(b *testing.B)
+BenchmarkAlphazeroRedisLRange10	src/github.com/gosexy/redis/_benchmarks/alphazero_redis_test.go	86;"	f	access:public	line:86	signature:(b *testing.B)
+BenchmarkAlphazeroRedisLRange100	src/github.com/gosexy/redis/_benchmarks/alphazero_redis_test.go	97;"	f	access:public	line:97	signature:(b *testing.B)
+BenchmarkAlphazeroRedisPing	src/github.com/gosexy/redis/_benchmarks/alphazero_redis_test.go	28;"	f	access:public	line:28	signature:(b *testing.B)
+BenchmarkAlphazeroRedisSet	src/github.com/gosexy/redis/_benchmarks/alphazero_redis_test.go	40;"	f	access:public	line:40	signature:(b *testing.B)
+BenchmarkConnect	src/github.com/gosexy/redis/main_test.go	2016;"	f	access:public	line:2016	signature:(b *testing.B)
+BenchmarkGaryburdRedigoGet	src/github.com/gosexy/redis/_benchmarks/garyburd_redigo_test.go	55;"	f	access:public	line:55	signature:(b *testing.B)
+BenchmarkGaryburdRedigoIncr	src/github.com/gosexy/redis/_benchmarks/garyburd_redigo_test.go	66;"	f	access:public	line:66	signature:(b *testing.B)
+BenchmarkGaryburdRedigoLPush	src/github.com/gosexy/redis/_benchmarks/garyburd_redigo_test.go	77;"	f	access:public	line:77	signature:(b *testing.B)
+BenchmarkGaryburdRedigoLRange10	src/github.com/gosexy/redis/_benchmarks/garyburd_redigo_test.go	89;"	f	access:public	line:89	signature:(b *testing.B)
+BenchmarkGaryburdRedigoLRange100	src/github.com/gosexy/redis/_benchmarks/garyburd_redigo_test.go	100;"	f	access:public	line:100	signature:(b *testing.B)
+BenchmarkGaryburdRedigoPing	src/github.com/gosexy/redis/_benchmarks/garyburd_redigo_test.go	32;"	f	access:public	line:32	signature:(b *testing.B)
+BenchmarkGaryburdRedigoSet	src/github.com/gosexy/redis/_benchmarks/garyburd_redigo_test.go	44;"	f	access:public	line:44	signature:(b *testing.B)
+BenchmarkGet	src/github.com/gosexy/redis/main_test.go	2050;"	f	access:public	line:2050	signature:(b *testing.B)
+BenchmarkGosexyRedisGet	src/github.com/gosexy/redis/_benchmarks/gosexy_redis_test.go	57;"	f	access:public	line:57	signature:(b *testing.B)
+BenchmarkGosexyRedisIncr	src/github.com/gosexy/redis/_benchmarks/gosexy_redis_test.go	68;"	f	access:public	line:68	signature:(b *testing.B)
+BenchmarkGosexyRedisLPush	src/github.com/gosexy/redis/_benchmarks/gosexy_redis_test.go	79;"	f	access:public	line:79	signature:(b *testing.B)
+BenchmarkGosexyRedisLRange10	src/github.com/gosexy/redis/_benchmarks/gosexy_redis_test.go	92;"	f	access:public	line:92	signature:(b *testing.B)
+BenchmarkGosexyRedisLRange100	src/github.com/gosexy/redis/_benchmarks/gosexy_redis_test.go	103;"	f	access:public	line:103	signature:(b *testing.B)
+BenchmarkGosexyRedisPing	src/github.com/gosexy/redis/_benchmarks/gosexy_redis_test.go	34;"	f	access:public	line:34	signature:(b *testing.B)
+BenchmarkGosexyRedisSet	src/github.com/gosexy/redis/_benchmarks/gosexy_redis_test.go	46;"	f	access:public	line:46	signature:(b *testing.B)
+BenchmarkIncr	src/github.com/gosexy/redis/main_test.go	2061;"	f	access:public	line:2061	signature:(b *testing.B)
+BenchmarkLPush	src/github.com/gosexy/redis/main_test.go	2072;"	f	access:public	line:2072	signature:(b *testing.B)
+BenchmarkLRange10	src/github.com/gosexy/redis/main_test.go	2084;"	f	access:public	line:2084	signature:(b *testing.B)
+BenchmarkLRange100	src/github.com/gosexy/redis/main_test.go	2095;"	f	access:public	line:2095	signature:(b *testing.B)
+BenchmarkPing	src/github.com/gosexy/redis/main_test.go	2027;"	f	access:public	line:2027	signature:(b *testing.B)
+BenchmarkSet	src/github.com/gosexy/redis/main_test.go	2039;"	f	access:public	line:2039	signature:(b *testing.B)
+BenchmarkSimonz05GodisGet	src/github.com/gosexy/redis/_benchmarks/simonz05_godis_test.go	48;"	f	access:public	line:48	signature:(b *testing.B)
+BenchmarkSimonz05GodisIncr	src/github.com/gosexy/redis/_benchmarks/simonz05_godis_test.go	59;"	f	access:public	line:59	signature:(b *testing.B)
+BenchmarkSimonz05GodisLPush	src/github.com/gosexy/redis/_benchmarks/simonz05_godis_test.go	70;"	f	access:public	line:70	signature:(b *testing.B)
+BenchmarkSimonz05GodisLRange10	src/github.com/gosexy/redis/_benchmarks/simonz05_godis_test.go	82;"	f	access:public	line:82	signature:(b *testing.B)
+BenchmarkSimonz05GodisLRange100	src/github.com/gosexy/redis/_benchmarks/simonz05_godis_test.go	93;"	f	access:public	line:93	signature:(b *testing.B)
+BenchmarkSimonz05GodisPing	src/github.com/gosexy/redis/_benchmarks/simonz05_godis_test.go	25;"	f	access:public	line:25	signature:(b *testing.B)
+BenchmarkSimonz05GodisSet	src/github.com/gosexy/redis/_benchmarks/simonz05_godis_test.go	37;"	f	access:public	line:37	signature:(b *testing.B)
+BenchmarkTcglRedisGet	src/github.com/gosexy/redis/_benchmarks/tcgl_redis_test.go	48;"	f	access:public	line:48	signature:(b *testing.B)
+BenchmarkTcglRedisIncr	src/github.com/gosexy/redis/_benchmarks/tcgl_redis_test.go	59;"	f	access:public	line:59	signature:(b *testing.B)
+BenchmarkTcglRedisLPush	src/github.com/gosexy/redis/_benchmarks/tcgl_redis_test.go	70;"	f	access:public	line:70	signature:(b *testing.B)
+BenchmarkTcglRedisLRange10	src/github.com/gosexy/redis/_benchmarks/tcgl_redis_test.go	82;"	f	access:public	line:82	signature:(b *testing.B)
+BenchmarkTcglRedisLRange100	src/github.com/gosexy/redis/_benchmarks/tcgl_redis_test.go	93;"	f	access:public	line:93	signature:(b *testing.B)
+BenchmarkTcglRedisPing	src/github.com/gosexy/redis/_benchmarks/tcgl_redis_test.go	25;"	f	access:public	line:25	signature:(b *testing.B)
+BenchmarkTcglRedisSet	src/github.com/gosexy/redis/_benchmarks/tcgl_redis_test.go	37;"	f	access:public	line:37	signature:(b *testing.B)
+BgRewriteAOF	src/github.com/gosexy/redis/main.go	796;"	m	access:public	ctype:Client	line:796	signature:()	type:string, error
+BgSave	src/github.com/gosexy/redis/main.go	814;"	m	access:public	ctype:Client	line:814	signature:()	type:string, error
+BitCount	src/github.com/gosexy/redis/main.go	828;"	m	access:public	ctype:Client	line:828	signature:(key string, params )	type:int64, error
+BitOp	src/github.com/gosexy/redis/main.go	846;"	m	access:public	ctype:Client	line:846	signature:(op string, dest string, keys )	type:int64, error
+C	src/github.com/gosexy/redis/main.go	67;"	i	line:67
+CampaignId	src/common/ad.go	110;"	w	access:public	ctype:Order	line:110	type:int
+Category	src/common/ad.go	65;"	w	access:public	ctype:Ad	line:65	type:[]int
+CategoryProduct	src/common/ad.go	66;"	w	access:public	ctype:Ad	line:66	type:[]int
+Ch1	src/common/ad.go	80;"	e	access:public	ctype:Ad	line:80	type:Ch1
+Ch2	src/common/ad.go	81;"	e	access:public	ctype:Ad	line:81	type:Ch2
+Client	src/github.com/gosexy/redis/main.go	117;"	t	access:public	line:117	type:struct
+ClientGetName	src/github.com/gosexy/redis/main.go	970;"	m	access:public	ctype:Client	line:970	signature:()	type:string, error
+ClientKill	src/github.com/gosexy/redis/main.go	936;"	m	access:public	ctype:Client	line:936	signature:(ip string, port uint)	type:string, error
+ClientList	src/github.com/gosexy/redis/main.go	953;"	m	access:public	ctype:Client	line:953	signature:()	type:[]string, error
+ClientSetName	src/github.com/gosexy/redis/main.go	985;"	m	access:public	ctype:Client	line:985	signature:(connectionName string)	type:string, error
+Close	src/github.com/gosexy/redis/fd_darwin.go	121;"	m	access:public	ctype:pollster	line:121	signature:()	type:error
+Close	src/github.com/gosexy/redis/fd_freebsd.go	116;"	m	access:public	ctype:pollster	line:116	signature:()	type:error
+Close	src/github.com/gosexy/redis/fd_linux.go	185;"	m	access:public	ctype:pollster	line:185	signature:()	type:error
+Close	src/github.com/gosexy/redis/fd_netbsd.go	116;"	m	access:public	ctype:pollster	line:116	signature:()	type:error
+Close	src/github.com/gosexy/redis/fd_openbsd.go	116;"	m	access:public	ctype:pollster	line:116	signature:()	type:error
+Close	src/github.com/gosexy/redis/fd_windows.go	328;"	m	access:public	ctype:netFD	line:328	signature:()	type:error
+CloseRead	src/github.com/gosexy/redis/fd_windows.go	347;"	m	access:public	ctype:netFD	line:347	signature:()	type:error
+CloseWrite	src/github.com/gosexy/redis/fd_windows.go	351;"	m	access:public	ctype:netFD	line:351	signature:()	type:error
+CmdType	src/manager/manager.go	77;"	t	access:public	line:77	type:int
+Command	src/github.com/gosexy/redis/main.go	560;"	m	access:public	ctype:Client	line:560	signature:(dest interface{}, values )	type:error
+Command	src/manager/manager.go	89;"	t	access:public	line:89	type:struct
+Commander	src/manager/manager.go	15;"	t	access:public	line:15	type:struct
+CommanderRoutine	src/manager/manager.go	60;"	f	access:public	line:60	signature:(host string, port uint, rkey string, ch chan string)
+ConfigGet	src/github.com/gosexy/redis/main.go	1003;"	m	access:public	ctype:Client	line:1003	signature:(parameter string)	type:string, error
+ConfigResetStat	src/github.com/gosexy/redis/main.go	1038;"	m	access:public	ctype:Client	line:1038	signature:()	type:string, error
+ConfigSet	src/github.com/gosexy/redis/main.go	1021;"	m	access:public	ctype:Client	line:1021	signature:(parameter string, value interface{})	type:string, error
+Connect	src/github.com/gosexy/redis/main.go	323;"	m	access:public	ctype:Client	line:323	signature:(host string, port uint)	type:error
+ConnectNonBlock	src/github.com/gosexy/redis/main.go	339;"	m	access:public	ctype:Client	line:339	signature:(host string, port uint)	type:error
+ConnectUnix	src/github.com/gosexy/redis/main.go	390;"	m	access:public	ctype:Client	line:390	signature:(path string)	type:error
+ConnectUnixNonBlock	src/github.com/gosexy/redis/main.go	375;"	m	access:public	ctype:Client	line:375	signature:(path string)	type:error
+ConnectUnixWithTimeout	src/github.com/gosexy/redis/main.go	405;"	m	access:public	ctype:Client	line:405	signature:(path string, timeout time.Duration)	type:error
+ConnectWithTimeout	src/github.com/gosexy/redis/main.go	356;"	m	access:public	ctype:Client	line:356	signature:(host string, port uint, timeout time.Duration)	type:error
+CountCost	src/common/ad.go	139;"	w	access:public	ctype:Order	line:139	type:int
+CreativeId	src/common/ad.go	84;"	w	access:public	ctype:Ad	line:84	type:int
+Ctype	src/manager/manager.go	90;"	w	access:public	ctype:Command	line:90	type:CmdType
+Cversion	src/manager/manager.go	91;"	w	access:public	ctype:Command	line:91	type:string
+DEBUG	src/logger/logger.go	16;"	c	access:public	line:16	type:Level
+DYNAMICFLASH	src/common/ad.go	55;"	c	access:public	line:55
+Data	src/manager/manager.go	92;"	w	access:public	ctype:Command	line:92	type:interface{}
+DbSize	src/github.com/gosexy/redis/main.go	1053;"	m	access:public	ctype:Client	line:1053	signature:()	type:uint64, error
+DebugObject	src/github.com/gosexy/redis/main.go	1068;"	m	access:public	ctype:Client	line:1068	signature:(key string)	type:string, error
+DebugSegfault	src/github.com/gosexy/redis/main.go	1085;"	m	access:public	ctype:Client	line:1085	signature:()	type:string, error
+Decr	src/github.com/gosexy/redis/main.go	1103;"	m	access:public	ctype:Client	line:1103	signature:(key string)	type:int64, error
+DecrBy	src/github.com/gosexy/redis/main.go	1121;"	m	access:public	ctype:Client	line:1121	signature:(key string, decrement int64)	type:int64, error
+DefaultPort	src/github.com/gosexy/redis/main.go	84;"	c	access:public	line:84
+Del	src/github.com/gosexy/redis/main.go	1138;"	m	access:public	ctype:Client	line:1138	signature:(keys )	type:int64, error
+DelAd	src/manager/manager.go	86;"	c	access:public	line:86
+DelFD	src/github.com/gosexy/redis/fd_darwin.go	68;"	m	access:public	ctype:pollster	line:68	signature:(fd int, mode int)
+DelFD	src/github.com/gosexy/redis/fd_freebsd.go	65;"	m	access:public	ctype:pollster	line:65	signature:(fd int, mode int)
+DelFD	src/github.com/gosexy/redis/fd_linux.go	117;"	m	access:public	ctype:pollster	line:117	signature:(fd int, mode int)
+DelFD	src/github.com/gosexy/redis/fd_netbsd.go	65;"	m	access:public	ctype:pollster	line:65	signature:(fd int, mode int)
+DelFD	src/github.com/gosexy/redis/fd_openbsd.go	65;"	m	access:public	ctype:pollster	line:65	signature:(fd int, mode int)
+DelOrder	src/manager/manager.go	85;"	c	access:public	line:85
+Discard	src/github.com/gosexy/redis/main.go	1155;"	m	access:public	ctype:Client	line:1155	signature:()	type:string, error
+Dump	src/github.com/gosexy/redis/main.go	1171;"	m	access:public	ctype:Client	line:1171	signature:(key string)	type:string, error
+Duration	src/common/ad.go	79;"	w	access:public	ctype:Ad	line:79	type:int
+ERROR	src/logger/logger.go	18;"	c	access:public	line:18
+Echo	src/github.com/gosexy/redis/main.go	1186;"	m	access:public	ctype:Client	line:1186	signature:(message interface{})	type:string, error
+ErrEOF	src/github.com/gosexy/redis/main.go	90;"	v	access:public	line:90
+ErrExpectingPairs	src/github.com/gosexy/redis/main.go	100;"	v	access:public	line:100
+ErrFailedAllocation	src/github.com/gosexy/redis/main.go	94;"	v	access:public	line:94
+ErrFailedPollServer	src/github.com/gosexy/redis/newpollserver.go	23;"	v	access:public	line:23
+ErrIO	src/github.com/gosexy/redis/main.go	89;"	v	access:public	line:89
+ErrInvalidDestination	src/github.com/gosexy/redis/main.go	103;"	v	access:public	line:103
+ErrMissingCommand	src/github.com/gosexy/redis/main.go	98;"	v	access:public	line:98
+ErrMissingDestination	src/github.com/gosexy/redis/main.go	102;"	v	access:public	line:102
+ErrNilReply	src/github.com/gosexy/redis/main.go	95;"	v	access:public	line:95
+ErrNoCmd	src/manager/manager.go	13;"	v	access:public	line:13	type:error
+ErrNonBlockingRequired	src/github.com/gosexy/redis/main.go	101;"	v	access:public	line:101
+ErrNotConnected	src/github.com/gosexy/redis/main.go	96;"	v	access:public	line:96
+ErrOOM	src/github.com/gosexy/redis/main.go	92;"	v	access:public	line:92
+ErrOther	src/github.com/gosexy/redis/main.go	93;"	v	access:public	line:93
+ErrProtocol	src/github.com/gosexy/redis/main.go	91;"	v	access:public	line:91
+ErrServerIsDown	src/github.com/gosexy/redis/main.go	97;"	v	access:public	line:97
+ErrUnexpectedResponse	src/github.com/gosexy/redis/main.go	99;"	v	access:public	line:99
+Eval	src/github.com/gosexy/redis/main.go	2596;"	m	access:public	ctype:Client	line:2596	signature:(script string, numkeys int64, arguments )	type:[]string, error
+EvalSHA	src/github.com/gosexy/redis/main.go	2620;"	m	access:public	ctype:Client	line:2620	signature:(hash string, numkeys int64, arguments )	type:[]string, error
+EvictRead	src/github.com/gosexy/redis/fd.go	82;"	m	access:public	ctype:pollServer	line:82	signature:(fd int)
+EvictWrite	src/github.com/gosexy/redis/fd.go	75;"	m	access:public	ctype:pollServer	line:75	signature:(fd int)
+Exec	src/github.com/gosexy/redis/main.go	1202;"	m	access:public	ctype:Client	line:1202	signature:()	type:[]interface{}, error
+ExecIO	src/github.com/gosexy/redis/fd_windows.go	151;"	m	access:public	ctype:ioSrv	line:151	signature:(oi anOpIface, deadline int64)	type:int, error
+Exists	src/github.com/gosexy/redis/main.go	1216;"	m	access:public	ctype:Client	line:1216	signature:(key string)	type:bool, error
+Expire	src/github.com/gosexy/redis/main.go	1233;"	m	access:public	ctype:Client	line:1233	signature:(key string, seconds uint64)	type:bool, error
+ExpireAt	src/github.com/gosexy/redis/main.go	1251;"	m	access:public	ctype:Client	line:1251	signature:(key string, unixTime uint64)	type:bool, error
+FATAL	src/logger/logger.go	19;"	c	access:public	line:19
+FLASH	src/common/ad.go	49;"	c	access:public	line:49
+FlushAll	src/github.com/gosexy/redis/main.go	1268;"	m	access:public	ctype:Client	line:1268	signature:()	type:string, error
+FlushDB	src/github.com/gosexy/redis/main.go	1282;"	m	access:public	ctype:Client	line:1282	signature:()	type:string, error
+FreqCount	src/common/ad.go	123;"	w	access:public	ctype:Order	line:123	type:int
+FreqCtrl	src/common/ad.go	121;"	w	access:public	ctype:Order	line:121	type:FreqCtrlType
+FreqCtrlTimeval	src/common/ad.go	122;"	w	access:public	ctype:Order	line:122	type:int
+FreqCtrlType	src/common/ad.go	101;"	t	access:public	line:101	type:int
+GOOGLE	src/common/ad.go	90;"	c	access:public	line:90	type:Adx
+Gender	src/common/ad.go	137;"	w	access:public	ctype:Order	line:137	type:int
+Get	src/github.com/gosexy/redis/main.go	1298;"	m	access:public	ctype:Client	line:1298	signature:(key string)	type:string, error
+GetBit	src/github.com/gosexy/redis/main.go	1312;"	m	access:public	ctype:Client	line:1312	signature:(key string, offset int64)	type:int64, error
+GetCmd	src/manager/manager.go	43;"	m	access:public	ctype:Commander	line:43	signature:()	type:string, error
+GetLevel	src/logger/logger.go	43;"	f	access:public	line:43	signature:()	type:Level
+GetRange	src/github.com/gosexy/redis/main.go	1331;"	m	access:public	ctype:Client	line:1331	signature:(key string, start int64, end int64)	type:string, error
+GetSet	src/github.com/gosexy/redis/main.go	1348;"	m	access:public	ctype:Client	line:1348	signature:(key string, value interface{})	type:string, error
+HDel	src/github.com/gosexy/redis/main.go	1366;"	m	access:public	ctype:Client	line:1366	signature:(key string, fields )	type:int64, error
+HExists	src/github.com/gosexy/redis/main.go	1387;"	m	access:public	ctype:Client	line:1387	signature:(key string, field string)	type:bool, error
+HGet	src/github.com/gosexy/redis/main.go	1405;"	m	access:public	ctype:Client	line:1405	signature:(key string, field string)	type:string, error
+HGetAll	src/github.com/gosexy/redis/main.go	1425;"	m	access:public	ctype:Client	line:1425	signature:(key string)	type:[]string, error
+HIncrBy	src/github.com/gosexy/redis/main.go	1444;"	m	access:public	ctype:Client	line:1444	signature:(key string, field string, increment interface{})	type:int64, error
+HIncrByFloat	src/github.com/gosexy/redis/main.go	1465;"	m	access:public	ctype:Client	line:1465	signature:(key string, field string, increment float64)	type:string, error
+HKeys	src/github.com/gosexy/redis/main.go	1484;"	m	access:public	ctype:Client	line:1484	signature:(key string)	type:[]string, error
+HLen	src/github.com/gosexy/redis/main.go	1502;"	m	access:public	ctype:Client	line:1502	signature:(key string)	type:int64, error
+HMGet	src/github.com/gosexy/redis/main.go	1519;"	m	access:public	ctype:Client	line:1519	signature:(key string, fields )	type:[]string, error
+HMSet	src/github.com/gosexy/redis/main.go	1542;"	m	access:public	ctype:Client	line:1542	signature:(key string, values )	type:string, error
+HScan	src/github.com/gosexy/redis/main.go	3654;"	m	access:public	ctype:Client	line:3654	signature:(cursor int64, arguments )	type:[]string, error
+HSet	src/github.com/gosexy/redis/main.go	1569;"	m	access:public	ctype:Client	line:1569	signature:(key string, field string, value interface{})	type:bool, error
+HSetNX	src/github.com/gosexy/redis/main.go	1590;"	m	access:public	ctype:Client	line:1590	signature:(key string, field string, value interface{})	type:bool, error
+HTML	src/common/ad.go	54;"	c	access:public	line:54
+HVals	src/github.com/gosexy/redis/main.go	1609;"	m	access:public	ctype:Client	line:1609	signature:(key string)	type:[]string, error
+HtmlSnippet	src/common/ad.go	75;"	w	access:public	ctype:Ad	line:75	type:string
+IFRAME	src/common/ad.go	52;"	c	access:public	line:52
+INFO	src/logger/logger.go	17;"	c	access:public	line:17
+Id	src/common/ad.go	109;"	w	access:public	ctype:Order	line:109	type:int
+Id	src/common/ad.go	59;"	w	access:public	ctype:Ad	line:59	type:int
+Incr	src/github.com/gosexy/redis/main.go	1629;"	m	access:public	ctype:Client	line:1629	signature:(key string)	type:int64, error
+IncrBy	src/github.com/gosexy/redis/main.go	1647;"	m	access:public	ctype:Client	line:1647	signature:(key string, increment int64)	type:int64, error
+IncrByFloat	src/github.com/gosexy/redis/main.go	1665;"	m	access:public	ctype:Client	line:1665	signature:(key string, increment float64)	type:string, error
+Info	src/github.com/gosexy/redis/main.go	1682;"	m	access:public	ctype:Client	line:1682	signature:(section string)	type:[]string, error
+Init	src/github.com/gosexy/redis/fd_windows.go	56;"	m	access:public	ctype:anOp	line:56	signature:(fd *netFD, mode int)
+Init	src/github.com/gosexy/redis/fd_windows.go	85;"	m	access:public	ctype:bufOp	line:85	signature:(fd *netFD, buf []byte, mode int)
+Init	src/logger/logger.go	47;"	f	access:public	line:47	signature:(path string)	type:bool
+JS	src/common/ad.go	53;"	c	access:public	line:53
+Keys	src/github.com/gosexy/redis/main.go	1697;"	m	access:public	ctype:Client	line:1697	signature:(pattern string)	type:[]string, error
+LIndex	src/github.com/gosexy/redis/main.go	1729;"	m	access:public	ctype:Client	line:1729	signature:(key string, index int64)	type:string, error
+LInsert	src/github.com/gosexy/redis/main.go	1746;"	m	access:public	ctype:Client	line:1746	signature:(key string, where string, pivot interface{}, value interface{})	type:int64, error
+LLen	src/github.com/gosexy/redis/main.go	1774;"	m	access:public	ctype:Client	line:1774	signature:(key string)	type:int64, error
+LPop	src/github.com/gosexy/redis/main.go	1791;"	m	access:public	ctype:Client	line:1791	signature:(key string)	type:string, error
+LPush	src/github.com/gosexy/redis/main.go	1810;"	m	access:public	ctype:Client	line:1810	signature:(key string, values )	type:int64, error
+LPushX	src/github.com/gosexy/redis/main.go	1833;"	m	access:public	ctype:Client	line:1833	signature:(key string, value interface{})	type:int64, error
+LRange	src/github.com/gosexy/redis/main.go	1853;"	m	access:public	ctype:Client	line:1853	signature:(key string, start int64, stop int64)	type:[]string, error
+LRem	src/github.com/gosexy/redis/main.go	1874;"	m	access:public	ctype:Client	line:1874	signature:(key string, count int64, value interface{})	type:int64, error
+LSet	src/github.com/gosexy/redis/main.go	1894;"	m	access:public	ctype:Client	line:1894	signature:(key string, index int64, value interface{})	type:string, error
+LTime	src/common/ad.go	125;"	w	access:public	ctype:Order	line:125	type:int
+LTrim	src/github.com/gosexy/redis/main.go	1915;"	m	access:public	ctype:Client	line:1915	signature:(key string, start int64, stop int64)	type:string, error
+LastSave	src/github.com/gosexy/redis/main.go	1712;"	m	access:public	ctype:Client	line:1712	signature:()	type:int64, error
+Level	src/logger/logger.go	13;"	t	access:public	line:13	type:int
+Log	src/logger/logger.go	59;"	f	access:public	line:59	signature:(l Level, v )
+MANGO	src/common/ad.go	97;"	c	access:public	line:97
+MGet	src/github.com/gosexy/redis/main.go	1935;"	m	access:public	ctype:Client	line:1935	signature:(keys )	type:[]string, error
+MIAOZHEN	src/common/ad.go	96;"	c	access:public	line:96
+MSet	src/github.com/gosexy/redis/main.go	2001;"	m	access:public	ctype:Client	line:2001	signature:(values )	type:string, error
+MSetNX	src/github.com/gosexy/redis/main.go	2026;"	m	access:public	ctype:Client	line:2026	signature:(values )	type:bool, error
+MarkDynamic	src/common/ad.go	118;"	w	access:public	ctype:Order	line:118	type:bool
+MaxPrice	src/common/ad.go	114;"	w	access:public	ctype:Order	line:114	type:[]int
+Migrate	src/github.com/gosexy/redis/main.go	1957;"	m	access:public	ctype:Client	line:1957	signature:(host string, port uint, key string, destination string, timeout int64)	type:string, error
+Mime	src/common/ad.go	78;"	w	access:public	ctype:Ad	line:78	type:MimeType
+MimeType	src/common/ad.go	28;"	t	access:public	line:28	type:int
+ModAd	src/manager/manager.go	84;"	c	access:public	line:84
+ModOrder	src/manager/manager.go	83;"	c	access:public	line:83
+Move	src/github.com/gosexy/redis/main.go	1981;"	m	access:public	ctype:Client	line:1981	signature:(key string, db string)	type:bool, error
+Multi	src/github.com/gosexy/redis/main.go	2051;"	m	access:public	ctype:Client	line:2051	signature:()	type:string, error
+NADX	src/common/ad.go	98;"	c	access:public	line:98
+Name	src/github.com/gosexy/redis/fd_windows.go	35;"	m	access:public	line:35	ntype:anOpIface	signature:()	type:string
+Name	src/github.com/gosexy/redis/fd_windows.go	366;"	m	access:public	ctype:readOp	line:366	signature:()	type:string
+Name	src/github.com/gosexy/redis/fd_windows.go	405;"	m	access:public	ctype:readFromOp	line:405	signature:()	type:string
+Name	src/github.com/gosexy/redis/fd_windows.go	444;"	m	access:public	ctype:writeOp	line:444	signature:()	type:string
+Name	src/github.com/gosexy/redis/fd_windows.go	475;"	m	access:public	ctype:writeToOp	line:475	signature:()	type:string
+Name	src/github.com/gosexy/redis/fd_windows.go	516;"	m	access:public	ctype:acceptOp	line:516	signature:()	type:string
+New	src/github.com/gosexy/redis/main.go	142;"	f	access:public	ctype:Client	line:142	signature:()	type:*Client
+NewCommand	src/manager/manager.go	95;"	f	access:public	ctype:Command	line:95	signature:()	type:*Command
+NewCommander	src/manager/manager.go	23;"	f	access:public	ctype:Commander	line:23	signature:(host string, port uint, rkey string)	type:*Commander
+NilCmd	src/manager/manager.go	80;"	c	access:public	line:80	type:CmdType
+Now	src/github.com/gosexy/redis/fd.go	89;"	m	access:public	ctype:pollServer	line:89	signature:()	type:int64
+Object	src/github.com/gosexy/redis/main.go	2071;"	m	access:public	ctype:Client	line:2071	signature:(subcommand string, arguments )	type:string, error
+Op	src/github.com/gosexy/redis/fd_windows.go	34;"	m	access:public	line:34	ntype:anOpIface	signature:()	type:*anOp
+Op	src/github.com/gosexy/redis/fd_windows.go	74;"	m	access:public	ctype:anOp	line:74	signature:()	type:*anOp
+Order	src/common/ad.go	108;"	t	access:public	line:108	type:struct
+OrderId	src/common/ad.go	83;"	w	access:public	ctype:Ad	line:83	type:int
+PExpire	src/github.com/gosexy/redis/main.go	2112;"	m	access:public	ctype:Client	line:2112	signature:(key string, milliseconds int64)	type:bool, error
+PExpireAt	src/github.com/gosexy/redis/main.go	2131;"	m	access:public	ctype:Client	line:2131	signature:(key string, milliseconds int64)	type:bool, error
+PIC	src/common/ad.go	48;"	c	access:public	line:48
+PSetEx	src/github.com/gosexy/redis/main.go	2167;"	m	access:public	ctype:Client	line:2167	signature:(key string, milliseconds int64, value interface{})	type:string, error
+PSubscribe	src/github.com/gosexy/redis/main.go	2186;"	m	access:public	ctype:Client	line:2186	signature:(c chan []string, channel )	type:error
+PTTL	src/github.com/gosexy/redis/main.go	2231;"	m	access:public	ctype:Client	line:2231	signature:(key string)	type:int64, error
+PUnsubscribe	src/github.com/gosexy/redis/main.go	2267;"	m	access:public	ctype:Client	line:2267	signature:(pattern )	type:string, error
+Parse	src/manager/manager.go	100;"	m	access:public	ctype:Command	line:100	signature:(jsonCmd string)	type:bool
+Persist	src/github.com/gosexy/redis/main.go	2094;"	m	access:public	ctype:Client	line:2094	signature:(key string)	type:bool, error
+Ping	src/github.com/gosexy/redis/main.go	2150;"	m	access:public	ctype:Client	line:2150	signature:()	type:string, error
+Priority	src/common/ad.go	62;"	w	access:public	ctype:Ad	line:62	type:int
+ProcessRemoteIO	src/github.com/gosexy/redis/fd_windows.go	134;"	m	access:public	ctype:ioSrv	line:134	signature:()
+PubSub	src/github.com/gosexy/redis/main.go	2208;"	m	access:public	ctype:Client	line:2208	signature:(subcommand string, arguments )	type:[]string, error
+Publish	src/github.com/gosexy/redis/main.go	2248;"	m	access:public	ctype:Client	line:2248	signature:(channel string, message interface{})	type:int64, error
+Quit	src/github.com/gosexy/redis/main.go	2288;"	m	access:public	ctype:Client	line:2288	signature:()	type:string, error
+RPop	src/github.com/gosexy/redis/main.go	2400;"	m	access:public	ctype:Client	line:2400	signature:(key string)	type:string, error
+RPopLPush	src/github.com/gosexy/redis/main.go	2419;"	m	access:public	ctype:Client	line:2419	signature:(source string, destination string)	type:string, error
+RPush	src/github.com/gosexy/redis/main.go	2439;"	m	access:public	ctype:Client	line:2439	signature:(key string, values )	type:int64, error
+RPushX	src/github.com/gosexy/redis/main.go	2462;"	m	access:public	ctype:Client	line:2462	signature:(key string, value interface{})	type:int64, error
+RandomKey	src/github.com/gosexy/redis/main.go	2325;"	m	access:public	ctype:Client	line:2325	signature:()	type:string, error
+Read	src/github.com/gosexy/redis/fd_windows.go	370;"	m	access:public	ctype:netFD	line:370	signature:(buf []byte)	type:int, error
+ReadFrom	src/github.com/gosexy/redis/fd_windows.go	409;"	m	access:public	ctype:netFD	line:409	signature:(buf []byte)	type:int, syscall.Sockaddr, error
+ReadMsg	src/github.com/gosexy/redis/fd_windows.go	583;"	m	access:public	ctype:netFD	line:583	signature:(p []byte, oob []byte)	type:int, int, int, syscall.Sockaddr, error
+Record	src/common/ad.go	117;"	w	access:public	ctype:Order	line:117	type:bool
+Rename	src/github.com/gosexy/redis/main.go	2343;"	m	access:public	ctype:Client	line:2343	signature:(key string, newkey string)	type:string, error
+RenameNX	src/github.com/gosexy/redis/main.go	2362;"	m	access:public	ctype:Client	line:2362	signature:(key string, newkey string)	type:bool, error
+Repair	src/manager/manager.go	33;"	m	access:public	ctype:Commander	line:33	signature:()	type:bool
+Restore	src/github.com/gosexy/redis/main.go	2381;"	m	access:public	ctype:Client	line:2381	signature:(key string, ttl int64, serializedValue string)	type:string, error
+Run	src/github.com/gosexy/redis/fd.go	93;"	m	access:public	ctype:pollServer	line:93	signature:()
+Run	src/github.com/gosexy/redis/fd_windows.go	102;"	m	access:public	ctype:resultSrv	line:102	signature:()
+SAdd	src/github.com/gosexy/redis/main.go	2482;"	m	access:public	ctype:Client	line:2482	signature:(key string, member )	type:int64, error
+SCard	src/github.com/gosexy/redis/main.go	2521;"	m	access:public	ctype:Client	line:2521	signature:(key string)	type:int64, error
+SDiff	src/github.com/gosexy/redis/main.go	2664;"	m	access:public	ctype:Client	line:2664	signature:(key )	type:[]string, error
+SDiffStore	src/github.com/gosexy/redis/main.go	2685;"	m	access:public	ctype:Client	line:2685	signature:(destination string, key )	type:int64, error
+SINA	src/common/ad.go	93;"	c	access:public	line:93
+SInter	src/github.com/gosexy/redis/main.go	2825;"	m	access:public	ctype:Client	line:2825	signature:(key )	type:[]string, error
+SInterStore	src/github.com/gosexy/redis/main.go	2846;"	m	access:public	ctype:Client	line:2846	signature:(destination string, key )	type:int64, error
+SIsMember	src/github.com/gosexy/redis/main.go	2867;"	m	access:public	ctype:Client	line:2867	signature:(key string, member interface{})	type:bool, error
+SMembers	src/github.com/gosexy/redis/main.go	2925;"	m	access:public	ctype:Client	line:2925	signature:(key string)	type:[]string, error
+SMove	src/github.com/gosexy/redis/main.go	2944;"	m	access:public	ctype:Client	line:2944	signature:(source string, destination string, member interface{})	type:bool, error
+SOHU	src/common/ad.go	95;"	c	access:public	line:95
+SPop	src/github.com/gosexy/redis/main.go	2986;"	m	access:public	ctype:Client	line:2986	signature:(key string)	type:string, error
+SRandMember	src/github.com/gosexy/redis/main.go	3004;"	m	access:public	ctype:Client	line:3004	signature:(key string, count int64)	type:[]string, error
+SRem	src/github.com/gosexy/redis/main.go	3024;"	m	access:public	ctype:Client	line:3024	signature:(key string, members )	type:int64, error
+SScan	src/github.com/gosexy/redis/main.go	3633;"	m	access:public	ctype:Client	line:3633	signature:(cursor int64, arguments )	type:[]string, error
+SUnion	src/github.com/gosexy/redis/main.go	3083;"	m	access:public	ctype:Client	line:3083	signature:(key )	type:[]string, error
+SUnionStore	src/github.com/gosexy/redis/main.go	3104;"	m	access:public	ctype:Client	line:3104	signature:(destination string, key )	type:int64, error
+Save	src/github.com/gosexy/redis/main.go	2505;"	m	access:public	ctype:Client	line:2505	signature:()	type:string, error
+Scan	src/github.com/gosexy/redis/main.go	3612;"	m	access:public	ctype:Client	line:3612	signature:(cursor int64, arguments )	type:[]string, error
+ScriptExists	src/github.com/gosexy/redis/main.go	2538;"	m	access:public	ctype:Client	line:2538	signature:(script )	type:[]string, error
+ScriptFlush	src/github.com/gosexy/redis/main.go	2559;"	m	access:public	ctype:Client	line:2559	signature:()	type:string, error
+ScriptKill	src/github.com/gosexy/redis/main.go	2578;"	m	access:public	ctype:Client	line:2578	signature:()	type:string, error
+ScriptLoad	src/github.com/gosexy/redis/main.go	2645;"	m	access:public	ctype:Client	line:2645	signature:(script string)	type:string, error
+Select	src/github.com/gosexy/redis/main.go	2707;"	m	access:public	ctype:Client	line:2707	signature:(index int64)	type:string, error
+Set	src/github.com/gosexy/redis/main.go	2725;"	m	access:public	ctype:Client	line:2725	signature:(key string, value interface{})	type:string, error
+SetBit	src/github.com/gosexy/redis/main.go	2743;"	m	access:public	ctype:Client	line:2743	signature:(key string, offset int64, value int64)	type:int64, error
+SetEx	src/github.com/gosexy/redis/main.go	2763;"	m	access:public	ctype:Client	line:2763	signature:(key string, seconds int64, value interface{})	type:int, error
+SetLevel	src/logger/logger.go	39;"	f	access:public	line:39	signature:(l Level)
+SetNX	src/github.com/gosexy/redis/main.go	2784;"	m	access:public	ctype:Client	line:2784	signature:(key string, value interface{})	type:bool, error
+SetRange	src/github.com/gosexy/redis/main.go	2806;"	m	access:public	ctype:Client	line:2806	signature:(key string, offset int64, value interface{})	type:int64, error
+Size	src/common/ad.go	61;"	w	access:public	ctype:Ad	line:61	type:AdSize
+SlaveOf	src/github.com/gosexy/redis/main.go	2889;"	m	access:public	ctype:Client	line:2889	signature:(key string, port uint)	type:string, error
+SlowLog	src/github.com/gosexy/redis/main.go	2907;"	m	access:public	ctype:Client	line:2907	signature:(subcommand string, argument interface{})	type:[]string, error
+Sort	src/github.com/gosexy/redis/main.go	2965;"	m	access:public	ctype:Client	line:2965	signature:(key string, arguments )	type:[]string, error
+StopWaiting	src/github.com/gosexy/redis/fd_linux.go	82;"	m	access:public	ctype:pollster	line:82	signature:(fd int, bits uint)
+String	src/common/ad.go	12;"	m	access:public	ctype:AdType	line:12	signature:()	type:string
+String	src/common/ad.go	34;"	m	access:public	ctype:MimeType	line:34	signature:()	type:string
+String	src/logger/logger.go	24;"	m	access:public	ctype:Level	line:24	signature:()	type:string
+Strlen	src/github.com/gosexy/redis/main.go	3046;"	m	access:public	ctype:Client	line:3046	signature:(key string)	type:int64, error
+Submit	src/github.com/gosexy/redis/fd_windows.go	361;"	m	access:public	ctype:readOp	line:361	signature:()	type:error
+Submit	src/github.com/gosexy/redis/fd_windows.go	36;"	m	access:public	line:36	ntype:anOpIface	signature:()	type:error
+Submit	src/github.com/gosexy/redis/fd_windows.go	400;"	m	access:public	ctype:readFromOp	line:400	signature:()	type:error
+Submit	src/github.com/gosexy/redis/fd_windows.go	439;"	m	access:public	ctype:writeOp	line:439	signature:()	type:error
+Submit	src/github.com/gosexy/redis/fd_windows.go	470;"	m	access:public	ctype:writeToOp	line:470	signature:()	type:error
+Submit	src/github.com/gosexy/redis/fd_windows.go	509;"	m	access:public	ctype:acceptOp	line:509	signature:()	type:error
+Subscribe	src/github.com/gosexy/redis/main.go	3063;"	m	access:public	ctype:Client	line:3063	signature:(c chan []string, channel )	type:error
+Sync	src/github.com/gosexy/redis/main.go	3123;"	m	access:public	ctype:Client	line:3123	signature:()	type:string, error
+SysX	src/common/ad.go	132;"	w	access:public	ctype:Order	line:132	type:int
+SysXUseMulti	src/common/ad.go	133;"	w	access:public	ctype:Order	line:133	type:bool
+TAOBAO	src/common/ad.go	92;"	c	access:public	line:92
+TENCENT	src/common/ad.go	94;"	c	access:public	line:94
+TEXT	src/common/ad.go	47;"	c	access:public	line:47
+TEXTLINK	src/common/ad.go	51;"	c	access:public	line:51
+TTL	src/github.com/gosexy/redis/main.go	3160;"	m	access:public	ctype:Client	line:3160	signature:(key string)	type:int64, error
+TestAlphazeroRedisConnect	src/github.com/gosexy/redis/_benchmarks/alphazero_redis_test.go	11;"	f	access:public	line:11	signature:(t *testing.T)
+TestAppendGetRange	src/github.com/gosexy/redis/main_test.go	256;"	f	access:public	line:256	signature:(t *testing.T)
+TestBitCount	src/github.com/gosexy/redis/main_test.go	347;"	f	access:public	line:347	signature:(t *testing.T)
+TestBitOp	src/github.com/gosexy/redis/main_test.go	1924;"	f	access:public	line:1924	signature:(t *testing.T)
+TestConnect	src/github.com/gosexy/redis/main_test.go	32;"	f	access:public	line:32	signature:(t *testing.T)
+TestDel	src/github.com/gosexy/redis/main_test.go	200;"	f	access:public	line:200	signature:(t *testing.T)
+TestDump	src/github.com/gosexy/redis/main_test.go	450;"	f	access:public	line:450	signature:(t *testing.T)
+TestEval	src/github.com/gosexy/redis/main_test.go	1220;"	f	access:public	line:1220	signature:(t *testing.T)
+TestExpire	src/github.com/gosexy/redis/main_test.go	538;"	f	access:public	line:538	signature:(t *testing.T)
+TestGaryburdRedigoConnect	src/github.com/gosexy/redis/_benchmarks/garyburd_redigo_test.go	11;"	f	access:public	line:11	signature:(t *testing.T)
+TestGet	src/github.com/gosexy/redis/main_test.go	134;"	f	access:public	line:134	signature:(t *testing.T)
+TestGosexyRedisConnect	src/github.com/gosexy/redis/_benchmarks/gosexy_redis_test.go	11;"	f	access:public	line:11	signature:(t *testing.T)
+TestIncrDecr	src/github.com/gosexy/redis/main_test.go	377;"	f	access:public	line:377	signature:(t *testing.T)
+TestKeys	src/github.com/gosexy/redis/main_test.go	1394;"	f	access:public	line:1394	signature:(t *testing.T)
+TestList	src/github.com/gosexy/redis/main_test.go	227;"	f	access:public	line:227	signature:(t *testing.T)
+TestLists	src/github.com/gosexy/redis/main_test.go	1671;"	f	access:public	line:1671	signature:(t *testing.T)
+TestObject	src/github.com/gosexy/redis/main_test.go	1356;"	f	access:public	line:1356	signature:(t *testing.T)
+TestPSubscriptions	src/github.com/gosexy/redis/main_test.go	1151;"	f	access:public	line:1151	signature:(t *testing.T)
+TestPing	src/github.com/gosexy/redis/main_test.go	50;"	f	access:public	line:50	signature:(t *testing.T)
+TestPingAsync	src/github.com/gosexy/redis/main_test.go	75;"	f	access:public	line:75	signature:(t *testing.T)
+TestPublish	src/github.com/gosexy/redis/main_test.go	1098;"	f	access:public	line:1098	signature:(t *testing.T)
+TestQuit	src/github.com/gosexy/redis/main_test.go	1994;"	f	access:public	line:1994	signature:(t *testing.T)
+TestRandom	src/github.com/gosexy/redis/main_test.go	1263;"	f	access:public	line:1263	signature:(t *testing.T)
+TestRange	src/github.com/gosexy/redis/main_test.go	1485;"	f	access:public	line:1485	signature:(t *testing.T)
+TestRawList	src/github.com/gosexy/redis/main_test.go	1950;"	f	access:public	line:1950	signature:(t *testing.T)
+TestRename	src/github.com/gosexy/redis/main_test.go	1279;"	f	access:public	line:1279	signature:(t *testing.T)
+TestSet	src/github.com/gosexy/redis/main_test.go	709;"	f	access:public	line:709	signature:(t *testing.T)
+TestSetBit	src/github.com/gosexy/redis/main_test.go	1891;"	f	access:public	line:1891	signature:(t *testing.T)
+TestSetGetUnicode	src/github.com/gosexy/redis/main_test.go	181;"	f	access:public	line:181	signature:(t *testing.T)
+TestSimonz05GodisConnect	src/github.com/gosexy/redis/_benchmarks/simonz05_godis_test.go	11;"	f	access:public	line:11	signature:(t *testing.T)
+TestSimpleSet	src/github.com/gosexy/redis/main_test.go	101;"	f	access:public	line:101	signature:(t *testing.T)
+TestSort	src/github.com/gosexy/redis/main_test.go	1325;"	f	access:public	line:1325	signature:(t *testing.T)
+TestSubscriptions	src/github.com/gosexy/redis/main_test.go	1120;"	f	access:public	line:1120	signature:(t *testing.T)
+TestTcglRedisConnect	src/github.com/gosexy/redis/_benchmarks/tcgl_redis_test.go	11;"	f	access:public	line:11	signature:(t *testing.T)
+TestTransactions	src/github.com/gosexy/redis/main_test.go	1182;"	f	access:public	line:1182	signature:(t *testing.T)
+TestZSet	src/github.com/gosexy/redis/main_test.go	882;"	f	access:public	line:882	signature:(t *testing.T)
+TextHashes	src/github.com/gosexy/redis/main_test.go	1522;"	f	access:public	line:1522	signature:(t *testing.T)
+Time	src/github.com/gosexy/redis/main.go	3142;"	m	access:public	ctype:Client	line:3142	signature:()	type:[]uint64, error
+TmpName	src/common/ad.go	74;"	w	access:public	ctype:Ad	line:74	type:string
+Type	src/common/ad.go	60;"	w	access:public	ctype:Ad	line:60	type:AdType
+Type	src/github.com/gosexy/redis/main.go	3178;"	m	access:public	ctype:Client	line:3178	signature:(key string)	type:string, error
+UNKOWN	src/common/ad.go	46;"	c	access:public	line:46	type:Attribute
+Unsubscribe	src/github.com/gosexy/redis/main.go	3196;"	m	access:public	ctype:Client	line:3196	signature:(channel )	type:error
+Unwatch	src/github.com/gosexy/redis/main.go	3215;"	m	access:public	ctype:Client	line:3215	signature:()	type:string, error
+UrlLanding	src/common/ad.go	71;"	w	access:public	ctype:Ad	line:71	type:string
+UrlThird	src/common/ad.go	70;"	w	access:public	ctype:Ad	line:70	type:string
+UseClassid	src/common/ad.go	127;"	w	access:public	ctype:Order	line:127	type:bool
+UseRetarget	src/common/ad.go	128;"	w	access:public	ctype:Order	line:128	type:bool
+VIDEO	src/common/ad.go	50;"	c	access:public	line:50
+Video	src/common/ad.go	9;"	c	access:public	line:9
+WaitFD	src/github.com/gosexy/redis/fd_darwin.go	85;"	m	access:public	ctype:pollster	line:85	signature:(s *pollServer, nsec int64)	type:int, int, error
+WaitFD	src/github.com/gosexy/redis/fd_freebsd.go	80;"	m	access:public	ctype:pollster	line:80	signature:(s *pollServer, nsec int64)	type:int, int, error
+WaitFD	src/github.com/gosexy/redis/fd_linux.go	138;"	m	access:public	ctype:pollster	line:138	signature:(s *pollServer, nsec int64)	type:int, int, error
+WaitFD	src/github.com/gosexy/redis/fd_netbsd.go	80;"	m	access:public	ctype:pollster	line:80	signature:(s *pollServer, nsec int64)	type:int, int, error
+WaitFD	src/github.com/gosexy/redis/fd_openbsd.go	80;"	m	access:public	ctype:pollster	line:80	signature:(s *pollServer, nsec int64)	type:int, int, error
+WaitRead	src/github.com/gosexy/redis/fd.go	130;"	m	access:public	ctype:pollServer	line:130	signature:(fd int)	type:error
+WaitWrite	src/github.com/gosexy/redis/fd.go	148;"	m	access:public	ctype:pollServer	line:148	signature:(fd int)	type:error
+Watch	src/github.com/gosexy/redis/main.go	3231;"	m	access:public	ctype:Client	line:3231	signature:(key )	type:string, error
+Write	src/github.com/gosexy/redis/fd_windows.go	448;"	m	access:public	ctype:netFD	line:448	signature:(buf []byte)	type:int, error
+WriteMsg	src/github.com/gosexy/redis/fd_windows.go	587;"	m	access:public	ctype:netFD	line:587	signature:(p []byte, oob []byte, sa syscall.Sockaddr)	type:int, int, error
+WriteTo	src/github.com/gosexy/redis/fd_windows.go	479;"	m	access:public	ctype:netFD	line:479	signature:(buf []byte, sa syscall.Sockaddr)	type:int, error
+X	src/common/ad.go	24;"	w	access:public	ctype:AdSize	line:24	type:int
+X_FLV	src/common/ad.go	31;"	c	access:public	line:31	type:MimeType
+Y	src/common/ad.go	25;"	w	access:public	ctype:AdSize	line:25	type:int
+ZAdd	src/github.com/gosexy/redis/main.go	3257;"	m	access:public	ctype:Client	line:3257	signature:(key string, arguments )	type:int64, error
+ZCard	src/github.com/gosexy/redis/main.go	3282;"	m	access:public	ctype:Client	line:3282	signature:(key string)	type:int64, error
+ZCount	src/github.com/gosexy/redis/main.go	3300;"	m	access:public	ctype:Client	line:3300	signature:(key string, min interface{}, max interface{})	type:int64, error
+ZIncrBy	src/github.com/gosexy/redis/main.go	3322;"	m	access:public	ctype:Client	line:3322	signature:(key string, increment int64, member interface{})	type:string, error
+ZInterStore	src/github.com/gosexy/redis/main.go	3344;"	m	access:public	ctype:Client	line:3344	signature:(destination string, numkeys int64, arguments )	type:int64, error
+ZRange	src/github.com/gosexy/redis/main.go	3368;"	m	access:public	ctype:Client	line:3368	signature:(key string, values )	type:[]string, error
+ZRangeByScore	src/github.com/gosexy/redis/main.go	3391;"	m	access:public	ctype:Client	line:3391	signature:(key string, values )	type:[]string, error
+ZRank	src/github.com/gosexy/redis/main.go	3414;"	m	access:public	ctype:Client	line:3414	signature:(key string, member interface{})	type:int64, error
+ZRem	src/github.com/gosexy/redis/main.go	3433;"	m	access:public	ctype:Client	line:3433	signature:(key string, arguments )	type:int64, error
+ZRemRangeByRank	src/github.com/gosexy/redis/main.go	3459;"	m	access:public	ctype:Client	line:3459	signature:(key string, start interface{}, stop interface{})	type:int64, error
+ZRemRangeByScore	src/github.com/gosexy/redis/main.go	3479;"	m	access:public	ctype:Client	line:3479	signature:(key string, min interface{}, max interface{})	type:int64, error
+ZRevRange	src/github.com/gosexy/redis/main.go	3500;"	m	access:public	ctype:Client	line:3500	signature:(key string, start int64, stop int64, params )	type:[]string, error
+ZRevRangeByScore	src/github.com/gosexy/redis/main.go	3526;"	m	access:public	ctype:Client	line:3526	signature:(key string, start interface{}, stop interface{}, params )	type:[]string, error
+ZRevRank	src/github.com/gosexy/redis/main.go	3551;"	m	access:public	ctype:Client	line:3551	signature:(key string, member interface{})	type:int64, error
+ZScan	src/github.com/gosexy/redis/main.go	3675;"	m	access:public	ctype:Client	line:3675	signature:(cursor int64, arguments )	type:[]string, error
+ZScore	src/github.com/gosexy/redis/main.go	3569;"	m	access:public	ctype:Client	line:3569	signature:(key string, member interface{})	type:int64, error
+ZUnionStore	src/github.com/gosexy/redis/main.go	3589;"	m	access:public	ctype:Client	line:3589	signature:(destination string, numkeys int64, key string, params )	type:int64, error
+accept	src/github.com/gosexy/redis/fd_windows.go	520;"	m	access:private	ctype:netFD	line:520	signature:(toAddr func(syscall.Sockaddr) Addr)	type:*netFD, error
+acceptOp	src/github.com/gosexy/redis/fd_windows.go	503;"	t	access:private	line:503	type:struct
+allocFD	src/github.com/gosexy/redis/fd_windows.go	244;"	f	access:private	ctype:netFD	line:244	signature:(fd syscall.Handle, family, sotype int, net string)	type:*netFD
+alphazeroRedisClient	src/github.com/gosexy/redis/_benchmarks/alphazero_redis_test.go	9;"	v	access:private	line:9	type:redis.Client
+anOp	src/github.com/gosexy/redis/fd_windows.go	46;"	t	access:private	line:46	type:struct
+anOp	src/github.com/gosexy/redis/fd_windows.go	504;"	e	access:private	ctype:acceptOp	line:504	type:anOp
+anOp	src/github.com/gosexy/redis/fd_windows.go	81;"	e	access:private	ctype:bufOp	line:81	type:anOp
+anOpIface	src/github.com/gosexy/redis/fd_windows.go	33;"	n	access:private	line:33	type:interface
+async	src/github.com/gosexy/redis/main.go	119;"	w	access:private	ctype:Client	line:119	type:*C.redisAsyncContext
+asyncClients	src/github.com/gosexy/redis/main.go	106;"	v	access:private	line:106	type:map[*C.redisAsyncContext]*Client
+asyncConnect	src/github.com/gosexy/redis/main.go	244;"	m	access:private	ctype:Client	line:244	signature:(ctx *C.redisContext)	type:error
+asyncReceive	src/github.com/gosexy/redis/main.go	205;"	f	access:private	line:205	signature:(a unsafe.Pointer, b unsafe.Pointer)
+attrs	src/github.com/gosexy/redis/fd_windows.go	506;"	w	access:private	ctype:acceptOp	line:506	type:[2]syscall.RawSockaddrAny
+bcommand	src/github.com/gosexy/redis/main.go	572;"	m	access:private	ctype:Client	line:572	signature:(c chan []string, dest interface{}, values )	type:error
+buf	src/github.com/gosexy/redis/fd_windows.go	82;"	w	access:private	ctype:bufOp	line:82	type:syscall.WSABuf
+bufOp	src/github.com/gosexy/redis/fd_windows.go	358;"	e	access:private	ctype:readOp	line:358	type:bufOp
+bufOp	src/github.com/gosexy/redis/fd_windows.go	395;"	e	access:private	ctype:readFromOp	line:395	type:bufOp
+bufOp	src/github.com/gosexy/redis/fd_windows.go	436;"	e	access:private	ctype:writeOp	line:436	type:bufOp
+bufOp	src/github.com/gosexy/redis/fd_windows.go	466;"	e	access:private	ctype:writeToOp	line:466	type:bufOp
+bufOp	src/github.com/gosexy/redis/fd_windows.go	80;"	t	access:private	line:80	type:struct
+cStructTimeval	src/github.com/gosexy/redis/main.go	112;"	f	access:private	line:112	signature:(timeout time.Duration)	type:C.struct_timeval
+canchan	src/github.com/gosexy/redis/fd_windows.go	127;"	w	access:private	ctype:ioSrv	line:127	type:chan anOpIface
+cli	src/manager/manager.go	19;"	w	access:private	ctype:Commander	line:19	type:*redis.Client
+client	src/github.com/gosexy/redis/_examples/test-custom-commands/main.go	11;"	v	access:private	line:11	type:*redis.Client
+client	src/github.com/gosexy/redis/_examples/test-get-set/main.go	11;"	v	access:private	line:11	type:*redis.Client
+client	src/github.com/gosexy/redis/_examples/test-multi-exec/main.go	13;"	v	access:private	line:13	type:*redis.Client
+client	src/github.com/gosexy/redis/_examples/test-ping/main.go	11;"	v	access:private	line:11	type:*redis.Client
+client	src/github.com/gosexy/redis/_examples/test-range/main.go	11;"	v	access:private	line:11	type:*redis.Client
+client	src/github.com/gosexy/redis/main_test.go	11;"	v	access:private	line:11	type:*Client
+closesocket	src/github.com/gosexy/redis/fd_windows.go	28;"	f	access:private	line:28	signature:(s syscall.Handle)	type:error
+closing	src/github.com/gosexy/redis/fd_windows.go	224;"	w	access:private	ctype:netFD	line:224	type:bool
+code.google.com/p/tcgl/redis	src/github.com/gosexy/redis/_benchmarks/tcgl_redis_test.go	4;"	i	line:4
+command	src/github.com/gosexy/redis/main.go	670;"	m	access:private	ctype:Client	line:670	signature:(dest interface{}, values )	type:error
+common	src/common/ad.go	1;"	p	line:1
+connect	src/github.com/gosexy/redis/fd_windows.go	272;"	m	access:private	ctype:netFD	line:272	signature:(ra syscall.Sockaddr)	type:error
+connected	src/github.com/gosexy/redis/main.go	123;"	w	access:private	ctype:Client	line:123	type:bool
+consumer	src/github.com/gosexy/redis/_examples/test-server-disconnection/main.go	12;"	v	access:private	line:12	type:*redis.Client
+ctlEvent	src/github.com/gosexy/redis/fd_linux.go	33;"	w	access:private	ctype:pollster	line:33	type:syscall.EpollEvent
+ctx	src/github.com/gosexy/redis/main.go	118;"	w	access:private	ctype:Client	line:118	type:*C.redisContext
+curLevel	src/logger/logger.go	22;"	v	access:private	line:22	type:Level
+deadline	src/github.com/gosexy/redis/fd.go	39;"	w	access:private	ctype:pollServer	line:39	type:int64
+debugLogger	src/logger/logger.go	8;"	v	access:private	line:8	type:*log.Logger
+decref	src/github.com/gosexy/redis/fd_windows.go	301;"	m	access:private	ctype:netFD	line:301	signature:()
+dup	src/github.com/gosexy/redis/fd_windows.go	576;"	m	access:private	ctype:netFD	line:576	signature:()	type:*os.File, error
+encoding/json	src/manager/manager.go	4;"	i	line:4
+epfd	src/github.com/gosexy/redis/fd_linux.go	20;"	w	access:private	ctype:pollster	line:20	type:int
+err	src/github.com/gosexy/redis/fd_windows.go	42;"	w	access:private	ctype:ioResult	line:42	type:error
+err	src/manager/manager.go	20;"	w	access:private	ctype:Commander	line:20	type:error
+errClosing	src/github.com/gosexy/redis/fd_windows.go	276;"	v	access:private	line:276
+errNoSupport	src/github.com/gosexy/redis/fd_windows.go	581;"	v	access:private	line:581
+errnoc	src/github.com/gosexy/redis/fd_windows.go	235;"	w	access:private	ctype:netFD	line:235	type:[2]chan error
+errnoc	src/github.com/gosexy/redis/fd_windows.go	52;"	w	access:private	ctype:anOp	line:52	type:chan error
+errorLogger	src/logger/logger.go	10;"	v	access:private	line:10	type:*log.Logger
+errors	src/github.com/gosexy/redis/fd_darwin.go	10;"	i	line:10
+errors	src/github.com/gosexy/redis/fd_windows.go	8;"	i	line:8
+errors	src/github.com/gosexy/redis/main.go	70;"	i	line:70
+errors	src/github.com/gosexy/redis/newpollserver.go	20;"	i	line:20
+errors	src/manager/manager.go	5;"	i	line:5
+ev	src/github.com/gosexy/redis/main.go	120;"	w	access:private	ctype:Client	line:120	type:*C.redisEvent
+eventbuf	src/github.com/gosexy/redis/fd_darwin.go	17;"	w	access:private	ctype:pollster	line:17	type:[10]syscall.Kevent_t
+eventbuf	src/github.com/gosexy/redis/fd_freebsd.go	16;"	w	access:private	ctype:pollster	line:16	type:[10]syscall.Kevent_t
+eventbuf	src/github.com/gosexy/redis/fd_netbsd.go	16;"	w	access:private	ctype:pollster	line:16	type:[10]syscall.Kevent_t
+eventbuf	src/github.com/gosexy/redis/fd_openbsd.go	16;"	w	access:private	ctype:pollster	line:16	type:[10]syscall.Kevent_t
+events	src/github.com/gosexy/redis/fd_darwin.go	18;"	w	access:private	ctype:pollster	line:18	type:[]syscall.Kevent_t
+events	src/github.com/gosexy/redis/fd_freebsd.go	17;"	w	access:private	ctype:pollster	line:17	type:[]syscall.Kevent_t
+events	src/github.com/gosexy/redis/fd_linux.go	24;"	w	access:private	ctype:pollster	line:24	type:map[int]uint32
+events	src/github.com/gosexy/redis/fd_netbsd.go	17;"	w	access:private	ctype:pollster	line:17	type:[]syscall.Kevent_t
+events	src/github.com/gosexy/redis/fd_openbsd.go	17;"	w	access:private	ctype:pollster	line:17	type:[]syscall.Kevent_t
+family	src/github.com/gosexy/redis/fd_windows.go	228;"	w	access:private	ctype:netFD	line:228	type:int
+fatalLogger	src/logger/logger.go	11;"	v	access:private	line:11	type:*log.Logger
+fd	src/github.com/gosexy/redis/fd_windows.go	53;"	w	access:private	ctype:anOp	line:53	type:*netFD
+fdev	src/github.com/gosexy/redis/main.go	127;"	v	access:private	line:127	type:map[int]map[int]func()
+fds	src/github.com/gosexy/redis/fd.go	33;"	v	access:private	line:33
+fileFD	src/github.com/gosexy/redis/fd.go	26;"	t	access:private	line:26	type:struct
+flag	src/github.com/gosexy/redis/main_test.go	4;"	i	line:4
+fmt	src/github.com/gosexy/redis/_benchmarks/garyburd_redigo_test.go	4;"	i	line:4
+fmt	src/github.com/gosexy/redis/_benchmarks/simonz05_godis_test.go	4;"	i	line:4
+fmt	src/github.com/gosexy/redis/_benchmarks/tcgl_redis_test.go	5;"	i	line:5
+fmt	src/github.com/gosexy/redis/_examples/test-server-disconnection/main.go	4;"	i	line:4
+fmt	src/github.com/gosexy/redis/main.go	71;"	i	line:71
+fmt	src/github.com/gosexy/redis/main_test.go	5;"	i	line:5
+fmt	src/server.go	7;"	i	line:7
+garyburdRedigoClient	src/github.com/gosexy/redis/_benchmarks/garyburd_redigo_test.go	9;"	v	access:private	line:9	type:redis.Conn
+github.com/alphazero/Go-Redis	src/github.com/gosexy/redis/_benchmarks/alphazero_redis_test.go	4;"	i	line:4
+github.com/garyburd/redigo/redis	src/github.com/gosexy/redis/_benchmarks/garyburd_redigo_test.go	5;"	i	line:5
+github.com/gosexy/redis	src/manager/manager.go	9;"	i	line:9
+github.com/simonz05/godis/redis	src/github.com/gosexy/redis/_benchmarks/simonz05_godis_test.go	5;"	i	line:5
+gosexyRedisClient	src/github.com/gosexy/redis/_benchmarks/gosexy_redis_test.go	9;"	v	access:private	line:9	type:*redis.Client
+host	src/github.com/gosexy/redis/_benchmarks/base_test.go	3;"	v	access:private	line:3
+host	src/github.com/gosexy/redis/_examples/test-custom-commands/main.go	8;"	v	access:private	line:8
+host	src/github.com/gosexy/redis/_examples/test-get-set/main.go	8;"	v	access:private	line:8
+host	src/github.com/gosexy/redis/_examples/test-multi-exec/main.go	10;"	v	access:private	line:10
+host	src/github.com/gosexy/redis/_examples/test-ping/main.go	8;"	v	access:private	line:8
+host	src/github.com/gosexy/redis/_examples/test-range/main.go	8;"	v	access:private	line:8
+host	src/github.com/gosexy/redis/_examples/test-server-disconnection/main.go	9;"	v	access:private	line:9
+host	src/github.com/gosexy/redis/_examples/test-subscribe/main.go	10;"	v	access:private	line:10
+host	src/manager/manager.go	16;"	w	access:private	ctype:Commander	line:16	type:string
+incref	src/github.com/gosexy/redis/fd_windows.go	281;"	m	access:private	ctype:netFD	line:281	signature:(closing bool)	type:error
+infoLogger	src/logger/logger.go	9;"	v	access:private	line:9	type:*log.Logger
+init	src/github.com/gosexy/redis/fd_windows.go	20;"	f	access:private	line:20	signature:()
+init	src/github.com/gosexy/redis/main.go	129;"	f	access:private	line:129	signature:()
+init	src/github.com/gosexy/redis/main_test.go	18;"	f	access:private	line:18	signature:()
+initErr	src/github.com/gosexy/redis/fd_windows.go	18;"	v	access:private	line:18	type:error
+interfaceSliceType	src/github.com/gosexy/redis/main.go	109;"	v	access:private	line:109
+io	src/github.com/gosexy/redis/fd_windows.go	9;"	i	line:9
+ioResult	src/github.com/gosexy/redis/fd_windows.go	40;"	t	access:private	line:40	type:struct
+ioSrv	src/github.com/gosexy/redis/fd_windows.go	125;"	t	access:private	line:125	type:struct
+iocp	src/github.com/gosexy/redis/fd_windows.go	99;"	w	access:private	ctype:resultSrv	line:99	type:syscall.Handle
+iosrv	src/github.com/gosexy/redis/fd_windows.go	201;"	v	access:private	line:201	type:*ioSrv
+isConnected	src/github.com/gosexy/redis/fd_windows.go	230;"	w	access:private	ctype:netFD	line:230	type:bool
+kbuf	src/github.com/gosexy/redis/fd_darwin.go	22;"	w	access:private	ctype:pollster	line:22	type:[1]syscall.Kevent_t
+kbuf	src/github.com/gosexy/redis/fd_freebsd.go	21;"	w	access:private	ctype:pollster	line:21	type:[1]syscall.Kevent_t
+kbuf	src/github.com/gosexy/redis/fd_netbsd.go	21;"	w	access:private	ctype:pollster	line:21	type:[1]syscall.Kevent_t
+kbuf	src/github.com/gosexy/redis/fd_openbsd.go	21;"	w	access:private	ctype:pollster	line:21	type:[1]syscall.Kevent_t
+kq	src/github.com/gosexy/redis/fd_darwin.go	16;"	w	access:private	ctype:pollster	line:16	type:int
+kq	src/github.com/gosexy/redis/fd_freebsd.go	15;"	w	access:private	ctype:pollster	line:15	type:int
+kq	src/github.com/gosexy/redis/fd_netbsd.go	15;"	w	access:private	ctype:pollster	line:15	type:int
+kq	src/github.com/gosexy/redis/fd_openbsd.go	15;"	w	access:private	ctype:pollster	line:15	type:int
+laddr	src/github.com/gosexy/redis/fd_windows.go	232;"	w	access:private	ctype:netFD	line:232	type:Addr
+log	src/github.com/gosexy/redis/_examples/test-custom-commands/main.go	5;"	i	line:5
+log	src/github.com/gosexy/redis/_examples/test-get-set/main.go	5;"	i	line:5
+log	src/github.com/gosexy/redis/_examples/test-multi-exec/main.go	4;"	i	line:4
+log	src/github.com/gosexy/redis/_examples/test-ping/main.go	5;"	i	line:5
+log	src/github.com/gosexy/redis/_examples/test-range/main.go	5;"	i	line:5
+log	src/github.com/gosexy/redis/_examples/test-server-disconnection/main.go	5;"	i	line:5
+log	src/github.com/gosexy/redis/_examples/test-subscribe/main.go	4;"	i	line:4
+log	src/github.com/gosexy/redis/main_test.go	6;"	i	line:6
+log	src/logger/logger.go	4;"	i	line:4
+logger	src/logger/logger.go	1;"	p	line:1
+logger	src/manager/manager.go	10;"	i	line:10
+logger	src/server.go	4;"	i	line:4
+main	src/github.com/gosexy/redis/_benchmarks/alphazero_redis_test.go	1;"	p	line:1
+main	src/github.com/gosexy/redis/_benchmarks/base_test.go	1;"	p	line:1
+main	src/github.com/gosexy/redis/_benchmarks/garyburd_redigo_test.go	1;"	p	line:1
+main	src/github.com/gosexy/redis/_benchmarks/gosexy_redis_test.go	1;"	p	line:1
+main	src/github.com/gosexy/redis/_benchmarks/simonz05_godis_test.go	1;"	p	line:1
+main	src/github.com/gosexy/redis/_benchmarks/tcgl_redis_test.go	1;"	p	line:1
+main	src/github.com/gosexy/redis/_examples/test-custom-commands/main.go	13;"	f	access:private	line:13	signature:()
+main	src/github.com/gosexy/redis/_examples/test-custom-commands/main.go	1;"	p	line:1
+main	src/github.com/gosexy/redis/_examples/test-get-set/main.go	13;"	f	access:private	line:13	signature:()
+main	src/github.com/gosexy/redis/_examples/test-get-set/main.go	1;"	p	line:1
+main	src/github.com/gosexy/redis/_examples/test-multi-exec/main.go	15;"	f	access:private	line:15	signature:()
+main	src/github.com/gosexy/redis/_examples/test-multi-exec/main.go	1;"	p	line:1
+main	src/github.com/gosexy/redis/_examples/test-ping/main.go	13;"	f	access:private	line:13	signature:()
+main	src/github.com/gosexy/redis/_examples/test-ping/main.go	1;"	p	line:1
+main	src/github.com/gosexy/redis/_examples/test-range/main.go	13;"	f	access:private	line:13	signature:()
+main	src/github.com/gosexy/redis/_examples/test-range/main.go	1;"	p	line:1
+main	src/github.com/gosexy/redis/_examples/test-server-disconnection/main.go	14;"	f	access:private	line:14	signature:()
+main	src/github.com/gosexy/redis/_examples/test-server-disconnection/main.go	1;"	p	line:1
+main	src/github.com/gosexy/redis/_examples/test-subscribe/main.go	1;"	p	line:1
+main	src/github.com/gosexy/redis/_examples/test-subscribe/main.go	79;"	f	access:private	line:79	signature:()
+main	src/server.go	11;"	f	access:private	line:11	signature:()
+main	src/server.go	1;"	p	line:1
+manager	src/manager/manager.go	1;"	p	line:1
+manager	src/server.go	5;"	i	line:5
+menteslibres.net/gosexy/redis	src/github.com/gosexy/redis/_benchmarks/gosexy_redis_test.go	4;"	i	line:4
+menteslibres.net/gosexy/redis	src/github.com/gosexy/redis/_examples/test-custom-commands/main.go	4;"	i	line:4
+menteslibres.net/gosexy/redis	src/github.com/gosexy/redis/_examples/test-get-set/main.go	4;"	i	line:4
+menteslibres.net/gosexy/redis	src/github.com/gosexy/redis/_examples/test-multi-exec/main.go	5;"	i	line:5
+menteslibres.net/gosexy/redis	src/github.com/gosexy/redis/_examples/test-ping/main.go	4;"	i	line:4
+menteslibres.net/gosexy/redis	src/github.com/gosexy/redis/_examples/test-range/main.go	4;"	i	line:4
+menteslibres.net/gosexy/redis	src/github.com/gosexy/redis/_examples/test-server-disconnection/main.go	6;"	i	line:6
+menteslibres.net/gosexy/redis	src/github.com/gosexy/redis/_examples/test-subscribe/main.go	5;"	i	line:5
+menteslibres.net/gosexy/to	src/github.com/gosexy/redis/_benchmarks/alphazero_redis_test.go	5;"	i	line:5
+menteslibres.net/gosexy/to	src/github.com/gosexy/redis/_examples/test-multi-exec/main.go	6;"	i	line:6
+menteslibres.net/gosexy/to	src/github.com/gosexy/redis/main.go	72;"	i	line:72
+net	src/github.com/gosexy/redis/fd_windows.go	231;"	w	access:private	ctype:netFD	line:231	type:string
+netFD	src/github.com/gosexy/redis/fd_windows.go	220;"	t	access:private	line:220	type:struct
+newFD	src/github.com/gosexy/redis/fd.go	179;"	f	access:private	ctype:fileFD	line:179	signature:(fd int)	type:*fileFD, error
+newFD	src/github.com/gosexy/redis/fd_windows.go	255;"	f	access:private	ctype:netFD	line:255	signature:(fd syscall.Handle, family, proto int, net string)	type:*netFD, error
+newPollServer	src/github.com/gosexy/redis/newpollserver.go	25;"	f	access:private	line:25	signature:()	type:*pollServer, error
+newpollster	src/github.com/gosexy/redis/fd_darwin.go	25;"	f	access:private	ctype:pollster	line:25	signature:()	type:*pollster, error
+newpollster	src/github.com/gosexy/redis/fd_freebsd.go	24;"	f	access:private	ctype:pollster	line:24	signature:()	type:*pollster, error
+newpollster	src/github.com/gosexy/redis/fd_linux.go	36;"	f	access:private	ctype:pollster	line:36	signature:()	type:*pollster, error
+newpollster	src/github.com/gosexy/redis/fd_netbsd.go	24;"	f	access:private	ctype:pollster	line:24	signature:()	type:*pollster, error
+newpollster	src/github.com/gosexy/redis/fd_openbsd.go	24;"	f	access:private	ctype:pollster	line:24	signature:()	type:*pollster, error
+newsock	src/github.com/gosexy/redis/fd_windows.go	505;"	w	access:private	ctype:acceptOp	line:505	type:syscall.Handle
+o	src/github.com/gosexy/redis/fd_windows.go	49;"	w	access:private	ctype:anOp	line:49	type:syscall.Overlapped
+onConnect	src/github.com/gosexy/redis/main.go	121;"	w	access:private	ctype:Client	line:121	type:chan int
+onDisconnect	src/github.com/gosexy/redis/main.go	122;"	w	access:private	ctype:Client	line:122	type:chan int
+onceStartServer	src/github.com/gosexy/redis/fd_windows.go	202;"	v	access:private	line:202	type:sync.Once
+os	src/github.com/gosexy/redis/fd_darwin.go	11;"	i	line:11
+os	src/github.com/gosexy/redis/fd_freebsd.go	10;"	i	line:10
+os	src/github.com/gosexy/redis/fd_linux.go	10;"	i	line:10
+os	src/github.com/gosexy/redis/fd_netbsd.go	10;"	i	line:10
+os	src/github.com/gosexy/redis/fd_openbsd.go	10;"	i	line:10
+os	src/github.com/gosexy/redis/fd_windows.go	10;"	i	line:10
+os	src/logger/logger.go	5;"	i	line:5
+pending	src/github.com/gosexy/redis/fd.go	38;"	w	access:private	ctype:pollServer	line:38	type:map[int]*fileFD
+poll	src/github.com/gosexy/redis/fd.go	36;"	w	access:private	ctype:pollServer	line:36	type:*pollster
+pollServer	src/github.com/gosexy/redis/fd.go	35;"	t	access:private	line:35	type:struct
+pollWait	src/github.com/gosexy/redis/main.go	80;"	c	access:private	line:80
+pollserver	src/github.com/gosexy/redis/fd.go	169;"	v	access:private	line:169	type:*pollServer
+pollster	src/github.com/gosexy/redis/fd_darwin.go	15;"	t	access:private	line:15	type:struct
+pollster	src/github.com/gosexy/redis/fd_freebsd.go	14;"	t	access:private	line:14	type:struct
+pollster	src/github.com/gosexy/redis/fd_linux.go	19;"	t	access:private	line:19	type:struct
+pollster	src/github.com/gosexy/redis/fd_netbsd.go	14;"	t	access:private	line:14	type:struct
+pollster	src/github.com/gosexy/redis/fd_openbsd.go	14;"	t	access:private	line:14	type:struct
+port	src/github.com/gosexy/redis/_benchmarks/base_test.go	4;"	v	access:private	line:4
+port	src/github.com/gosexy/redis/_examples/test-custom-commands/main.go	9;"	v	access:private	line:9
+port	src/github.com/gosexy/redis/_examples/test-get-set/main.go	9;"	v	access:private	line:9
+port	src/github.com/gosexy/redis/_examples/test-multi-exec/main.go	11;"	v	access:private	line:11
+port	src/github.com/gosexy/redis/_examples/test-ping/main.go	9;"	v	access:private	line:9
+port	src/github.com/gosexy/redis/_examples/test-range/main.go	9;"	v	access:private	line:9
+port	src/github.com/gosexy/redis/_examples/test-server-disconnection/main.go	10;"	v	access:private	line:10
+port	src/github.com/gosexy/redis/_examples/test-subscribe/main.go	11;"	v	access:private	line:11
+port	src/manager/manager.go	17;"	w	access:private	ctype:Commander	line:17	type:uint
+qty	src/github.com/gosexy/redis/fd_windows.go	41;"	w	access:private	ctype:ioResult	line:41	type:uint32
+raddr	src/github.com/gosexy/redis/fd_windows.go	233;"	w	access:private	ctype:netFD	line:233	type:Addr
+rdeadline	src/github.com/gosexy/redis/fd.go	29;"	w	access:private	ctype:fileFD	line:29	type:int64
+rdeadline	src/github.com/gosexy/redis/fd_windows.go	238;"	w	access:private	ctype:netFD	line:238	type:int64
+readFlags	src/github.com/gosexy/redis/fd_linux.go	15;"	c	access:private	line:15
+readFromOp	src/github.com/gosexy/redis/fd_windows.go	394;"	t	access:private	line:394	type:struct
+readOp	src/github.com/gosexy/redis/fd_windows.go	357;"	t	access:private	line:357	type:struct
+redis	src/github.com/gosexy/redis/fd.go	17;"	p	line:17
+redis	src/github.com/gosexy/redis/fd_darwin.go	7;"	p	line:7
+redis	src/github.com/gosexy/redis/fd_freebsd.go	7;"	p	line:7
+redis	src/github.com/gosexy/redis/fd_linux.go	7;"	p	line:7
+redis	src/github.com/gosexy/redis/fd_netbsd.go	7;"	p	line:7
+redis	src/github.com/gosexy/redis/fd_openbsd.go	7;"	p	line:7
+redis	src/github.com/gosexy/redis/fd_windows.go	5;"	p	line:5
+redis	src/github.com/gosexy/redis/main.go	29;"	p	line:29
+redis	src/github.com/gosexy/redis/main_test.go	1;"	p	line:1
+redis	src/github.com/gosexy/redis/newpollserver.go	17;"	p	line:17
+redisAsyncConnectCallback	src/github.com/gosexy/redis/main.go	212;"	f	access:private	line:212	signature:(a unsafe.Pointer, b C.int)
+redisAsyncDisconnectCallback	src/github.com/gosexy/redis/main.go	219;"	f	access:private	line:219	signature:(a unsafe.Pointer, b C.int)
+redisError	src/github.com/gosexy/redis/main.go	291;"	m	access:private	ctype:Client	line:291	signature:()	type:error
+redisEventAddRead	src/github.com/gosexy/redis/main.go	193;"	f	access:private	line:193	signature:(evptr unsafe.Pointer)
+redisEventAddWrite	src/github.com/gosexy/redis/main.go	148;"	f	access:private	line:148	signature:(evptr unsafe.Pointer)
+redisEventCleanup	src/github.com/gosexy/redis/main.go	182;"	f	access:private	line:182	signature:(evptr unsafe.Pointer)
+redisEventDelRead	src/github.com/gosexy/redis/main.go	172;"	f	access:private	line:172	signature:(evptr unsafe.Pointer)
+redisEventDelWrite	src/github.com/gosexy/redis/main.go	161;"	f	access:private	line:161	signature:(evptr unsafe.Pointer)
+reflect	src/github.com/gosexy/redis/_examples/test-multi-exec/main.go	7;"	i	line:7
+reflect	src/github.com/gosexy/redis/main.go	73;"	i	line:73
+resultSrv	src/github.com/gosexy/redis/fd_windows.go	98;"	t	access:private	line:98	type:struct
+resultc	src/github.com/gosexy/redis/fd_windows.go	234;"	w	access:private	ctype:netFD	line:234	type:[2]chan ioResult
+resultc	src/github.com/gosexy/redis/fd_windows.go	51;"	w	access:private	ctype:anOp	line:51	type:chan ioResult
+resultsrv	src/github.com/gosexy/redis/fd_windows.go	200;"	v	access:private	line:200	type:*resultSrv
+rio	src/github.com/gosexy/redis/fd_windows.go	239;"	w	access:private	ctype:netFD	line:239	type:sync.Mutex
+rkey	src/manager/manager.go	18;"	w	access:private	ctype:Commander	line:18	type:string
+rsa	src/github.com/gosexy/redis/fd_windows.go	396;"	w	access:private	ctype:readFromOp	line:396	type:syscall.RawSockaddrAny
+rsan	src/github.com/gosexy/redis/fd_windows.go	397;"	w	access:private	ctype:readFromOp	line:397	type:int32
+runtime	src/github.com/gosexy/redis/fd_windows.go	11;"	i	line:11
+runtime	src/server.go	8;"	i	line:8
+sa	src/github.com/gosexy/redis/fd_windows.go	467;"	w	access:private	ctype:writeToOp	line:467	type:syscall.Sockaddr
+setAddr	src/github.com/gosexy/redis/fd_windows.go	267;"	m	access:private	ctype:netFD	line:267	signature:(laddr, raddr Addr)
+setContext	src/github.com/gosexy/redis/main.go	226;"	m	access:private	ctype:Client	line:226	signature:(ctx *C.redisContext)	type:error
+setReplyValue	src/github.com/gosexy/redis/main.go	420;"	f	access:private	line:420	signature:(v reflect.Value, raw unsafe.Pointer)	type:error
+shutdown	src/github.com/gosexy/redis/fd_windows.go	336;"	m	access:private	ctype:netFD	line:336	signature:(how int)	type:error
+simonz05GodisClient	src/github.com/gosexy/redis/_benchmarks/simonz05_godis_test.go	9;"	v	access:private	line:9	type:*redis.Client
+sotype	src/github.com/gosexy/redis/fd_windows.go	229;"	w	access:private	ctype:netFD	line:229	type:int
+spawnConsumer	src/github.com/gosexy/redis/_examples/test-subscribe/main.go	44;"	f	access:private	line:44	signature:()	type:error
+spawnPublisher	src/github.com/gosexy/redis/_examples/test-subscribe/main.go	13;"	f	access:private	line:13	signature:()	type:error
+startServer	src/github.com/gosexy/redis/fd.go	171;"	f	access:private	line:171	signature:()
+startServer	src/github.com/gosexy/redis/fd_windows.go	204;"	f	access:private	line:204	signature:()
+strings	src/github.com/gosexy/redis/_examples/test-subscribe/main.go	6;"	i	line:6
+strings	src/github.com/gosexy/redis/main.go	74;"	i	line:74
+strings	src/manager/manager.go	6;"	i	line:6
+submchan	src/github.com/gosexy/redis/fd_windows.go	126;"	w	access:private	ctype:ioSrv	line:126	type:chan anOpIface
+sync	src/github.com/gosexy/redis/fd.go	20;"	i	line:20
+sync	src/github.com/gosexy/redis/fd_windows.go	12;"	i	line:12
+sync.Mutex	src/github.com/gosexy/redis/fd.go	37;"	e	access:public	ctype:pollServer	line:37	type:sync.Mutex
+syscall	src/github.com/gosexy/redis/fd.go	21;"	i	line:21
+syscall	src/github.com/gosexy/redis/fd_darwin.go	12;"	i	line:12
+syscall	src/github.com/gosexy/redis/fd_freebsd.go	11;"	i	line:11
+syscall	src/github.com/gosexy/redis/fd_linux.go	11;"	i	line:11
+syscall	src/github.com/gosexy/redis/fd_netbsd.go	11;"	i	line:11
+syscall	src/github.com/gosexy/redis/fd_openbsd.go	11;"	i	line:11
+syscall	src/github.com/gosexy/redis/fd_windows.go	13;"	i	line:13
+sysfd	src/github.com/gosexy/redis/fd.go	27;"	w	access:private	ctype:fileFD	line:27	type:int
+sysfd	src/github.com/gosexy/redis/fd_windows.go	227;"	w	access:private	ctype:netFD	line:227	type:syscall.Handle
+sysmu	src/github.com/gosexy/redis/fd_windows.go	222;"	w	access:private	ctype:netFD	line:222	type:sync.Mutex
+sysref	src/github.com/gosexy/redis/fd_windows.go	223;"	w	access:private	ctype:netFD	line:223	type:int
+tcglRedisClient	src/github.com/gosexy/redis/_benchmarks/tcgl_redis_test.go	9;"	v	access:private	line:9	type:*redis.Database
+testHost	src/github.com/gosexy/redis/main_test.go	14;"	v	access:private	line:14	type:string
+testPort	src/github.com/gosexy/redis/main_test.go	15;"	v	access:private	line:15	type:uint
+testing	src/github.com/gosexy/redis/_benchmarks/alphazero_redis_test.go	6;"	i	line:6
+testing	src/github.com/gosexy/redis/_benchmarks/garyburd_redigo_test.go	6;"	i	line:6
+testing	src/github.com/gosexy/redis/_benchmarks/gosexy_redis_test.go	5;"	i	line:5
+testing	src/github.com/gosexy/redis/_benchmarks/simonz05_godis_test.go	6;"	i	line:6
+testing	src/github.com/gosexy/redis/_benchmarks/tcgl_redis_test.go	6;"	i	line:6
+testing	src/github.com/gosexy/redis/main_test.go	7;"	i	line:7
+time	src/github.com/gosexy/redis/_benchmarks/gosexy_redis_test.go	6;"	i	line:6
+time	src/github.com/gosexy/redis/_examples/test-subscribe/main.go	7;"	i	line:7
+time	src/github.com/gosexy/redis/fd.go	22;"	i	line:22
+time	src/github.com/gosexy/redis/fd_windows.go	14;"	i	line:14
+time	src/github.com/gosexy/redis/main.go	75;"	i	line:75
+time	src/github.com/gosexy/redis/main_test.go	8;"	i	line:8
+time	src/manager/manager.go	7;"	i	line:7
+unsafe	src/github.com/gosexy/redis/fd_windows.go	15;"	i	line:15
+unsafe	src/github.com/gosexy/redis/main.go	76;"	i	line:76
+waitEventBuf	src/github.com/gosexy/redis/fd_linux.go	28;"	w	access:private	ctype:pollster	line:28	type:[10]syscall.EpollEvent
+waitEvents	src/github.com/gosexy/redis/fd_linux.go	29;"	w	access:private	ctype:pollster	line:29	type:[]syscall.EpollEvent
+wdeadline	src/github.com/gosexy/redis/fd.go	30;"	w	access:private	ctype:fileFD	line:30	type:int64
+wdeadline	src/github.com/gosexy/redis/fd_windows.go	240;"	w	access:private	ctype:netFD	line:240	type:int64
+wio	src/github.com/gosexy/redis/fd_windows.go	241;"	w	access:private	ctype:netFD	line:241	type:sync.Mutex
+writeFlags	src/github.com/gosexy/redis/fd_linux.go	16;"	c	access:private	line:16
+writeOp	src/github.com/gosexy/redis/fd_windows.go	435;"	t	access:private	line:435	type:struct
+writeToOp	src/github.com/gosexy/redis/fd_windows.go	465;"	t	access:private	line:465	type:struct

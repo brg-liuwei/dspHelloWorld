@@ -49,10 +49,10 @@ func Init(path string) bool {
 	if e != nil {
 		panic(e)
 	}
-	debugLogger = log.New(f, "[DEBUG]", log.LstdFlags|log.Lshortfile)
-	infoLogger = log.New(f, "[INFO]", log.LstdFlags)
-	errorLogger = log.New(f, "[ERROR]", log.LstdFlags)
-	fatalLogger = log.New(f, "[FATAL]", log.LstdFlags)
+	debugLogger = log.New(f, "[DEBUG] ", log.LstdFlags|log.Lshortfile)
+	infoLogger = log.New(f, "[INFO] ", log.LstdFlags)
+	errorLogger = log.New(f, "[ERROR] ", log.LstdFlags)
+	fatalLogger = log.New(f, "[FATAL] ", log.LstdFlags)
 	return true
 }
 
@@ -60,13 +60,13 @@ func Log(l Level, v ...interface{}) {
 	if l >= curLevel {
 		switch l {
 		case DEBUG:
-			go debugLogger.Println(v)
+			debugLogger.Println(v)
 		case INFO:
-			go infoLogger.Println(v)
+			infoLogger.Println(v)
 		case ERROR:
-			go errorLogger.Println(v)
+			errorLogger.Println(v)
 		case FATAL:
-			go fatalLogger.Panic(v)
+			fatalLogger.Panic(v)
 		default:
 			panic("Unkown log level")
 		}
