@@ -5,11 +5,11 @@ import ()
 type AdPosition int
 
 const (
-	Unknown    AdPosition = iota // 0
-	TOPVIEW                      // 顶端可见
-	BOTTOMVIEW                   // 底端可见
-	TOPROLL                      // 顶端随滚动条滚动可见
-	BOTTOMROLL                   // 底端随滚动条滚动可见
+	AdPosUnknown AdPosition = iota // 0
+	TOPVIEW                        // 顶端可见
+	BOTTOMVIEW                     // 底端可见
+	TOPROLL                        // 顶端随滚动条滚动可见
+	BOTTOMROLL                     // 底端随滚动条滚动可见
 )
 
 type AdType string
@@ -26,7 +26,7 @@ const (
 type AdAttr string
 
 const (
-	Unknown             AdAttr = "0"
+	AdAttrUnknown       AdAttr = "0"
 	AutoAudio                  = "1" // Auto Play
 	ClickAudio                 = "2"
 	AutoExpandable             = "3"
@@ -65,7 +65,7 @@ const (
 	Finacial                = "015" // 金融类
 	Operator                = "016" // 运营商类
 	RealProperty            = "017" // 房地产类
-	Other                   = "018"
+	AdCatOther              = "018"
 )
 
 type Impression struct {
@@ -94,10 +94,11 @@ func (imp *Impression) Assign(m *map[string]interface{}) bool {
 	imp.SetBattr(m)
 	imp.SetInstl(m)
 	imp.SetSplash(m)
+	return true
 }
 
 func (imp *Impression) SetImpId(m *map[string]interface{}) bool {
-	if v, ok := m["impid"]; !ok {
+	if v, ok := (*m)["impid"]; !ok {
 		return false
 	} else if imp.ImpId, ok = v.(string); !ok {
 		return false
@@ -107,38 +108,38 @@ func (imp *Impression) SetImpId(m *map[string]interface{}) bool {
 }
 
 func (imp *Impression) SetBidFloor(m *map[string]interface{}) {
-	if v, ok := m["bidfloor"]; ok {
-		imp.Bidfloor, _ = v.(int)
+	if v, ok := (*m)["bidfloor"]; ok {
+		imp.BidFloor, _ = v.(int)
 	}
 }
 
 func (imp *Impression) SetBidFloorCur(m *map[string]interface{}) {
-	if v, ok := m["bidfloorcur"]; ok {
+	if v, ok := (*m)["bidfloorcur"]; ok {
 		imp.BidFloorCur, _ = v.(string)
 	}
 }
 
 func (imp *Impression) SetW(m *map[string]interface{}) {
-	if v, ok := m["w"]; ok {
+	if v, ok := (*m)["w"]; ok {
 		imp.W, _ = v.(int)
 	}
 }
 
 func (imp *Impression) SetH(m *map[string]interface{}) {
-	if v, ok := m["h"]; ok {
+	if v, ok := (*m)["h"]; ok {
 		imp.H, _ = v.(int)
 	}
 }
 
 func (imp *Impression) SetPos(m *map[string]interface{}) {
-	if v, ok := m["pos"]; ok {
+	if v, ok := (*m)["pos"]; ok {
 		pos, _ := v.(int)
 		imp.Pos = AdPosition(pos)
 	}
 }
 
 func (imp *Impression) SetBtype(m *map[string]interface{}) {
-	if v, ok := m["btype"]; ok {
+	if v, ok := (*m)["btype"]; ok {
 		if array, ok := v.([]interface{}); ok {
 			imp.Btype = make([]AdType, 0, len(array))
 			for _, elem := range array {
@@ -151,7 +152,7 @@ func (imp *Impression) SetBtype(m *map[string]interface{}) {
 }
 
 func (imp *Impression) SetBattr(m *map[string]interface{}) {
-	if v, ok := m["battr"]; ok {
+	if v, ok := (*m)["battr"]; ok {
 		if array, ok := v.([]interface{}); ok {
 			imp.Battr = make([]AdAttr, 0, len(array))
 			for _, elem := range array {
@@ -164,7 +165,7 @@ func (imp *Impression) SetBattr(m *map[string]interface{}) {
 }
 
 func (imp *Impression) SetInstl(m *map[string]interface{}) {
-	if v, ok := m["instl"]; ok {
+	if v, ok := (*m)["instl"]; ok {
 		if instl, ok := v.(int); ok {
 			switch instl {
 			case 0:
@@ -177,7 +178,7 @@ func (imp *Impression) SetInstl(m *map[string]interface{}) {
 }
 
 func (imp *Impression) SetSplash(m *map[string]interface{}) {
-	if v, ok := m["splash"]; ok {
+	if v, ok := (*m)["splash"]; ok {
 		if splash, ok := v.(int); ok {
 			switch splash {
 			case 0:
@@ -264,7 +265,7 @@ func (app *Application) Assign(m *map[string]interface{}) bool {
 }
 
 func (app *Application) SetAid(m *map[string]interface{}) bool {
-	if v, ok := m["aid"]; !ok {
+	if v, ok := (*m)["aid"]; !ok {
 		return false
 	} else if app.Aid, ok = v.(string); !ok {
 		return false
@@ -274,13 +275,13 @@ func (app *Application) SetAid(m *map[string]interface{}) bool {
 }
 
 func (app *Application) SetName(m *map[string]interface{}) {
-	if v, ok := m["name"]; ok {
+	if v, ok := (*m)["name"]; ok {
 		app.Name, _ = v.(string)
 	}
 }
 
 func (app *Application) SetCat(m *map[string]interface{}) {
-	if v, ok := m["cat"]; ok {
+	if v, ok := (*m)["cat"]; ok {
 		if array, ok := v.([]interface{}); ok {
 			app.Cat = make([]AppCat, 0, len(array))
 			for _, elem := range array {
@@ -293,25 +294,25 @@ func (app *Application) SetCat(m *map[string]interface{}) {
 }
 
 func (app *Application) SetVer(m *map[string]interface{}) {
-	if v, ok := m["ver"]; ok {
+	if v, ok := (*m)["ver"]; ok {
 		app.Ver, _ = v.(string)
 	}
 }
 
 func (app *Application) SetBundle(m *map[string]interface{}) {
-	if v, ok := m["bundle"]; ok {
+	if v, ok := (*m)["bundle"]; ok {
 		app.Bundle, _ = v.(string)
 	}
 }
 
 func (app *Application) SetItid(m *map[string]interface{}) {
-	if v, ok := m["itid"]; ok {
+	if v, ok := (*m)["itid"]; ok {
 		app.Itid, _ = v.(string)
 	}
 }
 
 func (app *Application) SetPaid(m *map[string]interface{}) {
-	if v, ok := m["paid"]; ok {
+	if v, ok := (*m)["paid"]; ok {
 		paid, _ := v.(int)
 		switch paid {
 		case 0:
@@ -323,25 +324,25 @@ func (app *Application) SetPaid(m *map[string]interface{}) {
 }
 
 func (app *Application) SetStoreurl(m *map[string]interface{}) {
-	if v, ok := m["storeurl"]; ok {
+	if v, ok := (*m)["storeurl"]; ok {
 		app.Storeurl, _ = v.(string)
 	}
 }
 
 func (app *Application) SetKeywords(m *map[string]interface{}) {
-	if v, ok := m["Keywords"]; ok {
+	if v, ok := (*m)["Keywords"]; ok {
 		app.Keywords, _ = v.(string)
 	}
 }
 
 func (app *Application) SetPublisherId(m *map[string]interface{}) {
-	if v, ok := m["Pid"]; ok {
+	if v, ok := (*m)["Pid"]; ok {
 		app.PublisherId, _ = v.(string)
 	}
 }
 
 func (app *Application) SetPublisher(m *map[string]interface{}) {
-	if v, ok := m["pub"]; ok {
+	if v, ok := (*m)["pub"]; ok {
 		app.Publisher, _ = v.(string)
 	}
 }
@@ -412,79 +413,79 @@ func (dev *Device) Assign(m *map[string]interface{}) {
 }
 
 func (dev *Device) SetDid(m *map[string]interface{}) {
-	if v, ok := m["did"]; ok {
+	if v, ok := (*m)["did"]; ok {
 		dev.Did, _ = v.(string)
 	}
 }
 
 func (dev *Device) SetDpid(m *map[string]interface{}) {
-	if v, ok := m["did"]; ok {
+	if v, ok := (*m)["did"]; ok {
 		dev.Did, _ = v.(string)
 	}
 }
 
 func (dev *Device) SetMac(m *map[string]interface{}) {
-	if v, ok := m["mac"]; ok {
+	if v, ok := (*m)["mac"]; ok {
 		dev.Mac, _ = v.(string)
 	}
 }
 
 func (dev *Device) SetUa(m *map[string]interface{}) {
-	if v, ok := m["ua"]; ok {
+	if v, ok := (*m)["ua"]; ok {
 		dev.Ua, _ = v.(string)
 	}
 }
 
 func (dev *Device) SetIp(m *map[string]interface{}) {
-	if v, ok := m["ip"]; ok {
+	if v, ok := (*m)["ip"]; ok {
 		dev.Ip, _ = v.(string)
 	}
 }
 
 func (dev *Device) SetCountry(m *map[string]interface{}) {
-	if v, ok := m["country"]; ok {
+	if v, ok := (*m)["country"]; ok {
 		dev.Country, _ = v.(string)
 	}
 }
 
 func (dev *Device) SetCarrier(m *map[string]interface{}) {
-	if v, ok := m["carrier"]; ok {
+	if v, ok := (*m)["carrier"]; ok {
 		dev.Carrier, _ = v.(string)
 	}
 }
 
 func (dev *Device) SetLanguage(m *map[string]interface{}) {
-	if v, ok := m["language"]; ok {
+	if v, ok := (*m)["language"]; ok {
 		dev.Language, _ = v.(string)
 	}
 }
 
 func (dev *Device) SetMaker(m *map[string]interface{}) {
-	if v, ok := m["make"]; ok {
+	if v, ok := (*m)["make"]; ok {
 		dev.Maker, _ = v.(string)
 	}
 }
 
 func (dev *Device) SetModel(m *map[string]interface{}) {
-	if v, ok := m["model"]; ok {
+	if v, ok := (*m)["model"]; ok {
 		dev.Model, _ = v.(string)
 	}
 }
 
 func (dev *Device) SetOs(m *map[string]interface{}) {
-	if v, ok := m["os"]; ok {
+	if v, ok := (*m)["os"]; ok {
 		dev.Os, _ = v.(string)
 	}
 }
 
 func (dev *Device) SetOsv(m *map[string]interface{}) {
-	if v, ok := m["osv"]; ok {
+	if v, ok := (*m)["osv"]; ok {
 		dev.Osv, _ = v.(string)
 	}
 }
 
 func (dev *Device) SetCType(m *map[string]interface{}) {
-	if v, ok := m["connectiontype"]; ok {
+	if v, ok := (*m)["connectiontype"]; ok {
 		if conn, ok := v.(int); ok {
 			dev.CType = ConnType(conn)
 		}
@@ -492,7 +493,7 @@ func (dev *Device) SetCType(m *map[string]interface{}) {
 }
 
 func (dev *Device) SetDType(m *map[string]interface{}) {
-	if v, ok := m["devicetype"]; ok {
+	if v, ok := (*m)["devicetype"]; ok {
 		if dtype, ok := v.(int); ok {
 			dev.DType = DeviceType(dtype)
 		}
@@ -500,25 +501,25 @@ func (dev *Device) SetDType(m *map[string]interface{}) {
 }
 
 func (dev *Device) SetLoc(m *map[string]interface{}) {
-	if v, ok := m["loc"]; ok {
+	if v, ok := (*m)["loc"]; ok {
 		dev.Loc, _ = v.(string)
 	}
 }
 
 func (dev *Device) SetSw(m *map[string]interface{}) {
-	if v, ok := m["sw"]; ok {
+	if v, ok := (*m)["sw"]; ok {
 		dev.Sw, _ = v.(int)
 	}
 }
 
 func (dev *Device) SetSh(m *map[string]interface{}) {
-	if v, ok := m["sh"]; ok {
+	if v, ok := (*m)["sh"]; ok {
 		dev.Sh, _ = v.(int)
 	}
 }
 
 func (dev *Device) SetOrientation(m *map[string]interface{}) {
-	if v, ok := m["orientation"]; ok {
+	if v, ok := (*m)["orientation"]; ok {
 		dev.Orientation, _ = v.(int)
 	}
 }
@@ -534,5 +535,5 @@ const (
 	CallPhone
 	GoToAppStore
 	OpenMap
-	Other = 10
+	CliTypeOther = 10
 )

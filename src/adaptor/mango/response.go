@@ -3,7 +3,6 @@ package mango
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"net/http"
 
 	"logger"
@@ -48,41 +47,41 @@ type External struct {
 }
 
 func (bid *Bid) fillMap(m *map[string]interface{}) {
-	m["impid"] = bid.Impid
-	m["price"] = bid.Price
-	m["adid"] = bid.Adid
+	(*m)["impid"] = bid.Impid
+	(*m)["price"] = bid.Price
+	(*m)["adid"] = bid.Adid
 	if len(bid.Nurl) != 0 {
-		m["nurl"] = bid.Nurl
+		(*m)["nurl"] = bid.Nurl
 	}
-	m["adm"] = bid.Adm
+	(*m)["adm"] = bid.Adm
 	if bid.Adw != 0 && bid.Adh != 0 {
-		m["adw"] = bid.Adw
-		m["adh"] = bid.Adh
+		(*m)["adw"] = bid.Adw
+		(*m)["adh"] = bid.Adh
 	}
 	if len(bid.Iurl) != 0 {
-		m["iurl"] = bid.Iurl
+		(*m)["iurl"] = bid.Iurl
 	}
-	m["curl"] = bid.Curl
+	(*m)["curl"] = bid.Curl
 	if len(bid.Cturl) != 0 {
-		m["cturl"] = bid.Cturl
+		(*m)["cturl"] = bid.Cturl
 	}
 	if len(bid.Cid) != 0 {
-		m["cid"] = bid.Cid
+		(*m)["cid"] = bid.Cid
 	}
 	if len(bid.Crid) != 0 {
-		m["crid"] = bid.Crid
+		(*m)["crid"] = bid.Crid
 	}
 	if bid.Ctype != CTypeUnkown {
-		m["ctype"] = bid.Ctype
+		(*m)["ctype"] = bid.Ctype
 		if bid.Ctype == DownloadApp {
-			m["cbundle"] = bid.Cbundle
+			(*m)["cbundle"] = bid.Cbundle
 		}
 	}
 	if len(bid.Attr) != 0 {
-		m["attr"] = bid.Attr
+		(*m)["attr"] = bid.Attr
 	}
 	if len(bid.Domain) != 0 {
-		m["adomain"] = bid.Domain
+		(*m)["adomain"] = bid.Domain
 	}
 
 	/* ext */
@@ -96,10 +95,11 @@ func (bid *Bid) fillMap(m *map[string]interface{}) {
 	if len(bid.Ext.Ade) != 0 {
 		extMap["ade"] = bid.Ext.Ade
 	}
-	m["ext"] = extMap
+	(*m)["ext"] = extMap
 }
 
 func (r *BidResponse) Response(w http.ResponseWriter) {
+	var sbSlice []map[string]interface{}
 	rmap := make(map[string]interface{})
 	rmap["id"] = r.Id
 	if len(r.Bidid) != 0 {
@@ -111,7 +111,7 @@ func (r *BidResponse) Response(w http.ResponseWriter) {
 	}
 
 	/* for seat bid */
-	sbSlice := make([]map[string]interface{}, 0, len(r.Seatbid))
+	sbSlice = make([]map[string]interface{}, 0, len(r.Seatbid))
 	for i := 0; i != len(r.Seatbid); i++ {
 		sb := make(map[string]interface{})
 
@@ -139,5 +139,5 @@ end:
 	w.Write(response)
 
 	/* log bid response */
-	logger.LOG(logger.INFO, "{\"MONGO\":"+string(response)+"}")
+	logger.Log(logger.INFO, "{\"MONGO\":"+string(response)+"}")
 }

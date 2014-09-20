@@ -2,7 +2,6 @@ package mango
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 
@@ -20,43 +19,43 @@ type BidRequest struct {
 
 func NewBidRequest(r *http.Request) *BidRequest {
 	if r.Method != "POST" {
-		logger.LOG(logger.ERROR, "http.Request Method error: ", r.Method)
+		logger.Log(logger.ERROR, "http.Request Method error: ", r.Method)
 		return nil
 	}
 
 	var m map[string]interface{}
 	if body, err := ioutil.ReadAll(r.Body); err != nil {
-		logger.LOG(logger.ERROR, "read ttp.Request.Body error: ", err)
+		logger.Log(logger.ERROR, "read ttp.Request.Body error: ", err)
 		return nil
 	} else {
 		m = make(map[string]interface{})
 		if err := json.Unmarshal(body, &m); err != nil {
-			logger.LOG(logger.ERROR, "unmarshal json error: ", err)
+			logger.Log(logger.ERROR, "unmarshal json error: ", err)
 			return nil
 		}
 	}
 
 	br := new(BidRequest)
 	if !br.SetId(&m) {
-		logger.LOG(logger.ERROR, "bid request set id error")
+		logger.Log(logger.ERROR, "bid request set id error")
 		return nil
 	}
 	if !br.SetImps(&m) {
-		logger.LOG(logger.ERROR, "bid request set imps error")
+		logger.Log(logger.ERROR, "bid request set imps error")
 		return nil
 	}
 	if !br.SetApp(&m) {
-		logger.LOG(logger.ERROR, "bid request set app error")
+		logger.Log(logger.ERROR, "bid request set app error")
 		return nil
 	}
-	br.SetDevice()
-	br.SetBcat()
-	br.SetBadv()
+	br.SetDevice(&m)
+	br.SetBcat(&m)
+	br.SetBadv(&m)
 	return br
 }
 
 func (r *BidRequest) SetId(m *map[string]interface{}) bool {
-	if v, ok := m["id"]; !ok {
+	if v, ok := (*m)["id"]; !ok {
 		return false
 	} else if r.Id, ok = v.(string); !ok {
 		return false
@@ -67,7 +66,7 @@ func (r *BidRequest) SetId(m *map[string]interface{}) bool {
 
 func (r *BidRequest) SetImps(m *map[string]interface{}) bool {
 	var imps []interface{}
-	if v, ok := m["imp"]; !ok {
+	if v, ok := (*m)["imp"]; !ok {
 		return false
 	} else if imps, ok = v.([]interface{}); !ok {
 		return false
@@ -86,7 +85,7 @@ func (r *BidRequest) SetImps(m *map[string]interface{}) bool {
 
 func (r *BidRequest) SetApp(m *map[string]interface{}) bool {
 	var appMap map[string]interface{}
-	if v, ok := m["app"]; !ok {
+	if v, ok := (*m)["app"]; !ok {
 		return false
 	} else if appMap, ok = v.(map[string]interface{}); !ok {
 		return false
@@ -99,7 +98,7 @@ func (r *BidRequest) SetApp(m *map[string]interface{}) bool {
 
 func (r *BidRequest) SetDevice(m *map[string]interface{}) {
 	var devMap map[string]interface{}
-	if v, ok := m["device"]; ok {
+	if v, ok := (*m)["device"]; ok {
 		if devMap, ok = v.(map[string]interface{}); ok {
 			r.Dev.Assign(&devMap)
 		}
@@ -107,7 +106,7 @@ func (r *BidRequest) SetDevice(m *map[string]interface{}) {
 }
 
 func (r *BidRequest) SetBcat(m *map[string]interface{}) {
-	if v, ok := m["bcat"]; ok {
+	if v, ok := (*m)["bcat"]; ok {
 		if array, ok := v.([]interface{}); ok {
 			r.Bcat = make([]AdCategory, 0, len(array))
 			for _, elem := range array {
@@ -120,7 +119,7 @@ func (r *BidRequest) SetBcat(m *map[string]interface{}) {
 }
 
 func (r *BidRequest) SetBadv(m *map[string]interface{}) {
-	if v, ok := m["badv"]; ok {
+	if v, ok := (*m)["badv"]; ok {
 		if array, ok := v.([]interface{}); ok {
 			r.Badv = make([]string, 0, len(array))
 			for _, elem := range array {

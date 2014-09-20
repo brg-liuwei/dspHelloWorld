@@ -1,20 +1,16 @@
 package main
 
 import (
+	"adaptor/mango"
 	"logger"
 	"manager"
 
 	"fmt"
+	"net/http"
 	"runtime"
 )
 
-func main() {
-	runtime.GOMAXPROCS(runtime.NumCPU())
-	if ok := logger.Init("dspLog.log"); !ok {
-		panic("logger init error.")
-	}
-
-	// test manager
+func TestManager() {
 	c := manager.NewCommand()
 	jstr := `{
         "oper_type":"4",
@@ -33,5 +29,24 @@ func main() {
 	} else {
 		fmt.Println("Parse error")
 	}
-	// end of test manager
+}
+
+func MangoHandler(w http.ResponseWriter, r *http.Request) {
+	bidRequest := mango.NewBidRequest(r)
+	if bidRequest == nil {
+		return
+	}
+	fmt.Println("mango bid request:")
+	fmt.Printf("%+v\n", *bidRequest)
+	fmt.Println()
+	fmt.Printf("%#v\n", *bidRequest)
+}
+
+func main() {
+	runtime.GOMAXPROCS(runtime.NumCPU())
+	if ok := logger.Init("dspLog.log"); !ok {
+		panic("logger init error.")
+	}
+	http.HandleFunc("/mango", MangoHandler)
+	panic(http.ListenAndServe(":12306", nil))
 }

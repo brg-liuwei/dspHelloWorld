@@ -132,4 +132,4 @@ func (c *Command) Parse(jsonCmd string) bool {
 	return true
 }
 
-func (c *Command) Execute()
+func (c *Command) Execute() {}
