@@ -5,10 +5,11 @@ import ()
 type AdPosition int
 
 const (
-	TOPVIEW    AdPosition = 1 // 顶端可见
-	BOTTOMVIEW                // 底端可见
-	TOPROLL                   // 顶端随滚动条滚动可见
-	BOTTOMROLL                // 底端随滚动条滚动可见
+	Unknown    AdPosition = iota // 0
+	TOPVIEW                      // 顶端可见
+	BOTTOMVIEW                   // 底端可见
+	TOPROLL                      // 顶端随滚动条滚动可见
+	BOTTOMROLL                   // 底端随滚动条滚动可见
 )
 
 type AdType string
@@ -25,7 +26,8 @@ const (
 type AdAttr string
 
 const (
-	AutoAudio           AdAttr = "1" // Auto Play
+	Unknown             AdAttr = "0"
+	AutoAudio                  = "1" // Auto Play
 	ClickAudio                 = "2"
 	AutoExpandable             = "3"
 	ClickExpandable            = "4"
@@ -77,6 +79,114 @@ type Impression struct {
 	Battr       []AdAttr   // deny ad attr
 	Instl       bool       // 是否全插屏ad
 	Splash      bool       // 是否开屏ad
+}
+
+func (imp *Impression) Assign(m *map[string]interface{}) bool {
+	if !imp.SetImpId(m) {
+		return false
+	}
+	imp.SetBidFloor(m)
+	imp.SetBidFloorCur(m)
+	imp.SetW(m)
+	imp.SetH(m)
+	imp.SetPos(m)
+	imp.SetBtype(m)
+	imp.SetBattr(m)
+	imp.SetInstl(m)
+	imp.SetSplash(m)
+}
+
+func (imp *Impression) SetImpId(m *map[string]interface{}) bool {
+	if v, ok := m["impid"]; !ok {
+		return false
+	} else if imp.ImpId, ok = v.(string); !ok {
+		return false
+	} else {
+		return true
+	}
+}
+
+func (imp *Impression) SetBidFloor(m *map[string]interface{}) {
+	if v, ok := m["bidfloor"]; ok {
+		imp.Bidfloor, _ = v.(int)
+	}
+}
+
+func (imp *Impression) SetBidFloorCur(m *map[string]interface{}) {
+	if v, ok := m["bidfloorcur"]; ok {
+		imp.BidFloorCur, _ = v.(string)
+	}
+}
+
+func (imp *Impression) SetW(m *map[string]interface{}) {
+	if v, ok := m["w"]; ok {
+		imp.W, _ = v.(int)
+	}
+}
+
+func (imp *Impression) SetH(m *map[string]interface{}) {
+	if v, ok := m["h"]; ok {
+		imp.H, _ = v.(int)
+	}
+}
+
+func (imp *Impression) SetPos(m *map[string]interface{}) {
+	if v, ok := m["pos"]; ok {
+		pos, _ := v.(int)
+		imp.Pos = AdPosition(pos)
+	}
+}
+
+func (imp *Impression) SetBtype(m *map[string]interface{}) {
+	if v, ok := m["btype"]; ok {
+		if array, ok := v.([]interface{}); ok {
+			imp.Btype = make([]AdType, 0, len(array))
+			for _, elem := range array {
+				if e, ok := elem.(string); ok {
+					imp.Btype = append(imp.Btype, AdType(e))
+				}
+			}
+		}
+	}
+}
+
+func (imp *Impression) SetBattr(m *map[string]interface{}) {
+	if v, ok := m["battr"]; ok {
+		if array, ok := v.([]interface{}); ok {
+			imp.Battr = make([]AdAttr, 0, len(array))
+			for _, elem := range array {
+				if e, ok := elem.(string); ok {
+					imp.Battr = append(imp.Battr, AdAttr(e))
+				}
+			}
+		}
+	}
+}
+
+func (imp *Impression) SetInstl(m *map[string]interface{}) {
+	if v, ok := m["instl"]; ok {
+		if instl, ok := v.(int); ok {
+			switch instl {
+			case 0:
+				imp.Instl = false // 非插屏广告
+			default:
+				imp.Instl = true // 插屏广告
+			}
+		}
+	}
+}
+
+func (imp *Impression) SetSplash(m *map[string]interface{}) {
+	if v, ok := m["splash"]; ok {
+		if splash, ok := v.(int); ok {
+			switch splash {
+			case 0:
+				imp.Splash = false // 非开屏广告
+			case 1:
+				imp.Splash = true
+			}
+		}
+	}
 }
 
 type AppCat string
@@ -136,6 +246,106 @@ type Application struct {
 	Publisher   string
 }
 
+func (app *Application) Assign(m *map[string]interface{}) bool {
+	if !app.SetAid(m) {
+		return false
+	}
+	app.SetName(m)
+	app.SetCat(m)
+	app.SetVer(m)
+	app.SetBundle(m)
+	app.SetItid(m)
+	app.SetPaid(m)
+	app.SetStoreurl(m)
+	app.SetKeywords(m)
+	app.SetPublisherId(m)
+	app.SetPublisher(m)
+	return true
+}
+
+func (app *Application) SetAid(m *map[string]interface{}) bool {
+	if v, ok := m["aid"]; !ok {
+		return false
+	} else if app.Aid, ok = v.(string); !ok {
+		return false
+	} else {
+		return true
+	}
+}
+
+func (app *Application) SetName(m *map[string]interface{}) {
+	if v, ok := m["name"]; ok {
+		app.Name, _ = v.(string)
+	}
+}
+
+func (app *Application) SetCat(m *map[string]interface{}) {
+	if v, ok := m["cat"]; ok {
+		if array, ok := v.([]interface{}); ok {
+			app.Cat = make([]AppCat, 0, len(array))
+			for _, elem := range array {
+				if e, ok := elem.(string); ok {
+					app.Cat = append(app.Cat, AppCat(e))
+				}
+			}
+		}
+	}
+}
+
+func (app *Application) SetVer(m *map[string]interface{}) {
+	if v, ok := m["ver"]; ok {
+		app.Ver, _ = v.(string)
+	}
+}
+
+func (app *Application) SetBundle(m *map[string]interface{}) {
+	if v, ok := m["bundle"]; ok {
+		app.Bundle, _ = v.(string)
+	}
+}
+
+func (app *Application) SetItid(m *map[string]interface{}) {
+	if v, ok := m["itid"]; ok {
+		app.Itid, _ = v.(string)
+	}
+}
+
+func (app *Application) SetPaid(m *map[string]interface{}) {
+	if v, ok := m["paid"]; ok {
+		paid, _ := v.(int)
+		switch paid {
+		case 0:
+			app.Paid = false
+		default:
+			app.Paid = true
+		}
+	}
+}
+
+func (app *Application) SetStoreurl(m *map[string]interface{}) {
+	if v, ok := m["storeurl"]; ok {
+		app.Storeurl, _ = v.(string)
+	}
+}
+
+func (app *Application) SetKeywords(m *map[string]interface{}) {
+	if v, ok := m["Keywords"]; ok {
+		app.Keywords, _ = v.(string)
+	}
+}
+
+func (app *Application) SetPublisherId(m *map[string]interface{}) {
+	if v, ok := m["Pid"]; ok {
+		app.PublisherId, _ = v.(string)
+	}
+}
+
+func (app *Application) SetPublisher(m *map[string]interface{}) {
+	if v, ok := m["pub"]; ok {
+		app.Publisher, _ = v.(string)
+	}
+}
+
 type ConnType int
 
 const (
@@ -178,6 +388,139 @@ type Device struct {
 	Sw          int        // 屏幕分辨率宽度像素数
 	Sh          int        // 屏幕分辨率高度像素数
 	Orientation int        // 屏幕方向： 1-竖向；2-横向
+}
+
+func (dev *Device) Assign(m *map[string]interface{}) {
+	dev.SetDid(m)
+	dev.SetDpid(m)
+	dev.SetMac(m)
+	dev.SetUa(m)
+	dev.SetIp(m)
+	dev.SetCountry(m)
+	dev.SetCarrier(m)
+	dev.SetLanguage(m)
+	dev.SetMaker(m)
+	dev.SetModel(m)
+	dev.SetOs(m)
+	dev.SetOsv(m)
+	dev.SetCType(m)
+	dev.SetDType(m)
+	dev.SetLoc(m)
+	dev.SetSw(m)
+	dev.SetSh(m)
+	dev.SetOrientation(m)
+}
+
+func (dev *Device) SetDid(m *map[string]interface{}) {
+	if v, ok := m["did"]; ok {
+		dev.Did, _ = v.(string)
+	}
+}
+
+func (dev *Device) SetDpid(m *map[string]interface{}) {
+	if v, ok := m["did"]; ok {
+		dev.Did, _ = v.(string)
+	}
+}
+
+func (dev *Device) SetMac(m *map[string]interface{}) {
+	if v, ok := m["mac"]; ok {
+		dev.Mac, _ = v.(string)
+	}
+}
+
+func (dev *Device) SetUa(m *map[string]interface{}) {
+	if v, ok := m["ua"]; ok {
+		dev.Ua, _ = v.(string)
+	}
+}
+
+func (dev *Device) SetIp(m *map[string]interface{}) {
+	if v, ok := m["ip"]; ok {
+		dev.Ip, _ = v.(string)
+	}
+}
+
+func (dev *Device) SetCountry(m *map[string]interface{}) {
+	if v, ok := m["country"]; ok {
+		dev.Country, _ = v.(string)
+	}
+}
+
+func (dev *Device) SetCarrier(m *map[string]interface{}) {
+	if v, ok := m["carrier"]; ok {
+		dev.Carrier, _ = v.(string)
+	}
+}
+
+func (dev *Device) SetLanguage(m *map[string]interface{}) {
+	if v, ok := m["language"]; ok {
+		dev.Language, _ = v.(string)
+	}
+}
+
+func (dev *Device) SetMaker(m *map[string]interface{}) {
+	if v, ok := m["make"]; ok {
+		dev.Maker, _ = v.(string)
+	}
+}
+
+func (dev *Device) SetModel(m *map[string]interface{}) {
+	if v, ok := m["model"]; ok {
+		dev.Model, _ = v.(string)
+	}
+}
+
+func (dev *Device) SetOs(m *map[string]interface{}) {
+	if v, ok := m["os"]; ok {
+		dev.Os, _ = v.(string)
+	}
+}
+
+func (dev *Device) SetOsv(m *map[string]interface{}) {
+	if v, ok := m["osv"]; ok {
+		dev.Osv, _ = v.(string)
+	}
+}
+
+func (dev *Device) SetCType(m *map[string]interface{}) {
+	if v, ok := m["connectiontype"]; ok {
+		if conn, ok := v.(int); ok {
+			dev.CType = ConnType(conn)
+		}
+	}
+}
+
+func (dev *Device) SetDType(m *map[string]interface{}) {
+	if v, ok := m["devicetype"]; ok {
+		if dtype, ok := v.(int); ok {
+			dev.DType = DeviceType(dtype)
+		}
+	}
+}
+
+func (dev *Device) SetLoc(m *map[string]interface{}) {
+	if v, ok := m["loc"]; ok {
+		dev.Loc, _ = v.(string)
+	}
+}
+
+func (dev *Device) SetSw(m *map[string]interface{}) {
+	if v, ok := m["sw"]; ok {
+		dev.Sw, _ = v.(int)
+	}
+}
+
+func (dev *Device) SetSh(m *map[string]interface{}) {
+	if v, ok := m["sh"]; ok {
+		dev.Sh, _ = v.(int)
+	}
+}
+
+func (dev *Device) SetOrientation(m *map[string]interface{}) {
+	if v, ok := m["orientation"]; ok {
+		dev.Orientation, _ = v.(int)
+	}
 }
 
 type ClickType int
