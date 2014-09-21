@@ -36,10 +36,17 @@ func MangoHandler(w http.ResponseWriter, r *http.Request) {
 	if bidRequest == nil {
 		return
 	}
-	fmt.Println("mango bid request:")
-	fmt.Printf("%+v\n", *bidRequest)
-	fmt.Println()
-	fmt.Printf("%#v\n", *bidRequest)
+
+	//fmt.Println("mango bid request:")
+	//fmt.Printf("%+v\n", *bidRequest)
+	//fmt.Println()
+	//fmt.Printf("%#v\n", *bidRequest)
+
+	commonRequest := bidRequest.ParseToCommon()
+	commonResponse := commonRequest.GenResponse()
+	bidResponse := new(mango.BidResponse)
+	bidResponse.ParseFromCommon(commonResponse)
+	bidResponse.Response(w)
 }
 
 func main() {

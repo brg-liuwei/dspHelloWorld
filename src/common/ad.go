@@ -10,7 +10,7 @@ const (
 )
 
 func (t *AdType) String() string {
-	switch t {
+	switch *t {
 	case Banner:
 		return "BANNER"
 	case Video:
@@ -32,7 +32,7 @@ const (
 )
 
 func (t *MimeType) String() string {
-	switch t {
+	switch *t {
 	case X_FLV:
 		return "X-FLV"
 	default:
@@ -76,9 +76,9 @@ type Ad struct {
 
 	/* used for video */
 	Mime     MimeType
-	Duration int /* time duration of video, 0 for banner */
-	Ch1          /* first level channel of video creative */
-	Ch2          /* second level channel of video creative */
+	Duration int    /* time duration of video, 0 for banner */
+	Ch1      string /* first level channel of video creative */
+	Ch2      string /* second level channel of video creative */
 
 	OrderId    int
 	CreativeId int

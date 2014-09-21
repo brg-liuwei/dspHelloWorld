@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
+	"common"
 	"logger"
 )
 
@@ -129,4 +130,69 @@ func (r *BidRequest) SetBadv(m *map[string]interface{}) {
 			}
 		}
 	}
+}
+
+func (r *BidRequest) ParseToCommon() (cb *common.BidRequest) {
+	cb = new(common.BidRequest)
+	cb.Id = r.Id
+	cb.Mobile = true
+	cb.Ip = r.Dev.Ip
+	cb.Did = r.Dev.Did
+	cb.Dpid = r.Dev.Dpid
+	cb.Mac = r.Dev.Mac
+	/* TODO:
+	   cb.Region =
+	   cb.Uuid =
+	*/
+	cb.Ua = r.Dev.Ua
+	cb.Os = r.Dev.Os
+	/* TODO: (手机端，可能没有Browser,Url)
+	   cb.Browser =
+	   cb.Url =
+	   cb.Domain =
+	*/
+	cb.Language = r.Dev.Language
+	cb.Media = "mango"
+
+	/* mango的Imps数组长度固定为1 */
+	cb.Slots = make([]common.AdSlotType, 0, 1)
+	var slot common.AdSlotType
+	if len(r.Imps) == 0 {
+		return
+	}
+	imp := r.Imps[0]
+	slot.ImpId = imp.ImpId
+	slot.BidFloor = imp.BidFloor
+	slot.W = imp.W
+	slot.H = imp.H
+	switch imp.Pos {
+	case TOPVIEW:
+		slot.Visibility = 20
+	case BOTTOMVIEW:
+		slot.Visibility = 15
+	case TOPROLL:
+		slot.Visibility = 10
+	case BOTTOMROLL:
+		slot.Visibility = 5
+	default:
+		slot.Visibility = 1
+	}
+	slot.CatOut = make(map[string]bool)
+	for _, adType := range imp.Btype {
+		slot.CatOut[string(adType)] = true
+	}
+	slot.AttrOut = make(map[string]bool)
+	for _, adAttr := range imp.Battr {
+		slot.AttrOut[string(adAttr)] = true
+	}
+	slot.Instl = imp.Instl
+	slot.Splash = imp.Splash
+	cb.Slots = append(cb.Slots, slot)
+
+	cb.AdxId = common.MANGO
+	// cb.User = ... no user info
+	// cb.Site = ... no site info
+	cb.App.Id = r.App.Aid
+	// TODO: calc cb.App.Quality
+	return
 }

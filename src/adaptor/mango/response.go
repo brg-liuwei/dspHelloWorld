@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net/http"
 
+	"common"
 	"logger"
 )
 
@@ -29,7 +30,7 @@ type Bid struct {
 	Adw     int
 	Adh     int
 	Iurl    string   // display monitor url(当Adm中不包含时使用)
-	Curl    string   // adm的#CLICK_URL#宏，被点击的跳转地址
+	Curl    string   // Adm的#CLICK_URL#宏，被点击的跳转地址
 	Cturl   []string // click monitor url(用于Adm中的#CLICK_URL#宏),URL需要支持重定向
 	Cid     string   // Campaign ID
 	Crid    string   // 物料ID
@@ -140,4 +141,46 @@ end:
 
 	/* log bid response */
 	logger.Log(logger.INFO, "{\"MONGO\":"+string(response)+"}")
+}
+
+func (r *BidResponse) ParseFromCommon(cr *common.BidResponse) {
+	r.Id = cr.ReqId
+	r.Bidid = cr.BidId
+	if len(cr.Ads) == 0 {
+		r.Nbr = 0
+		return
+	}
+	// mongo只返回1个seatbid
+	r.Seatbid = make([]SeatBid, 0, 1)
+	var sb SeatBid
+	sb.Bid = make([]Bid, 0, 1)
+
+	commonBid := cr.Ads[0]
+	var mongoBid Bid
+	mongoBid.Impid = commonBid.ImpId
+	mongoBid.Price = commonBid.Price
+	mongoBid.Adid = commonBid.AdId
+	mongoBid.Nurl = commonBid.WinUrl
+	mongoBid.Adm = commonBid.Adm
+	mongoBid.Adw = commonBid.W
+	mongoBid.Adh = commonBid.H
+	mongoBid.Iurl = commonBid.DisplayMonitor
+	mongoBid.Curl = commonBid.LandingPage
+	mongoBid.Cturl = make([]string, 0, 1)
+	mongoBid.Cturl = append(mongoBid.Cturl, commonBid.ClickMonitor)
+	/* TODO:
+	   mongoBid.Cid
+	   mongoBid.Crid
+	   mongoBid.Cbundle
+	   mongoBid.Attr
+	*/
+	mongoBid.Domain = commonBid.Domain
+
+	// TODO: Ext
+	mongoBid.Ext.Instl = 1        // 1-插屏，2-全屏
+	mongoBid.Ext.Adt = 5          // 开屏播放时长: 5s
+	mongoBid.Ext.Ade = "20150101" // 开屏过期时间: YYYYMMdd
+
+	sb.Bid = append(sb.Bid, mongoBid)
+	r.Seatbid = append(r.Seatbid, sb)
 }

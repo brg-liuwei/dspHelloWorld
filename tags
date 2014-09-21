@@ -17,10 +17,12 @@ AdAttrUnknown	src/adaptor/mango/data.go	29;"	c	access:public	line:29	type:AdAttr
 AdCanBeSkipped	src/adaptor/mango/data.go	45;"	c	access:public	line:45
 AdCatOther	src/adaptor/mango/data.go	68;"	c	access:public	line:68
 AdCategory	src/adaptor/mango/data.go	48;"	t	access:public	line:48	type:string
+AdId	src/common/response.go	6;"	w	access:public	ctype:BidAd	line:6	type:string
 AdOwnerId	src/common/ad.go	111;"	w	access:public	ctype:Order	line:111	type:int
 AdPosUnknown	src/adaptor/mango/data.go	8;"	c	access:public	line:8	type:AdPosition
 AdPosition	src/adaptor/mango/data.go	5;"	t	access:public	line:5	type:int
 AdSize	src/common/ad.go	23;"	t	access:public	line:23	type:struct
+AdSlotType	src/common/request.go	33;"	t	access:public	line:33	type:struct
 AdType	src/adaptor/mango/data.go	15;"	t	access:public	line:15	type:string
 AdType	src/common/ad.go	5;"	t	access:public	line:5	type:int
 AddAd	src/manager/manager.go	82;"	c	access:public	line:82
@@ -31,15 +33,18 @@ AddFD	src/github.com/gosexy/redis/fd_linux.go	54;"	m	access:public	ctype:pollste
 AddFD	src/github.com/gosexy/redis/fd_netbsd.go	34;"	m	access:public	ctype:pollster	line:34	signature:(fd int, mode int, repeat bool)	type:bool, error
 AddFD	src/github.com/gosexy/redis/fd_openbsd.go	34;"	m	access:public	ctype:pollster	line:34	signature:(fd int, mode int, repeat bool)	type:bool, error
 AddOrder	src/manager/manager.go	81;"	c	access:public	line:81
-Ade	src/adaptor/mango/response.go	46;"	w	access:public	ctype:External	line:46	type:string
-Adh	src/adaptor/mango/response.go	30;"	w	access:public	ctype:Bid	line:30	type:int
-Adid	src/adaptor/mango/response.go	26;"	w	access:public	ctype:Bid	line:26	type:string
-Adm	src/adaptor/mango/response.go	28;"	w	access:public	ctype:Bid	line:28	type:string
-Adt	src/adaptor/mango/response.go	45;"	w	access:public	ctype:External	line:45	type:int
+Ade	src/adaptor/mango/response.go	47;"	w	access:public	ctype:External	line:47	type:string
+Adh	src/adaptor/mango/response.go	31;"	w	access:public	ctype:Bid	line:31	type:int
+Adid	src/adaptor/mango/response.go	27;"	w	access:public	ctype:Bid	line:27	type:string
+Adm	src/adaptor/mango/response.go	29;"	w	access:public	ctype:Bid	line:29	type:string
+Adm	src/common/response.go	11;"	w	access:public	ctype:BidAd	line:11	type:string
+Ads	src/common/response.go	24;"	w	access:public	ctype:BidResponse	line:24	type:[]BidAd
+Adt	src/adaptor/mango/response.go	46;"	w	access:public	ctype:External	line:46	type:int
 AdvertX	src/common/ad.go	130;"	w	access:public	ctype:Order	line:130	type:int
 AdvertXUseMulti	src/common/ad.go	131;"	w	access:public	ctype:Order	line:131	type:bool
-Adw	src/adaptor/mango/response.go	29;"	w	access:public	ctype:Bid	line:29	type:int
+Adw	src/adaptor/mango/response.go	30;"	w	access:public	ctype:Bid	line:30	type:int
 Adx	src/common/ad.go	87;"	t	access:public	line:87	type:int
+AdxId	src/common/request.go	23;"	w	access:public	ctype:BidRequest	line:23	type:Adx
 AdxList	src/common/ad.go	113;"	w	access:public	ctype:Order	line:113	type:[]Adx
 Aedu	src/adaptor/mango/data.go	201;"	c	access:public	line:201
 Aeff	src/adaptor/mango/data.go	215;"	c	access:public	line:215
@@ -54,6 +59,7 @@ Agam5	src/adaptor/mango/data.go	228;"	c	access:public	line:228
 Agam6	src/adaptor/mango/data.go	229;"	c	access:public	line:229
 Agam7	src/adaptor/mango/data.go	230;"	c	access:public	line:230
 Agam8	src/adaptor/mango/data.go	231;"	c	access:public	line:231
+Age	src/common/request.go	55;"	w	access:public	ctype:UserType	line:55	type:int
 Ahea	src/adaptor/mango/data.go	205;"	c	access:public	line:205
 Aid	src/adaptor/mango/data.go	237;"	w	access:public	ctype:Application	line:237	type:string
 Amedia	src/adaptor/mango/data.go	209;"	c	access:public	line:209
@@ -66,7 +72,9 @@ Apart	src/adaptor/mango/data.go	223;"	c	access:public	line:223
 Aperson	src/adaptor/mango/data.go	213;"	c	access:public	line:213
 Apho	src/adaptor/mango/data.go	214;"	c	access:public	line:214
 App	src/adaptor/mango/request.go	14;"	w	access:public	ctype:BidRequest	line:14	type:Application
+App	src/common/request.go	27;"	w	access:public	ctype:BidRequest	line:27	type:AppType
 AppCat	src/adaptor/mango/data.go	193;"	t	access:public	line:193	type:string
+AppType	src/common/request.go	64;"	t	access:public	line:64	type:struct
 Append	src/github.com/gosexy/redis/main.go	762;"	m	access:public	ctype:Client	line:762	signature:(key string, value interface{})	type:int64, error
 Application	src/adaptor/mango/data.go	236;"	t	access:public	line:236	type:struct
 Asoc	src/adaptor/mango/data.go	217;"	c	access:public	line:217
@@ -78,8 +86,9 @@ Assign	src/adaptor/mango/data.go	84;"	m	access:public	ctype:Impression	line:84	s
 Atool	src/adaptor/mango/data.go	219;"	c	access:public	line:219
 Atour	src/adaptor/mango/data.go	221;"	c	access:public	line:221
 Atra	src/adaptor/mango/data.go	220;"	c	access:public	line:220
-Attr	src/adaptor/mango/response.go	38;"	w	access:public	ctype:Bid	line:38	type:[]AdAttr
+Attr	src/adaptor/mango/response.go	39;"	w	access:public	ctype:Bid	line:39	type:[]AdAttr
 Attr	src/common/ad.go	67;"	w	access:public	ctype:Ad	line:67	type:Attribute
+AttrOut	src/common/request.go	40;"	w	access:public	ctype:AdSlotType	line:40	type:map[string]bool
 Attribute	src/common/ad.go	43;"	t	access:public	line:43	type:int
 Auth	src/github.com/gosexy/redis/main.go	780;"	m	access:public	ctype:Client	line:780	signature:(password string)	type:string, error
 AutoAudio	src/adaptor/mango/data.go	30;"	c	access:public	line:30
@@ -143,15 +152,21 @@ BenchmarkTcglRedisPing	src/github.com/gosexy/redis/_benchmarks/tcgl_redis_test.g
 BenchmarkTcglRedisSet	src/github.com/gosexy/redis/_benchmarks/tcgl_redis_test.go	37;"	f	access:public	line:37	signature:(b *testing.B)
 BgRewriteAOF	src/github.com/gosexy/redis/main.go	796;"	m	access:public	ctype:Client	line:796	signature:()	type:string, error
 BgSave	src/github.com/gosexy/redis/main.go	814;"	m	access:public	ctype:Client	line:814	signature:()	type:string, error
-Bid	src/adaptor/mango/response.go	19;"	w	access:public	ctype:SeatBid	line:19	type:[]Bid
-Bid	src/adaptor/mango/response.go	23;"	t	access:public	line:23	type:struct
+Bid	src/adaptor/mango/response.go	20;"	w	access:public	ctype:SeatBid	line:20	type:[]Bid
+Bid	src/adaptor/mango/response.go	24;"	t	access:public	line:24	type:struct
+BidAd	src/common/response.go	5;"	t	access:public	line:5	type:struct
 BidFloor	src/adaptor/mango/data.go	73;"	w	access:public	ctype:Impression	line:73	type:int
+BidFloor	src/common/request.go	35;"	w	access:public	ctype:AdSlotType	line:35	type:int
 BidFloorCur	src/adaptor/mango/data.go	74;"	w	access:public	ctype:Impression	line:74	type:string
+BidId	src/common/response.go	23;"	w	access:public	ctype:BidResponse	line:23	type:string
 BidRequest	src/adaptor/mango/request.go	11;"	t	access:public	line:11	type:struct
-BidResponse	src/adaptor/mango/response.go	11;"	t	access:public	line:11	type:struct
-Bidid	src/adaptor/mango/response.go	13;"	w	access:public	ctype:BidResponse	line:13	type:string
+BidRequest	src/common/request.go	5;"	t	access:public	line:5	type:struct
+BidResponse	src/adaptor/mango/response.go	12;"	t	access:public	line:12	type:struct
+BidResponse	src/common/response.go	21;"	t	access:public	line:21	type:struct
+Bidid	src/adaptor/mango/response.go	14;"	w	access:public	ctype:BidResponse	line:14	type:string
 BitCount	src/github.com/gosexy/redis/main.go	828;"	m	access:public	ctype:Client	line:828	signature:(key string, params )	type:int64, error
 BitOp	src/github.com/gosexy/redis/main.go	846;"	m	access:public	ctype:Client	line:846	signature:(op string, dest string, keys )	type:int64, error
+Browser	src/common/request.go	16;"	w	access:public	ctype:BidRequest	line:16	type:string
 Btype	src/adaptor/mango/data.go	78;"	w	access:public	ctype:Impression	line:78	type:[]AdType
 Bundle	src/adaptor/mango/data.go	241;"	w	access:public	ctype:Application	line:241	type:string
 C	src/github.com/gosexy/redis/main.go	67;"	i	line:67
@@ -161,16 +176,20 @@ CallPhone	src/adaptor/mango/data.go	535;"	c	access:public	line:535
 CampaignId	src/common/ad.go	110;"	w	access:public	ctype:Order	line:110	type:int
 Carrier	src/adaptor/mango/data.go	380;"	w	access:public	ctype:Device	line:380	type:string
 Cat	src/adaptor/mango/data.go	239;"	w	access:public	ctype:Application	line:239	type:[]AppCat
+Cat	src/common/request.go	56;"	w	access:public	ctype:UserType	line:56	type:string
+Cat	src/common/request.go	60;"	w	access:public	ctype:SiteType	line:60	type:string
+CatOut	src/common/request.go	39;"	w	access:public	ctype:AdSlotType	line:39	type:map[string]bool
 Category	src/common/ad.go	65;"	w	access:public	ctype:Ad	line:65	type:[]int
 CategoryProduct	src/common/ad.go	66;"	w	access:public	ctype:Ad	line:66	type:[]int
-Cbundle	src/adaptor/mango/response.go	37;"	w	access:public	ctype:Bid	line:37	type:string
+Cbundle	src/adaptor/mango/response.go	38;"	w	access:public	ctype:Bid	line:38	type:string
 Ch1	src/common/ad.go	80;"	e	access:public	ctype:Ad	line:80	type:Ch1
 Ch2	src/common/ad.go	81;"	e	access:public	ctype:Ad	line:81	type:Ch2
-Cid	src/adaptor/mango/response.go	34;"	w	access:public	ctype:Bid	line:34	type:string
+Cid	src/adaptor/mango/response.go	35;"	w	access:public	ctype:Bid	line:35	type:string
 CliTypeOther	src/adaptor/mango/data.go	538;"	c	access:public	line:538
 ClickAudio	src/adaptor/mango/data.go	31;"	c	access:public	line:31
 ClickBannerVideo	src/adaptor/mango/data.go	36;"	c	access:public	line:36
 ClickExpandable	src/adaptor/mango/data.go	33;"	c	access:public	line:33
+ClickMonitor	src/common/response.go	15;"	w	access:public	ctype:BidAd	line:15	type:string
 ClickType	src/adaptor/mango/data.go	527;"	t	access:public	line:527	type:int
 Client	src/github.com/gosexy/redis/main.go	117;"	t	access:public	line:117	type:struct
 ClientGetName	src/github.com/gosexy/redis/main.go	970;"	m	access:public	ctype:Client	line:970	signature:()	type:string, error
@@ -211,11 +230,11 @@ Cos	src/adaptor/mango/data.go	53;"	c	access:public	line:53
 CountCost	src/common/ad.go	139;"	w	access:public	ctype:Order	line:139	type:int
 Country	src/adaptor/mango/data.go	379;"	w	access:public	ctype:Device	line:379	type:string
 CreativeId	src/common/ad.go	84;"	w	access:public	ctype:Ad	line:84	type:int
-Crid	src/adaptor/mango/response.go	35;"	w	access:public	ctype:Bid	line:35	type:string
-Cturl	src/adaptor/mango/response.go	33;"	w	access:public	ctype:Bid	line:33	type:[]string
-Ctype	src/adaptor/mango/response.go	36;"	w	access:public	ctype:Bid	line:36	type:ClickType
+Crid	src/adaptor/mango/response.go	36;"	w	access:public	ctype:Bid	line:36	type:string
+Cturl	src/adaptor/mango/response.go	34;"	w	access:public	ctype:Bid	line:34	type:[]string
+Ctype	src/adaptor/mango/response.go	37;"	w	access:public	ctype:Bid	line:37	type:ClickType
 Ctype	src/manager/manager.go	90;"	w	access:public	ctype:Command	line:90	type:CmdType
-Curl	src/adaptor/mango/response.go	32;"	w	access:public	ctype:Bid	line:32	type:string
+Curl	src/adaptor/mango/response.go	33;"	w	access:public	ctype:Bid	line:33	type:string
 Cversion	src/manager/manager.go	91;"	w	access:public	ctype:Command	line:91	type:string
 DEBUG	src/logger/logger.go	16;"	c	access:public	line:16	type:Level
 DType	src/adaptor/mango/data.go	387;"	w	access:public	ctype:Device	line:387	type:DeviceType
@@ -247,10 +266,15 @@ DevWphone	src/adaptor/mango/data.go	368;"	c	access:public	line:368
 Device	src/adaptor/mango/data.go	373;"	t	access:public	line:373	type:struct
 DeviceType	src/adaptor/mango/data.go	361;"	t	access:public	line:361	type:int
 Did	src/adaptor/mango/data.go	374;"	w	access:public	ctype:Device	line:374	type:string
+Did	src/common/request.go	9;"	w	access:public	ctype:BidRequest	line:9	type:string
 Discard	src/github.com/gosexy/redis/main.go	1155;"	m	access:public	ctype:Client	line:1155	signature:()	type:string, error
-Domain	src/adaptor/mango/response.go	39;"	w	access:public	ctype:Bid	line:39	type:string
+DisplayMonitor	src/common/response.go	14;"	w	access:public	ctype:BidAd	line:14	type:string
+Domain	src/adaptor/mango/response.go	40;"	w	access:public	ctype:Bid	line:40	type:string
+Domain	src/common/request.go	18;"	w	access:public	ctype:BidRequest	line:18	type:string
+Domain	src/common/response.go	17;"	w	access:public	ctype:BidAd	line:17	type:string
 DownloadApp	src/adaptor/mango/data.go	532;"	c	access:public	line:532
 Dpid	src/adaptor/mango/data.go	375;"	w	access:public	ctype:Device	line:375	type:string
+Dpid	src/common/request.go	10;"	w	access:public	ctype:BidRequest	line:10	type:string
 Dump	src/github.com/gosexy/redis/main.go	1171;"	m	access:public	ctype:Client	line:1171	signature:(key string)	type:string, error
 Duration	src/common/ad.go	79;"	w	access:public	ctype:Ad	line:79	type:int
 ERROR	src/logger/logger.go	18;"	c	access:public	line:18
@@ -284,8 +308,9 @@ Execute	src/manager/manager.go	135;"	m	access:public	ctype:Command	line:135	sign
 Exists	src/github.com/gosexy/redis/main.go	1216;"	m	access:public	ctype:Client	line:1216	signature:(key string)	type:bool, error
 Expire	src/github.com/gosexy/redis/main.go	1233;"	m	access:public	ctype:Client	line:1233	signature:(key string, seconds uint64)	type:bool, error
 ExpireAt	src/github.com/gosexy/redis/main.go	1251;"	m	access:public	ctype:Client	line:1251	signature:(key string, unixTime uint64)	type:bool, error
-Ext	src/adaptor/mango/response.go	40;"	w	access:public	ctype:Bid	line:40	type:External
-External	src/adaptor/mango/response.go	43;"	t	access:public	line:43	type:struct
+Ext	src/adaptor/mango/response.go	41;"	w	access:public	ctype:Bid	line:41	type:External
+Ext	src/common/response.go	18;"	w	access:public	ctype:BidAd	line:18	type:string
+External	src/adaptor/mango/response.go	44;"	t	access:public	line:44	type:struct
 FATAL	src/logger/logger.go	19;"	c	access:public	line:19
 FLASH	src/common/ad.go	49;"	c	access:public	line:49
 Finacial	src/adaptor/mango/data.go	65;"	c	access:public	line:65
@@ -299,7 +324,13 @@ FreqCtrlType	src/common/ad.go	101;"	t	access:public	line:101	type:int
 GIF	src/adaptor/mango/data.go	20;"	c	access:public	line:20
 GOOGLE	src/common/ad.go	90;"	c	access:public	line:90	type:Adx
 Game	src/adaptor/mango/data.go	51;"	c	access:public	line:51	type:AdCategory
+GenResponse	src/common/request.go	31;"	m	access:public	ctype:BidRequest	line:31	signature:()	type:*BidResponse
 Gender	src/common/ad.go	137;"	w	access:public	ctype:Order	line:137	type:int
+Gender	src/common/request.go	54;"	w	access:public	ctype:UserType	line:54	type:GenderType
+GenderFemale	src/common/request.go	50;"	c	access:public	line:50
+GenderMale	src/common/request.go	49;"	c	access:public	line:49
+GenderType	src/common/request.go	45;"	t	access:public	line:45	type:int
+GenderUnknown	src/common/request.go	48;"	c	access:public	line:48	type:GenderType
 Get	src/github.com/gosexy/redis/main.go	1298;"	m	access:public	ctype:Client	line:1298	signature:(key string)	type:string, error
 GetBit	src/github.com/gosexy/redis/main.go	1312;"	m	access:public	ctype:Client	line:1312	signature:(key string, offset int64)	type:int64, error
 GetCmd	src/manager/manager.go	43;"	m	access:public	ctype:Commander	line:43	signature:()	type:string, error
@@ -308,6 +339,8 @@ GetRange	src/github.com/gosexy/redis/main.go	1331;"	m	access:public	ctype:Client
 GetSet	src/github.com/gosexy/redis/main.go	1348;"	m	access:public	ctype:Client	line:1348	signature:(key string, value interface{})	type:string, error
 GoToAppStore	src/adaptor/mango/data.go	536;"	c	access:public	line:536
 H	src/adaptor/mango/data.go	76;"	w	access:public	ctype:Impression	line:76	type:int
+H	src/common/request.go	37;"	w	access:public	ctype:AdSlotType	line:37	type:int
+H	src/common/response.go	13;"	w	access:public	ctype:BidAd	line:13	type:int
 HDel	src/github.com/gosexy/redis/main.go	1366;"	m	access:public	ctype:Client	line:1366	signature:(key string, fields )	type:int64, error
 HExists	src/github.com/gosexy/redis/main.go	1387;"	m	access:public	ctype:Client	line:1387	signature:(key string, field string)	type:bool, error
 HGet	src/github.com/gosexy/redis/main.go	1405;"	m	access:public	ctype:Client	line:1405	signature:(key string, field string)	type:string, error
@@ -331,11 +364,15 @@ INFO	src/logger/logger.go	17;"	c	access:public	line:17
 IT	src/adaptor/mango/data.go	62;"	c	access:public	line:62
 Ibook	src/adaptor/mango/data.go	233;"	c	access:public	line:233
 Id	src/adaptor/mango/request.go	12;"	w	access:public	ctype:BidRequest	line:12	type:string
-Id	src/adaptor/mango/response.go	12;"	w	access:public	ctype:BidResponse	line:12	type:string
+Id	src/adaptor/mango/response.go	13;"	w	access:public	ctype:BidResponse	line:13	type:string
 Id	src/common/ad.go	109;"	w	access:public	ctype:Order	line:109	type:int
 Id	src/common/ad.go	59;"	w	access:public	ctype:Ad	line:59	type:int
+Id	src/common/request.go	65;"	w	access:public	ctype:AppType	line:65	type:string
+Id	src/common/request.go	6;"	w	access:public	ctype:BidRequest	line:6	type:string
 ImpId	src/adaptor/mango/data.go	72;"	w	access:public	ctype:Impression	line:72	type:string
-Impid	src/adaptor/mango/response.go	24;"	w	access:public	ctype:Bid	line:24	type:string
+ImpId	src/common/request.go	34;"	w	access:public	ctype:AdSlotType	line:34	type:string
+ImpId	src/common/response.go	8;"	w	access:public	ctype:BidAd	line:8	type:string
+Impid	src/adaptor/mango/response.go	25;"	w	access:public	ctype:Bid	line:25	type:string
 Impression	src/adaptor/mango/data.go	71;"	t	access:public	line:71	type:struct
 Imps	src/adaptor/mango/request.go	13;"	w	access:public	ctype:BidRequest	line:13	type:[]Impression
 Incr	src/github.com/gosexy/redis/main.go	1629;"	m	access:public	ctype:Client	line:1629	signature:(key string)	type:int64, error
@@ -346,10 +383,12 @@ Init	src/github.com/gosexy/redis/fd_windows.go	56;"	m	access:public	ctype:anOp	l
 Init	src/github.com/gosexy/redis/fd_windows.go	85;"	m	access:public	ctype:bufOp	line:85	signature:(fd *netFD, buf []byte, mode int)
 Init	src/logger/logger.go	47;"	f	access:public	line:47	signature:(path string)	type:bool
 Instl	src/adaptor/mango/data.go	80;"	w	access:public	ctype:Impression	line:80	type:bool
-Instl	src/adaptor/mango/response.go	44;"	w	access:public	ctype:External	line:44	type:int
+Instl	src/adaptor/mango/response.go	45;"	w	access:public	ctype:External	line:45	type:int
+Instl	src/common/request.go	41;"	w	access:public	ctype:AdSlotType	line:41	type:bool
 Ip	src/adaptor/mango/data.go	378;"	w	access:public	ctype:Device	line:378	type:string
+Ip	src/common/request.go	8;"	w	access:public	ctype:BidRequest	line:8	type:string
 Itid	src/adaptor/mango/data.go	242;"	w	access:public	ctype:Application	line:242	type:string
-Iurl	src/adaptor/mango/response.go	31;"	w	access:public	ctype:Bid	line:31	type:string
+Iurl	src/adaptor/mango/response.go	32;"	w	access:public	ctype:Bid	line:32	type:string
 JS	src/common/ad.go	53;"	c	access:public	line:53
 Keys	src/github.com/gosexy/redis/main.go	1697;"	m	access:public	ctype:Client	line:1697	signature:(pattern string)	type:[]string, error
 Keywords	src/adaptor/mango/data.go	245;"	w	access:public	ctype:Application	line:245	type:string
@@ -364,7 +403,9 @@ LRem	src/github.com/gosexy/redis/main.go	1874;"	m	access:public	ctype:Client	lin
 LSet	src/github.com/gosexy/redis/main.go	1894;"	m	access:public	ctype:Client	line:1894	signature:(key string, index int64, value interface{})	type:string, error
 LTime	src/common/ad.go	125;"	w	access:public	ctype:Order	line:125	type:int
 LTrim	src/github.com/gosexy/redis/main.go	1915;"	m	access:public	ctype:Client	line:1915	signature:(key string, start int64, stop int64)	type:string, error
+LandingPage	src/common/response.go	16;"	w	access:public	ctype:BidAd	line:16	type:string
 Language	src/adaptor/mango/data.go	381;"	w	access:public	ctype:Device	line:381	type:string
+Language	src/common/request.go	19;"	w	access:public	ctype:BidRequest	line:19	type:string
 LastSave	src/github.com/gosexy/redis/main.go	1712;"	m	access:public	ctype:Client	line:1712	signature:()	type:int64, error
 Level	src/logger/logger.go	13;"	t	access:public	line:13	type:int
 Loc	src/adaptor/mango/data.go	388;"	w	access:public	ctype:Device	line:388	type:string
@@ -376,14 +417,17 @@ MRAID	src/adaptor/mango/data.go	22;"	c	access:public	line:22
 MSet	src/github.com/gosexy/redis/main.go	2001;"	m	access:public	ctype:Client	line:2001	signature:(values )	type:string, error
 MSetNX	src/github.com/gosexy/redis/main.go	2026;"	m	access:public	ctype:Client	line:2026	signature:(values )	type:bool, error
 Mac	src/adaptor/mango/data.go	376;"	w	access:public	ctype:Device	line:376	type:string
+Mac	src/common/request.go	11;"	w	access:public	ctype:BidRequest	line:11	type:string
 Maker	src/adaptor/mango/data.go	382;"	w	access:public	ctype:Device	line:382	type:string
 MangoHandler	src/server.go	34;"	f	access:public	line:34	signature:(w http.ResponseWriter, r *http.Request)
 MarkDynamic	src/common/ad.go	118;"	w	access:public	ctype:Order	line:118	type:bool
 MaxPrice	src/common/ad.go	114;"	w	access:public	ctype:Order	line:114	type:[]int
+Media	src/common/request.go	20;"	w	access:public	ctype:BidRequest	line:20	type:string
 Medical	src/adaptor/mango/data.go	64;"	c	access:public	line:64
 Migrate	src/github.com/gosexy/redis/main.go	1957;"	m	access:public	ctype:Client	line:1957	signature:(host string, port uint, key string, destination string, timeout int64)	type:string, error
 Mime	src/common/ad.go	78;"	w	access:public	ctype:Ad	line:78	type:MimeType
 MimeType	src/common/ad.go	28;"	t	access:public	line:28	type:int
+Mobile	src/common/request.go	7;"	w	access:public	ctype:BidRequest	line:7	type:bool
 ModAd	src/manager/manager.go	84;"	c	access:public	line:84
 ModOrder	src/manager/manager.go	83;"	c	access:public	line:83
 Model	src/adaptor/mango/data.go	383;"	w	access:public	ctype:Device	line:383	type:string
@@ -397,7 +441,7 @@ Name	src/github.com/gosexy/redis/fd_windows.go	405;"	m	access:public	ctype:readF
 Name	src/github.com/gosexy/redis/fd_windows.go	444;"	m	access:public	ctype:writeOp	line:444	signature:()	type:string
 Name	src/github.com/gosexy/redis/fd_windows.go	475;"	m	access:public	ctype:writeToOp	line:475	signature:()	type:string
 Name	src/github.com/gosexy/redis/fd_windows.go	516;"	m	access:public	ctype:acceptOp	line:516	signature:()	type:string
-Nbr	src/adaptor/mango/response.go	14;"	w	access:public	ctype:BidResponse	line:14	type:int
+Nbr	src/adaptor/mango/response.go	15;"	w	access:public	ctype:BidResponse	line:15	type:int
 Net	src/adaptor/mango/data.go	54;"	c	access:public	line:54
 New	src/github.com/gosexy/redis/main.go	142;"	f	access:public	ctype:Client	line:142	signature:()	type:*Client
 NewBidRequest	src/adaptor/mango/request.go	20;"	f	access:public	ctype:BidRequest	line:20	signature:(r *http.Request)	type:*BidRequest
@@ -405,7 +449,7 @@ NewCommand	src/manager/manager.go	95;"	f	access:public	ctype:Command	line:95	sig
 NewCommander	src/manager/manager.go	23;"	f	access:public	ctype:Commander	line:23	signature:(host string, port uint, rkey string)	type:*Commander
 NilCmd	src/manager/manager.go	80;"	c	access:public	line:80	type:CmdType
 Now	src/github.com/gosexy/redis/fd.go	89;"	m	access:public	ctype:pollServer	line:89	signature:()	type:int64
-Nurl	src/adaptor/mango/response.go	27;"	w	access:public	ctype:Bid	line:27	type:string
+Nurl	src/adaptor/mango/response.go	28;"	w	access:public	ctype:Bid	line:28	type:string
 Object	src/github.com/gosexy/redis/main.go	2071;"	m	access:public	ctype:Client	line:2071	signature:(subcommand string, arguments )	type:string, error
 Op	src/github.com/gosexy/redis/fd_windows.go	34;"	m	access:public	line:34	ntype:anOpIface	signature:()	type:*anOp
 Op	src/github.com/gosexy/redis/fd_windows.go	74;"	m	access:public	ctype:anOp	line:74	signature:()	type:*anOp
@@ -414,8 +458,10 @@ OpenWeb	src/adaptor/mango/data.go	533;"	c	access:public	line:533
 Operator	src/adaptor/mango/data.go	66;"	c	access:public	line:66
 Order	src/common/ad.go	108;"	t	access:public	line:108	type:struct
 OrderId	src/common/ad.go	83;"	w	access:public	ctype:Ad	line:83	type:int
+OrderId	src/common/response.go	7;"	w	access:public	ctype:BidAd	line:7	type:string
 Orientation	src/adaptor/mango/data.go	391;"	w	access:public	ctype:Device	line:391	type:int
 Os	src/adaptor/mango/data.go	384;"	w	access:public	ctype:Device	line:384	type:string
+Os	src/common/request.go	15;"	w	access:public	ctype:BidRequest	line:15	type:string
 Osv	src/adaptor/mango/data.go	385;"	w	access:public	ctype:Device	line:385	type:string
 PExpire	src/github.com/gosexy/redis/main.go	2112;"	m	access:public	ctype:Client	line:2112	signature:(key string, milliseconds int64)	type:bool, error
 PExpireAt	src/github.com/gosexy/redis/main.go	2131;"	m	access:public	ctype:Client	line:2131	signature:(key string, milliseconds int64)	type:bool, error
@@ -427,18 +473,23 @@ PTTL	src/github.com/gosexy/redis/main.go	2231;"	m	access:public	ctype:Client	lin
 PUnsubscribe	src/github.com/gosexy/redis/main.go	2267;"	m	access:public	ctype:Client	line:2267	signature:(pattern )	type:string, error
 Paid	src/adaptor/mango/data.go	243;"	w	access:public	ctype:Application	line:243	type:bool
 Parse	src/manager/manager.go	100;"	m	access:public	ctype:Command	line:100	signature:(jsonCmd string)	type:bool
+ParseFromCommon	src/adaptor/mango/response.go	146;"	m	access:public	ctype:BidResponse	line:146	signature:(cr *common.BidResponse)
+ParseToCommon	src/adaptor/mango/request.go	134;"	m	access:public	ctype:BidRequest	line:134	signature:()	type:*common.BidRequest
 Persist	src/github.com/gosexy/redis/main.go	2094;"	m	access:public	ctype:Client	line:2094	signature:(key string)	type:bool, error
 Person	src/adaptor/mango/data.go	55;"	c	access:public	line:55
 Ping	src/github.com/gosexy/redis/main.go	2150;"	m	access:public	ctype:Client	line:2150	signature:()	type:string, error
 Pop	src/adaptor/mango/data.go	37;"	c	access:public	line:37
 Pos	src/adaptor/mango/data.go	77;"	w	access:public	ctype:Impression	line:77	type:AdPosition
-Price	src/adaptor/mango/response.go	25;"	w	access:public	ctype:Bid	line:25	type:int
+Price	src/adaptor/mango/response.go	26;"	w	access:public	ctype:Bid	line:26	type:int
+Price	src/common/response.go	9;"	w	access:public	ctype:BidAd	line:9	type:int
 Priority	src/common/ad.go	62;"	w	access:public	ctype:Ad	line:62	type:int
 ProcessRemoteIO	src/github.com/gosexy/redis/fd_windows.go	134;"	m	access:public	ctype:ioSrv	line:134	signature:()
 PubSub	src/github.com/gosexy/redis/main.go	2208;"	m	access:public	ctype:Client	line:2208	signature:(subcommand string, arguments )	type:[]string, error
 Publish	src/github.com/gosexy/redis/main.go	2248;"	m	access:public	ctype:Client	line:2248	signature:(channel string, message interface{})	type:int64, error
 Publisher	src/adaptor/mango/data.go	247;"	w	access:public	ctype:Application	line:247	type:string
 PublisherId	src/adaptor/mango/data.go	246;"	w	access:public	ctype:Application	line:246	type:string
+Quality	src/common/request.go	61;"	w	access:public	ctype:SiteType	line:61	type:int
+Quality	src/common/request.go	66;"	w	access:public	ctype:AppType	line:66	type:int
 Quit	src/github.com/gosexy/redis/main.go	2288;"	m	access:public	ctype:Client	line:2288	signature:()	type:string, error
 RPop	src/github.com/gosexy/redis/main.go	2400;"	m	access:public	ctype:Client	line:2400	signature:(key string)	type:string, error
 RPopLPush	src/github.com/gosexy/redis/main.go	2419;"	m	access:public	ctype:Client	line:2419	signature:(source string, destination string)	type:string, error
@@ -450,10 +501,12 @@ ReadFrom	src/github.com/gosexy/redis/fd_windows.go	409;"	m	access:public	ctype:n
 ReadMsg	src/github.com/gosexy/redis/fd_windows.go	583;"	m	access:public	ctype:netFD	line:583	signature:(p []byte, oob []byte)	type:int, int, int, syscall.Sockaddr, error
 RealProperty	src/adaptor/mango/data.go	67;"	c	access:public	line:67
 Record	src/common/ad.go	117;"	w	access:public	ctype:Order	line:117	type:bool
+Region	src/common/request.go	12;"	w	access:public	ctype:BidRequest	line:12	type:string
 Rename	src/github.com/gosexy/redis/main.go	2343;"	m	access:public	ctype:Client	line:2343	signature:(key string, newkey string)	type:string, error
 RenameNX	src/github.com/gosexy/redis/main.go	2362;"	m	access:public	ctype:Client	line:2362	signature:(key string, newkey string)	type:bool, error
 Repair	src/manager/manager.go	33;"	m	access:public	ctype:Commander	line:33	signature:()	type:bool
-Response	src/adaptor/mango/response.go	101;"	m	access:public	ctype:BidResponse	line:101	signature:(w http.ResponseWriter)
+ReqId	src/common/response.go	22;"	w	access:public	ctype:BidResponse	line:22	type:string
+Response	src/adaptor/mango/response.go	102;"	m	access:public	ctype:BidResponse	line:102	signature:(w http.ResponseWriter)
 Restore	src/github.com/gosexy/redis/main.go	2381;"	m	access:public	ctype:Client	line:2381	signature:(key string, ttl int64, serializedValue string)	type:string, error
 Retail	src/adaptor/mango/data.go	56;"	c	access:public	line:56
 RollExpandable	src/adaptor/mango/data.go	34;"	c	access:public	line:34
@@ -482,9 +535,9 @@ ScriptExists	src/github.com/gosexy/redis/main.go	2538;"	m	access:public	ctype:Cl
 ScriptFlush	src/github.com/gosexy/redis/main.go	2559;"	m	access:public	ctype:Client	line:2559	signature:()	type:string, error
 ScriptKill	src/github.com/gosexy/redis/main.go	2578;"	m	access:public	ctype:Client	line:2578	signature:()	type:string, error
 ScriptLoad	src/github.com/gosexy/redis/main.go	2645;"	m	access:public	ctype:Client	line:2645	signature:(script string)	type:string, error
-Seat	src/adaptor/mango/response.go	20;"	w	access:public	ctype:SeatBid	line:20	type:string
-SeatBid	src/adaptor/mango/response.go	18;"	t	access:public	line:18	type:struct
-Seatbid	src/adaptor/mango/response.go	15;"	w	access:public	ctype:BidResponse	line:15	type:[]SeatBid
+Seat	src/adaptor/mango/response.go	21;"	w	access:public	ctype:SeatBid	line:21	type:string
+SeatBid	src/adaptor/mango/response.go	19;"	t	access:public	line:19	type:struct
+Seatbid	src/adaptor/mango/response.go	16;"	w	access:public	ctype:BidResponse	line:16	type:[]SeatBid
 Select	src/github.com/gosexy/redis/main.go	2707;"	m	access:public	ctype:Client	line:2707	signature:(index int64)	type:string, error
 SendMail	src/adaptor/mango/data.go	531;"	c	access:public	line:531
 SendMsg	src/adaptor/mango/data.go	534;"	c	access:public	line:534
@@ -541,11 +594,15 @@ SetVer	src/adaptor/mango/data.go	296;"	m	access:public	ctype:Application	line:29
 SetW	src/adaptor/mango/data.go	122;"	m	access:public	ctype:Impression	line:122	signature:(m *map[string]interface{})
 Sh	src/adaptor/mango/data.go	390;"	w	access:public	ctype:Device	line:390	type:int
 Shaky	src/adaptor/mango/data.go	39;"	c	access:public	line:39
+Site	src/common/request.go	26;"	w	access:public	ctype:BidRequest	line:26	type:SiteType
+SiteType	src/common/request.go	59;"	t	access:public	line:59	type:struct
 Size	src/common/ad.go	61;"	w	access:public	ctype:Ad	line:61	type:AdSize
 SlaveOf	src/github.com/gosexy/redis/main.go	2889;"	m	access:public	ctype:Client	line:2889	signature:(key string, port uint)	type:string, error
+Slots	src/common/request.go	21;"	w	access:public	ctype:BidRequest	line:21	type:[]AdSlotType
 SlowLog	src/github.com/gosexy/redis/main.go	2907;"	m	access:public	ctype:Client	line:2907	signature:(subcommand string, argument interface{})	type:[]string, error
 Sort	src/github.com/gosexy/redis/main.go	2965;"	m	access:public	ctype:Client	line:2965	signature:(key string, arguments )	type:[]string, error
 Splash	src/adaptor/mango/data.go	81;"	w	access:public	ctype:Impression	line:81	type:bool
+Splash	src/common/request.go	42;"	w	access:public	ctype:AdSlotType	line:42	type:bool
 StopWaiting	src/github.com/gosexy/redis/fd_linux.go	82;"	m	access:public	ctype:pollster	line:82	signature:(fd int, bits uint)
 Storeurl	src/adaptor/mango/data.go	244;"	w	access:public	ctype:Application	line:244	type:string
 String	src/common/ad.go	12;"	m	access:public	ctype:AdType	line:12	signature:()	type:string
@@ -619,18 +676,26 @@ Type	src/common/ad.go	60;"	w	access:public	ctype:Ad	line:60	type:AdType
 Type	src/github.com/gosexy/redis/main.go	3178;"	m	access:public	ctype:Client	line:3178	signature:(key string)	type:string, error
 UNKOWN	src/common/ad.go	46;"	c	access:public	line:46	type:Attribute
 Ua	src/adaptor/mango/data.go	377;"	w	access:public	ctype:Device	line:377	type:string
+Ua	src/common/request.go	14;"	w	access:public	ctype:BidRequest	line:14	type:string
 Unsubscribe	src/github.com/gosexy/redis/main.go	3196;"	m	access:public	ctype:Client	line:3196	signature:(channel )	type:error
 Unwatch	src/github.com/gosexy/redis/main.go	3215;"	m	access:public	ctype:Client	line:3215	signature:()	type:string, error
+Url	src/common/request.go	17;"	w	access:public	ctype:BidRequest	line:17	type:string
 UrlLanding	src/common/ad.go	71;"	w	access:public	ctype:Ad	line:71	type:string
 UrlThird	src/common/ad.go	70;"	w	access:public	ctype:Ad	line:70	type:string
 UseClassid	src/common/ad.go	127;"	w	access:public	ctype:Order	line:127	type:bool
 UseRetarget	src/common/ad.go	128;"	w	access:public	ctype:Order	line:128	type:bool
+User	src/common/request.go	25;"	w	access:public	ctype:BidRequest	line:25	type:UserType
 UserInteractive	src/adaptor/mango/data.go	42;"	c	access:public	line:42
+UserType	src/common/request.go	53;"	t	access:public	line:53	type:struct
+Uuid	src/common/request.go	13;"	w	access:public	ctype:BidRequest	line:13	type:string
 VIDEO	src/adaptor/mango/data.go	23;"	c	access:public	line:23
 VIDEO	src/common/ad.go	50;"	c	access:public	line:50
 Ver	src/adaptor/mango/data.go	240;"	w	access:public	ctype:Application	line:240	type:string
 Video	src/common/ad.go	9;"	c	access:public	line:9
+Visibility	src/common/request.go	38;"	w	access:public	ctype:AdSlotType	line:38	type:int
 W	src/adaptor/mango/data.go	75;"	w	access:public	ctype:Impression	line:75	type:int
+W	src/common/request.go	36;"	w	access:public	ctype:AdSlotType	line:36	type:int
+W	src/common/response.go	12;"	w	access:public	ctype:BidAd	line:12	type:int
 WaitFD	src/github.com/gosexy/redis/fd_darwin.go	85;"	m	access:public	ctype:pollster	line:85	signature:(s *pollServer, nsec int64)	type:int, int, error
 WaitFD	src/github.com/gosexy/redis/fd_freebsd.go	80;"	m	access:public	ctype:pollster	line:80	signature:(s *pollServer, nsec int64)	type:int, int, error
 WaitFD	src/github.com/gosexy/redis/fd_linux.go	138;"	m	access:public	ctype:pollster	line:138	signature:(s *pollServer, nsec int64)	type:int, int, error
@@ -639,6 +704,7 @@ WaitFD	src/github.com/gosexy/redis/fd_openbsd.go	80;"	m	access:public	ctype:poll
 WaitRead	src/github.com/gosexy/redis/fd.go	130;"	m	access:public	ctype:pollServer	line:130	signature:(fd int)	type:error
 WaitWrite	src/github.com/gosexy/redis/fd.go	148;"	m	access:public	ctype:pollServer	line:148	signature:(fd int)	type:error
 Watch	src/github.com/gosexy/redis/main.go	3231;"	m	access:public	ctype:Client	line:3231	signature:(key )	type:string, error
+WinUrl	src/common/response.go	10;"	w	access:public	ctype:BidAd	line:10	type:string
 WindowsDialogStyle	src/adaptor/mango/data.go	43;"	c	access:public	line:43
 Write	src/github.com/gosexy/redis/fd_windows.go	448;"	m	access:public	ctype:netFD	line:448	signature:(buf []byte)	type:int, error
 WriteMsg	src/github.com/gosexy/redis/fd_windows.go	587;"	m	access:public	ctype:netFD	line:587	signature:(p []byte, oob []byte, sa syscall.Sockaddr)	type:int, int, error
@@ -698,7 +764,10 @@ closesocket	src/github.com/gosexy/redis/fd_windows.go	28;"	f	access:private	line
 closing	src/github.com/gosexy/redis/fd_windows.go	224;"	w	access:private	ctype:netFD	line:224	type:bool
 code.google.com/p/tcgl/redis	src/github.com/gosexy/redis/_benchmarks/tcgl_redis_test.go	4;"	i	line:4
 command	src/github.com/gosexy/redis/main.go	670;"	m	access:private	ctype:Client	line:670	signature:(dest interface{}, values )	type:error
+common	src/adaptor/mango/response.go	8;"	i	line:8
 common	src/common/ad.go	1;"	p	line:1
+common	src/common/request.go	1;"	p	line:1
+common	src/common/response.go	1;"	p	line:1
 connect	src/github.com/gosexy/redis/fd_windows.go	272;"	m	access:private	ctype:netFD	line:272	signature:(ra syscall.Sockaddr)	type:error
 connected	src/github.com/gosexy/redis/main.go	123;"	w	access:private	ctype:Client	line:123	type:bool
 consumer	src/github.com/gosexy/redis/_examples/test-server-disconnection/main.go	12;"	v	access:private	line:12	type:*redis.Client
@@ -741,7 +810,7 @@ fd	src/github.com/gosexy/redis/fd_windows.go	53;"	w	access:private	ctype:anOp	li
 fdev	src/github.com/gosexy/redis/main.go	127;"	v	access:private	line:127	type:map[int]map[int]func()
 fds	src/github.com/gosexy/redis/fd.go	33;"	v	access:private	line:33
 fileFD	src/github.com/gosexy/redis/fd.go	26;"	t	access:private	line:26	type:struct
-fillMap	src/adaptor/mango/response.go	49;"	m	access:private	ctype:Bid	line:49	signature:(m *map[string]interface{})
+fillMap	src/adaptor/mango/response.go	50;"	m	access:private	ctype:Bid	line:50	signature:(m *map[string]interface{})
 flag	src/github.com/gosexy/redis/main_test.go	4;"	i	line:4
 fmt	src/adaptor/mango/response.go	5;"	i	line:5
 fmt	src/cli.go	4;"	i	line:4
@@ -800,7 +869,7 @@ log	src/github.com/gosexy/redis/_examples/test-subscribe/main.go	4;"	i	line:4
 log	src/github.com/gosexy/redis/main_test.go	6;"	i	line:6
 log	src/logger/logger.go	4;"	i	line:4
 logger	src/adaptor/mango/request.go	8;"	i	line:8
-logger	src/adaptor/mango/response.go	8;"	i	line:8
+logger	src/adaptor/mango/response.go	9;"	i	line:9
 logger	src/logger/logger.go	1;"	p	line:1
 logger	src/manager/manager.go	10;"	i	line:10
 logger	src/server.go	5;"	i	line:5
@@ -827,7 +896,7 @@ main	src/github.com/gosexy/redis/_examples/test-server-disconnection/main.go	1;"
 main	src/github.com/gosexy/redis/_examples/test-subscribe/main.go	1;"	p	line:1
 main	src/github.com/gosexy/redis/_examples/test-subscribe/main.go	79;"	f	access:private	line:79	signature:()
 main	src/server.go	1;"	p	line:1
-main	src/server.go	45;"	f	access:private	line:45	signature:()
+main	src/server.go	52;"	f	access:private	line:52	signature:()
 manager	src/manager/manager.go	1;"	p	line:1
 manager	src/server.go	6;"	i	line:6
 mango	src/adaptor/mango/data.go	1;"	p	line:1
