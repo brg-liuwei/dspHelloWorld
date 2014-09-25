@@ -27,13 +27,6 @@ type BidRequest struct {
 	App  AppType
 }
 
-/* 在这里面实现竞价逻辑 */
-func (r *BidRequest) GenResponse() (res *BidResponse) {
-	res = new(BidResponse)
-	// RTB logic
-	return
-}
-
 type AdSlotType struct {
 	ImpId      string
 	BidFloor   int // 微分(0.0001 RMB/CPM)

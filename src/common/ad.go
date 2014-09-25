@@ -5,7 +5,8 @@ import ()
 type AdType int
 
 const (
-	Banner AdType = iota
+	AdtypeUnknown AdType = iota
+	Banner
 	Video
 )
 
@@ -20,20 +21,19 @@ func (t *AdType) String() string {
 	}
 }
 
-type AdSize struct {
-	X int
-	Y int
-}
-
 type MimeType int
 
 const (
-	X_FLV MimeType = iota
+	MimeUnknown MimeType = iota
+	MimeVideo
+	MimeX_FLV
 )
 
 func (t *MimeType) String() string {
 	switch *t {
-	case X_FLV:
+	case MimeVideo:
+		return "Video"
+	case MimeX_FLV:
 		return "X-FLV"
 	default:
 		return "UnkownMimeType"
@@ -56,32 +56,32 @@ const (
 )
 
 type Ad struct {
-	Id       int
-	Type     AdType
-	Size     AdSize
-	Priority int /* default value: 0 */
-
+	Id       string //ok
+	Type     AdType // ok
+	W        int    //ok
+	H        int    //ok
+	Priority int    /* default value: 0 */ // ok
 	/* Attributes */
-	Category        []int     /* category of ad */
-	CategoryProduct []int     /* category of ad producer */
-	Attr            Attribute /* attribute of ad creative */
-
+	Category        []int     /* category of ad */           //ok
+	CategoryProduct []int     /* category of ad producer */  // ok
+	Attr            Attribute /* attribute of ad creative */ // ok
 	/* urls */
-	UrlThird   string /* third party monitor url */
-	UrlLanding string /* landing page url */
-
+	UrlDisplayMonitor string
+	UrlClickMonitor   string
+	UrlThirdMonitor   string /* third party monitor url */ // ok
+	UrlLanding        string /* landing page url */        //ok
 	/* Templete */
-	TmpName     string /* name of ad templete */
-	HtmlSnippet string /* html snippet code of dynamic creative */
-
+	TmpName     string /* name of ad templete */                   // ok
+	HtmlSnippet string /* html snippet code of dynamic creative */ //ok
 	/* used for video */
-	Mime     MimeType
-	Duration int    /* time duration of video, 0 for banner */
-	Ch1      string /* first level channel of video creative */
-	Ch2      string /* second level channel of video creative */
-
-	OrderId    int
-	CreativeId int
+	Mime        MimeType // ok
+	Duration    int      /* time duration of video, 0 for banner */   //ok
+	Ch1         string   /* first level channel of video creative */  // ok
+	Ch2         string   /* second level channel of video creative */ // ok
+	OrderId     string   // ok
+	UrlCreative string   //ok
+	CreativeId  int      // ok
+	Active      bool     // ok
 }
 
 type Adx int
@@ -106,9 +106,9 @@ const (
 )
 
 type Order struct {
-	Id         int
-	CampaignId int
-	AdOwnerId  int
+	Id         string
+	CampaignId string
+	AdOwnerId  string
 
 	AdxList  []Adx /* Adx deliver list */
 	MaxPrice [NADX]int
@@ -137,4 +137,5 @@ type Order struct {
 	Gender         int /* 性别定向: 0:all; 1:男; 2:女 */
 
 	CountCost int /* 订单投放配额：微分 */
+	Active    bool
 }

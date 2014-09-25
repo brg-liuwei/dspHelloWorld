@@ -2,6 +2,8 @@ package main
 
 import (
 	"adaptor/mango"
+	"bid"
+	"filter"
 	"logger"
 	"manager"
 
@@ -43,7 +45,7 @@ func MangoHandler(w http.ResponseWriter, r *http.Request) {
 	//fmt.Printf("%#v\n", *bidRequest)
 
 	commonRequest := bidRequest.ParseToCommon()
-	commonResponse := commonRequest.GenResponse()
+	commonResponse := bid.Bid(commonRequest)
 	bidResponse := new(mango.BidResponse)
 	bidResponse.ParseFromCommon(commonResponse)
 	bidResponse.Response(w)
@@ -54,6 +56,9 @@ func main() {
 	if ok := logger.Init("dspLog.log"); !ok {
 		panic("logger init error.")
 	}
+	//common.WinUrl = //...
+	filter.Init()
+	//go  manager.CommanderRoutine("proxy-addr", 22121, "cmd-queue")
 	http.HandleFunc("/mango", MangoHandler)
 	panic(http.ListenAndServe(":12306", nil))
 }
