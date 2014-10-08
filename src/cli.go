@@ -46,7 +46,7 @@ var bidRequest string = `{
     }`
 
 //var postAddr string = "http://localhost:12345/posttest"
-var postAddr string = "http://localhost:12306/mango"
+var postAddr string = "http://localhost:18124/mango"
 
 func main() {
 	reader := strings.NewReader(bidRequest)

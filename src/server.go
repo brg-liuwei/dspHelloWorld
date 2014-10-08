@@ -33,6 +33,7 @@ func TestManager() {
 }
 
 func MangoHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("bidrequest: ", *r)
 	bidRequest := mango.NewBidRequest(r)
 	if bidRequest == nil {
 		return
@@ -58,7 +59,7 @@ func main() {
 	filter.Init()
 
 	//common.WinUrl = //...
-	//go  manager.CommanderRoutine("proxy-addr", 22121, "cmd-queue")
+	go manager.CommanderRoutine("<redis-ip>", 0 /* <redis port> */, "dcc-<dsp-ip>")
 	http.HandleFunc("/mango", MangoHandler)
-	panic(http.ListenAndServe(":12306", nil))
+	panic(http.ListenAndServe(":18124", nil))
 }

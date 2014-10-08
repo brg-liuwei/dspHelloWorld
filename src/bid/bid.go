@@ -19,7 +19,7 @@ func Bid(req *common.BidRequest) *common.BidResponse {
 		c.Lock.RLock()
 		defer c.Lock.RUnlock()
 		idx := rand.Int()
-		for i := 0; i < len(c.Ads) || i < 256; i++ {
+		for i := 0; i < len(c.Ads) && i < 256; i++ {
 			idx = idx % len(c.Ads)
 			if price, ok := filter.GFilterList.DoFilter(&c.Ads[idx], req); ok {
 				ids = append(ids, c.Ads[idx].Id)

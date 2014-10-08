@@ -50,7 +50,11 @@ func (c *Commander) GetCmd() (cmd string, err error) {
 	ss, e := c.cli.BLPop(600, c.rkey)
 	switch e {
 	case nil:
-		cmd = ss[0]
+		if len(ss) != 2 {
+			managerLogger.Log(logger.ERROR, "command len error: ", len(ss))
+		} else {
+			cmd = ss[1]
+		}
 	case redis.ErrNilReply:
 		err = ErrNoCmd
 	default:
@@ -152,11 +156,17 @@ func (c *Command) Execute() {
 }
 
 func (c *Command) AddOrder() {
-	data, ok := c.Data.([]interface{})
-	if !ok {
+	var data []interface{}
+	if dataSlice, ok := c.Data.([]interface{}); ok {
+		data = dataSlice
+	} else if d, ok := c.Data.(map[string]interface{}); ok {
+		data = make([]interface{}, 0, 1)
+		data = append(data, d)
+	} else {
 		managerLogger.Log(logger.ERROR, "in AddOrder data err")
 		return
 	}
+
 	type OrderAddFmt struct {
 		Order_id      string
 		Campaign_id   string
@@ -252,18 +262,26 @@ func (c *Command) AddOrder() {
 			}
 		}(&order, &orderFmt)
 		common.GOrderContainer.Add(&order)
+		managerLogger.Log(logger.INFO, "add order successfully: ", d)
 	}
 }
 
 func (c *Command) DelOrder() {
-	data, ok := c.Data.([]interface{})
-	if !ok {
+	var data []interface{}
+	if dataSlice, ok := c.Data.([]interface{}); ok {
+		data = dataSlice
+	} else if d, ok := c.Data.(map[string]interface{}); ok {
+		data = make([]interface{}, 0, 1)
+		data = append(data, d)
+	} else {
 		managerLogger.Log(logger.ERROR, "in DelOrder data err")
 		return
 	}
+
 	for _, d := range data {
 		if id, ok := d.(string); ok {
 			common.GOrderContainer.Del(id)
+			managerLogger.Log(logger.INFO, "del order successfully: ", d)
 		} else {
 			managerLogger.Log(logger.ERROR, "in DelOrder, data array fmt err")
 		}
@@ -271,8 +289,13 @@ func (c *Command) DelOrder() {
 }
 
 func (c *Command) AddAd() {
-	data, ok := c.Data.([]interface{})
-	if !ok {
+	var data []interface{}
+	if dataSlice, ok := c.Data.([]interface{}); ok {
+		data = dataSlice
+	} else if d, ok := c.Data.(map[string]interface{}); ok {
+		data = make([]interface{}, 0, 1)
+		data = append(data, d)
+	} else {
 		managerLogger.Log(logger.ERROR, "in AddAd data err")
 		return
 	}
@@ -437,18 +460,26 @@ func (c *Command) AddAd() {
 			}
 		}(&ad, &adFmt)
 		common.GAdContainer.Add(&ad)
+		managerLogger.Log(logger.INFO, "add ad successfully: ", d)
 	}
 }
 
 func (c *Command) DelAd() {
-	data, ok := c.Data.([]interface{})
-	if !ok {
+	var data []interface{}
+	if dataSlice, ok := c.Data.([]interface{}); ok {
+		data = dataSlice
+	} else if d, ok := c.Data.(map[string]interface{}); ok {
+		data = make([]interface{}, 0, 1)
+		data = append(data, d)
+	} else {
 		managerLogger.Log(logger.ERROR, "in DelAd data err")
 		return
 	}
+
 	for _, d := range data {
 		if id, ok := d.(string); ok {
 			common.GAdContainer.Del(id)
+			managerLogger.Log(logger.INFO, "del ad successfully: ", d)
 		} else {
 			managerLogger.Log(logger.ERROR, "in DelAd, data array fmt err")
 		}
