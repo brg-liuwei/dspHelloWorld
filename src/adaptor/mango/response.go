@@ -140,7 +140,7 @@ end:
 	w.Write(response)
 
 	/* log bid response */
-	logger.Log(logger.INFO, "{\"MONGO\":"+string(response)+"}")
+	mangoLogger.Log(logger.INFO, "{\"MONGO\":"+string(response)+"}")
 }
 
 func (r *BidResponse) ParseFromCommon(cr *common.BidResponse) {

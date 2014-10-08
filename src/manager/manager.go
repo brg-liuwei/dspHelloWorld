@@ -73,7 +73,7 @@ func CommanderRoutine(host string, port uint, rkey string) {
 				command.Execute()
 			}
 		default:
-			logger.Log(logger.ERROR, "redis connect err:", err)
+			managerLogger.Log(logger.ERROR, "redis connect err:", err)
 			c.Repair()
 			time.Sleep(1 * time.Second)
 		}
@@ -113,7 +113,7 @@ func (c *Command) Parse(jsonCmd string) bool {
 	dec := json.NewDecoder(strings.NewReader(jsonCmd))
 	err := dec.Decode(&cmd)
 	if err != nil {
-		logger.Log(logger.ERROR, "decode cmd err: ", jsonCmd, err)
+		managerLogger.Log(logger.ERROR, "decode cmd err: ", jsonCmd, err)
 		return false
 	}
 	switch cmd.Oper_type {
@@ -130,7 +130,7 @@ func (c *Command) Parse(jsonCmd string) bool {
 	case "6":
 		c.Ctype = DelAd
 	default:
-		logger.Log(logger.ERROR, "cmd type error: ", jsonCmd, cmd.Oper_type)
+		managerLogger.Log(logger.ERROR, "cmd type error: ", jsonCmd, cmd.Oper_type)
 		return false
 	}
 	c.Cversion = cmd.Fmt_ver
@@ -154,7 +154,7 @@ func (c *Command) Execute() {
 func (c *Command) AddOrder() {
 	data, ok := c.Data.([]interface{})
 	if !ok {
-		logger.Log(logger.ERROR, "in AddOrder data err")
+		managerLogger.Log(logger.ERROR, "in AddOrder data err")
 		return
 	}
 	type OrderAddFmt struct {
@@ -188,7 +188,7 @@ func (c *Command) AddOrder() {
 		var orderFmt OrderAddFmt
 		b, e := json.Marshal(d)
 		if e != nil {
-			logger.Log(logger.ERROR, "Marshal json err: ", e)
+			managerLogger.Log(logger.ERROR, "Marshal json err: ", e)
 			continue
 		}
 		dec := json.NewDecoder(bytes.NewReader(b))
@@ -206,7 +206,7 @@ func (c *Command) AddOrder() {
 				if i, err := strconv.Atoi(e); err == nil {
 					dst.AdxList = append(dst.AdxList, common.Adx(i))
 				} else {
-					logger.Log(logger.ERROR, "Exchange Code Error: ", e)
+					managerLogger.Log(logger.ERROR, "Exchange Code Error: ", e)
 				}
 			}
 			dst.MaxPrice[common.MANGO], _ = strconv.Atoi(src.Max_price_mango)
@@ -258,14 +258,14 @@ func (c *Command) AddOrder() {
 func (c *Command) DelOrder() {
 	data, ok := c.Data.([]interface{})
 	if !ok {
-		logger.Log(logger.ERROR, "in DelOrder data err")
+		managerLogger.Log(logger.ERROR, "in DelOrder data err")
 		return
 	}
 	for _, d := range data {
 		if id, ok := d.(string); ok {
 			common.GOrderContainer.Del(id)
 		} else {
-			logger.Log(logger.ERROR, "in DelOrder, data array fmt err")
+			managerLogger.Log(logger.ERROR, "in DelOrder, data array fmt err")
 		}
 	}
 }
@@ -273,7 +273,7 @@ func (c *Command) DelOrder() {
 func (c *Command) AddAd() {
 	data, ok := c.Data.([]interface{})
 	if !ok {
-		logger.Log(logger.ERROR, "in AddAd data err")
+		managerLogger.Log(logger.ERROR, "in AddAd data err")
 		return
 	}
 
@@ -299,13 +299,21 @@ func (c *Command) AddAd() {
 		Buyer_creative_id string
 		Advertiser_name   string
 		Active            string
+
+		Url_in    []string
+		Url_out   []string
+		Url_price []map[string]string
+
+		Slotid_in    []string
+		Slotid_out   []string
+		Slotid_price []map[string]string
 	}
 
 	for _, d := range data {
 		var adFmt AdAddFmt
 		b, e := json.Marshal(d)
 		if e != nil {
-			logger.Log(logger.ERROR, "Marshal json err: ", e)
+			managerLogger.Log(logger.ERROR, "Marshal json err: ", e)
 			continue
 		}
 		dec := json.NewDecoder(bytes.NewReader(b))
@@ -373,6 +381,60 @@ func (c *Command) AddAd() {
 			default:
 				dst.Active = true
 			}
+
+			/* for url filter */
+			if src.Url_out == nil {
+				dst.UrlOut = nil
+			} else {
+				dst.UrlOut = make(map[string]bool)
+				for _, url := range src.Url_out {
+					dst.UrlOut[url] = true
+				}
+			}
+			if src.Url_in == nil {
+				dst.UrlIn = nil
+				dst.UrlPrice = nil
+			} else {
+				dst.UrlIn = make(map[string]bool)
+				for _, url := range src.Url_in {
+					dst.UrlIn[url] = true
+				}
+				if src.Url_price != nil {
+					dst.UrlPrice = make(map[string]int)
+					for _, m := range src.Url_price {
+						url := m["Url"]
+						price, _ := strconv.Atoi(m["Price"])
+						dst.UrlPrice[url] = price
+					}
+				}
+			}
+
+			/* for slot filter */
+			if src.Slotid_out == nil {
+				dst.SlotOut = nil
+			} else {
+				dst.SlotOut = make(map[string]bool)
+				for _, slot := range src.Slotid_out {
+					dst.SlotOut[slot] = true
+				}
+			}
+			if src.Slotid_in == nil {
+				dst.SlotIn = nil
+				dst.SlotPrice = nil
+			} else {
+				dst.SlotIn = make(map[string]bool)
+				for _, slot := range src.Slotid_in {
+					dst.SlotIn[slot] = true
+				}
+				if src.Slotid_price != nil {
+					dst.SlotPrice = make(map[string]int)
+					for _, m := range src.Slotid_price {
+						slot := m["Slotid"]
+						price, _ := strconv.Atoi(m["Price"])
+						dst.SlotPrice[slot] = price
+					}
+				}
+			}
 		}(&ad, &adFmt)
 		common.GAdContainer.Add(&ad)
 	}
@@ -381,14 +443,20 @@ func (c *Command) AddAd() {
 func (c *Command) DelAd() {
 	data, ok := c.Data.([]interface{})
 	if !ok {
-		logger.Log(logger.ERROR, "in DelAd data err")
+		managerLogger.Log(logger.ERROR, "in DelAd data err")
 		return
 	}
 	for _, d := range data {
 		if id, ok := d.(string); ok {
 			common.GAdContainer.Del(id)
 		} else {
-			logger.Log(logger.ERROR, "in DelAd, data array fmt err")
+			managerLogger.Log(logger.ERROR, "in DelAd, data array fmt err")
 		}
 	}
+}
+
+var managerLogger *logger.Log
+
+func Init(path string) {
+	managerLogger = logger.NewLog(path)
 }

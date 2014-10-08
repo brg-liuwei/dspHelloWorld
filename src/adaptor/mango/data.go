@@ -1,6 +1,8 @@
 package mango
 
-import ()
+import (
+	"logger"
+)
 
 type AdPosition int
 
@@ -537,3 +539,9 @@ const (
 	OpenMap
 	CliTypeOther = 10
 )
+
+var mangoLogger *logger.Log
+
+func Init(path string) {
+	mangoLogger = logger.NewLog(path)
+}

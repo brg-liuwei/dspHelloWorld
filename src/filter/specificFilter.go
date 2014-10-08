@@ -6,9 +6,8 @@ import (
 )
 
 type BasicFilter struct{}
-
-// type RegionFilter struct{}
-type MediaFilter struct{}
+type UrlFilter struct{}
+type SlotFilter struct{}
 type TagFilter struct{}
 type RetargetFilter struct{}
 
@@ -20,7 +19,7 @@ func (f BasicFilter) Do(ad *common.Ad, req *common.BidRequest) (int, bool) {
 	if !ad.Active {
 		return 0, false
 	}
-	if len(req.Slots) == 0 {
+	if req.Slots == nil || len(req.Slots) == 0 {
 		return 0, false
 	}
 	/* Now, we only deal with situation len(slots) == 1 */
@@ -30,11 +29,31 @@ func (f BasicFilter) Do(ad *common.Ad, req *common.BidRequest) (int, bool) {
 	return 0, true
 }
 
-func NewMediaFilter() *MediaFilter {
-	return &MediaFilter{}
+func NewUrlFilter() *UrlFilter {
+	return &UrlFilter{}
 }
 
-func (f MediaFilter) Do(ad *common.Ad, req *common.BidRequest) (int, bool) {
+func (f UrlFilter) Do(ad *common.Ad, req *common.BidRequest) (int, bool) {
+	url := req.Url
+	if len(ad.UrlIn) != 0 {
+		if _, ok := ad.UrlIn[url]; !ok {
+			return 0, false
+		}
+	}
+	if len(ad.UrlOut) != 0 {
+		if _, ok := ad.UrlOut[url]; ok {
+			return 0, false
+		}
+	}
+	rate, _ := ad.UrlPrice[url]
+	return rate, true
+}
+
+func NewSlotFilter() *SlotFilter {
+	return &SlotFilter{}
+}
+
+func (f SlotFilter) Do(ad *common.Ad, req *common.BidRequest) (int, bool) {
 	return 0, true
 }
 
@@ -57,7 +76,8 @@ func (f RetargetFilter) Do(ad *common.Ad, req *common.BidRequest) (int, bool) {
 var once sync.Once
 
 var basicFilter BasicFilter
-var mediaFilter MediaFilter
+var urlFilter UrlFilter
+var slotFilter SlotFilter
 var tagFilter TagFilter
 var retargetFilter RetargetFilter
 
@@ -65,7 +85,8 @@ func Init() {
 	once.Do(func() {
 		GFilterList = NewFilterList()
 		GFilterList.Add(basicFilter)
-		GFilterList.Add(mediaFilter)
+		GFilterList.Add(urlFilter)
+		GFilterList.Add(slotFilter)
 		GFilterList.Add(tagFilter)
 		GFilterList.Add(retargetFilter)
 	})

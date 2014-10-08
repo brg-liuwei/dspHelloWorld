@@ -4,7 +4,6 @@ import (
 	"adaptor/mango"
 	"bid"
 	"filter"
-	"logger"
 	"manager"
 
 	"fmt"
@@ -53,11 +52,12 @@ func MangoHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	runtime.GOMAXPROCS(runtime.NumCPU())
-	if ok := logger.Init("dspLog.log"); !ok {
-		panic("logger init error.")
-	}
-	//common.WinUrl = //...
+
+	manager.Init("manager.log")
+	mango.Init("mango.log")
 	filter.Init()
+
+	//common.WinUrl = //...
 	//go  manager.CommanderRoutine("proxy-addr", 22121, "cmd-queue")
 	http.HandleFunc("/mango", MangoHandler)
 	panic(http.ListenAndServe(":12306", nil))

@@ -20,33 +20,33 @@ type BidRequest struct {
 
 func NewBidRequest(r *http.Request) *BidRequest {
 	if r.Method != "POST" {
-		logger.Log(logger.ERROR, "http.Request Method error: ", r.Method)
+		mangoLogger.Log(logger.ERROR, "http.Request Method error: ", r.Method)
 		return nil
 	}
 
 	var m map[string]interface{}
 	if body, err := ioutil.ReadAll(r.Body); err != nil {
-		logger.Log(logger.ERROR, "read ttp.Request.Body error: ", err)
+		mangoLogger.Log(logger.ERROR, "read ttp.Request.Body error: ", err)
 		return nil
 	} else {
 		m = make(map[string]interface{})
 		if err := json.Unmarshal(body, &m); err != nil {
-			logger.Log(logger.ERROR, "unmarshal json error: ", err)
+			mangoLogger.Log(logger.ERROR, "unmarshal json error: ", err)
 			return nil
 		}
 	}
 
 	br := new(BidRequest)
 	if !br.SetId(&m) {
-		logger.Log(logger.ERROR, "bid request set id error")
+		mangoLogger.Log(logger.ERROR, "bid request set id error")
 		return nil
 	}
 	if !br.SetImps(&m) {
-		logger.Log(logger.ERROR, "bid request set imps error")
+		mangoLogger.Log(logger.ERROR, "bid request set imps error")
 		return nil
 	}
 	if !br.SetApp(&m) {
-		logger.Log(logger.ERROR, "bid request set app error")
+		mangoLogger.Log(logger.ERROR, "bid request set app error")
 		return nil
 	}
 	br.SetDevice(&m)

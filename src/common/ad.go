@@ -82,6 +82,16 @@ type Ad struct {
 	UrlCreative string   //ok
 	CreativeId  int      // ok
 	Active      bool     // ok
+
+	// url溢价
+	UrlIn    map[string]bool
+	UrlOut   map[string]bool
+	UrlPrice map[string]int
+
+	// ad place溢价
+	SlotIn    map[string]bool
+	SlotOut   map[string]bool
+	SlotPrice map[string]int
 }
 
 type Adx int
