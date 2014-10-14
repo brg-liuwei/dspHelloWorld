@@ -104,7 +104,7 @@ const (
 	TENCENT                 // 5
 	SOHU                    // 6
 	MIAOZHEN                // 7
-	MANGO
+	MANGO                   // 8
 	NADX
 )
 

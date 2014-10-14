@@ -5,12 +5,12 @@
 !_TAG_PROGRAM_URL	https://github.com/jstemmer/gotags	
 !_TAG_PROGRAM_VERSION	1.2.0	
 ALLYES	src/common/ad.go	101;"	c	access:public	line:101
-Aamu	src/adaptor/mango/data.go	204;"	c	access:public	line:204
-Aani	src/adaptor/mango/data.go	201;"	c	access:public	line:201
-Abook	src/adaptor/mango/data.go	199;"	c	access:public	line:199	type:AppCat
-Abus	src/adaptor/mango/data.go	200;"	c	access:public	line:200
-Abuy	src/adaptor/mango/data.go	218;"	c	access:public	line:218
-Acom	src/adaptor/mango/data.go	202;"	c	access:public	line:202
+Aamu	src/adaptor/mango/data.go	223;"	c	access:public	line:223
+Aani	src/adaptor/mango/data.go	220;"	c	access:public	line:220
+Abook	src/adaptor/mango/data.go	218;"	c	access:public	line:218	type:AppCat
+Abus	src/adaptor/mango/data.go	219;"	c	access:public	line:219
+Abuy	src/adaptor/mango/data.go	237;"	c	access:public	line:237
+Acom	src/adaptor/mango/data.go	221;"	c	access:public	line:221
 Active	src/common/ad.go	150;"	w	access:public	ctype:Order	line:150	type:bool
 Active	src/common/ad.go	84;"	w	access:public	ctype:Ad	line:84	type:bool
 Ad	src/common/ad.go	58;"	t	access:public	line:58	type:struct
@@ -19,7 +19,7 @@ AdAttrUnknown	src/adaptor/mango/data.go	31;"	c	access:public	line:31	type:AdAttr
 AdCanBeSkipped	src/adaptor/mango/data.go	47;"	c	access:public	line:47
 AdCatOther	src/adaptor/mango/data.go	70;"	c	access:public	line:70
 AdCategory	src/adaptor/mango/data.go	50;"	t	access:public	line:50	type:string
-AdContainer	src/common/util.go	12;"	t	access:public	line:12	type:struct
+AdContainer	src/common/util.go	13;"	t	access:public	line:13	type:struct
 AdId	src/common/response.go	6;"	w	access:public	ctype:BidAd	line:6	type:string
 AdOwnerId	src/common/ad.go	121;"	w	access:public	ctype:Order	line:121	type:string
 AdPosUnknown	src/adaptor/mango/data.go	10;"	c	access:public	line:10	type:AdPosition
@@ -27,20 +27,20 @@ AdPosition	src/adaptor/mango/data.go	7;"	t	access:public	line:7	type:int
 AdSlotType	src/common/request.go	30;"	t	access:public	line:30	type:struct
 AdType	src/adaptor/mango/data.go	17;"	t	access:public	line:17	type:string
 AdType	src/common/ad.go	5;"	t	access:public	line:5	type:int
-Add	src/common/util.go	25;"	m	access:public	ctype:AdContainer	line:25	signature:(ad *Ad)
-Add	src/common/util.go	81;"	m	access:public	ctype:OrderContainer	line:81	signature:(order *Order)
+Add	src/common/util.go	26;"	m	access:public	ctype:AdContainer	line:26	signature:(ad *Ad)
+Add	src/common/util.go	82;"	m	access:public	ctype:OrderContainer	line:82	signature:(order *Order)
 Add	src/filter/filter.go	23;"	m	access:public	ctype:FilterList	line:23	signature:(f Filter)
-AddAd	src/manager/manager.go	273;"	m	access:public	ctype:Command	line:273	signature:()
-AddAd	src/manager/manager.go	88;"	c	access:public	line:88
-AddOrder	src/manager/manager.go	154;"	m	access:public	ctype:Command	line:154	signature:()
-AddOrder	src/manager/manager.go	87;"	c	access:public	line:87
+AddAd	src/manager/manager.go	117;"	c	access:public	line:117
+AddAd	src/manager/manager.go	316;"	m	access:public	ctype:Command	line:316	signature:()
+AddOrder	src/manager/manager.go	116;"	c	access:public	line:116
+AddOrder	src/manager/manager.go	183;"	m	access:public	ctype:Command	line:183	signature:()
 Ade	src/adaptor/mango/response.go	47;"	w	access:public	ctype:External	line:47	type:string
 Adh	src/adaptor/mango/response.go	31;"	w	access:public	ctype:Bid	line:31	type:int
 Adid	src/adaptor/mango/response.go	27;"	w	access:public	ctype:Bid	line:27	type:string
 Adm	src/adaptor/mango/response.go	29;"	w	access:public	ctype:Bid	line:29	type:string
 Adm	src/common/response.go	11;"	w	access:public	ctype:BidAd	line:11	type:string
 Ads	src/common/response.go	24;"	w	access:public	ctype:BidResponse	line:24	type:[]BidAd
-Ads	src/common/util.go	14;"	w	access:public	ctype:AdContainer	line:14	type:[]Ad
+Ads	src/common/util.go	15;"	w	access:public	ctype:AdContainer	line:15	type:[]Ad
 Adt	src/adaptor/mango/response.go	46;"	w	access:public	ctype:External	line:46	type:int
 AdtypeUnknown	src/common/ad.go	8;"	c	access:public	line:8	type:AdType
 AdvertX	src/common/ad.go	140;"	w	access:public	ctype:Order	line:140	type:int
@@ -49,45 +49,45 @@ Adw	src/adaptor/mango/response.go	30;"	w	access:public	ctype:Bid	line:30	type:in
 Adx	src/common/ad.go	97;"	t	access:public	line:97	type:int
 AdxId	src/common/request.go	23;"	w	access:public	ctype:BidRequest	line:23	type:Adx
 AdxList	src/common/ad.go	123;"	w	access:public	ctype:Order	line:123	type:[]Adx
-Aedu	src/adaptor/mango/data.go	203;"	c	access:public	line:203
-Aeff	src/adaptor/mango/data.go	217;"	c	access:public	line:217
-Afas	src/adaptor/mango/data.go	209;"	c	access:public	line:209
-Afin	src/adaptor/mango/data.go	205;"	c	access:public	line:205
-Agam	src/adaptor/mango/data.go	206;"	c	access:public	line:206
-Agam1	src/adaptor/mango/data.go	226;"	c	access:public	line:226
-Agam2	src/adaptor/mango/data.go	227;"	c	access:public	line:227
-Agam3	src/adaptor/mango/data.go	228;"	c	access:public	line:228
-Agam4	src/adaptor/mango/data.go	229;"	c	access:public	line:229
-Agam5	src/adaptor/mango/data.go	230;"	c	access:public	line:230
-Agam6	src/adaptor/mango/data.go	231;"	c	access:public	line:231
-Agam7	src/adaptor/mango/data.go	232;"	c	access:public	line:232
-Agam8	src/adaptor/mango/data.go	233;"	c	access:public	line:233
+Aedu	src/adaptor/mango/data.go	222;"	c	access:public	line:222
+Aeff	src/adaptor/mango/data.go	236;"	c	access:public	line:236
+Afas	src/adaptor/mango/data.go	228;"	c	access:public	line:228
+Afin	src/adaptor/mango/data.go	224;"	c	access:public	line:224
+Agam	src/adaptor/mango/data.go	225;"	c	access:public	line:225
+Agam1	src/adaptor/mango/data.go	245;"	c	access:public	line:245
+Agam2	src/adaptor/mango/data.go	246;"	c	access:public	line:246
+Agam3	src/adaptor/mango/data.go	247;"	c	access:public	line:247
+Agam4	src/adaptor/mango/data.go	248;"	c	access:public	line:248
+Agam5	src/adaptor/mango/data.go	249;"	c	access:public	line:249
+Agam6	src/adaptor/mango/data.go	250;"	c	access:public	line:250
+Agam7	src/adaptor/mango/data.go	251;"	c	access:public	line:251
+Agam8	src/adaptor/mango/data.go	252;"	c	access:public	line:252
 Age	src/common/request.go	52;"	w	access:public	ctype:UserType	line:52	type:int
-Ahea	src/adaptor/mango/data.go	207;"	c	access:public	line:207
-Aid	src/adaptor/mango/data.go	239;"	w	access:public	ctype:Application	line:239	type:string
-Amedia	src/adaptor/mango/data.go	211;"	c	access:public	line:211
-Amedical	src/adaptor/mango/data.go	212;"	c	access:public	line:212
-Amus	src/adaptor/mango/data.go	213;"	c	access:public	line:213
+Ahea	src/adaptor/mango/data.go	226;"	c	access:public	line:226
+Aid	src/adaptor/mango/data.go	258;"	w	access:public	ctype:Application	line:258	type:string
+Amedia	src/adaptor/mango/data.go	230;"	c	access:public	line:230
+Amedical	src/adaptor/mango/data.go	231;"	c	access:public	line:231
+Amus	src/adaptor/mango/data.go	232;"	c	access:public	line:232
 Amuse	src/adaptor/mango/data.go	59;"	c	access:public	line:59
-Anews	src/adaptor/mango/data.go	214;"	c	access:public	line:214
+Anews	src/adaptor/mango/data.go	233;"	c	access:public	line:233
 AnonymousMedia	src/common/ad.go	146;"	w	access:public	ctype:Order	line:146	type:int
-Apart	src/adaptor/mango/data.go	225;"	c	access:public	line:225
-Aperson	src/adaptor/mango/data.go	215;"	c	access:public	line:215
-Apho	src/adaptor/mango/data.go	216;"	c	access:public	line:216
+Apart	src/adaptor/mango/data.go	244;"	c	access:public	line:244
+Aperson	src/adaptor/mango/data.go	234;"	c	access:public	line:234
+Apho	src/adaptor/mango/data.go	235;"	c	access:public	line:235
 App	src/adaptor/mango/request.go	15;"	w	access:public	ctype:BidRequest	line:15	type:Application
 App	src/common/request.go	27;"	w	access:public	ctype:BidRequest	line:27	type:AppType
-AppCat	src/adaptor/mango/data.go	195;"	t	access:public	line:195	type:string
+AppCat	src/adaptor/mango/data.go	214;"	t	access:public	line:214	type:string
 AppType	src/common/request.go	61;"	t	access:public	line:61	type:struct
-Application	src/adaptor/mango/data.go	238;"	t	access:public	line:238	type:struct
-Asoc	src/adaptor/mango/data.go	219;"	c	access:public	line:219
-Asof	src/adaptor/mango/data.go	208;"	c	access:public	line:208
-Aspo	src/adaptor/mango/data.go	220;"	c	access:public	line:220
-Assign	src/adaptor/mango/data.go	252;"	m	access:public	ctype:Application	line:252	signature:(m *map[string]interface{})	type:bool
-Assign	src/adaptor/mango/data.go	396;"	m	access:public	ctype:Device	line:396	signature:(m *map[string]interface{})
+Application	src/adaptor/mango/data.go	257;"	t	access:public	line:257	type:struct
+Asoc	src/adaptor/mango/data.go	238;"	c	access:public	line:238
+Asof	src/adaptor/mango/data.go	227;"	c	access:public	line:227
+Aspo	src/adaptor/mango/data.go	239;"	c	access:public	line:239
+Assign	src/adaptor/mango/data.go	271;"	m	access:public	ctype:Application	line:271	signature:(m *map[string]interface{})	type:bool
+Assign	src/adaptor/mango/data.go	415;"	m	access:public	ctype:Device	line:415	signature:(m *map[string]interface{})
 Assign	src/adaptor/mango/data.go	86;"	m	access:public	ctype:Impression	line:86	signature:(m *map[string]interface{})	type:bool
-Atool	src/adaptor/mango/data.go	221;"	c	access:public	line:221
-Atour	src/adaptor/mango/data.go	223;"	c	access:public	line:223
-Atra	src/adaptor/mango/data.go	222;"	c	access:public	line:222
+Atool	src/adaptor/mango/data.go	240;"	c	access:public	line:240
+Atour	src/adaptor/mango/data.go	242;"	c	access:public	line:242
+Atra	src/adaptor/mango/data.go	241;"	c	access:public	line:241
 Attr	src/adaptor/mango/response.go	39;"	w	access:public	ctype:Bid	line:39	type:[]AdAttr
 Attr	src/common/ad.go	67;"	w	access:public	ctype:Ad	line:67	type:Attribute
 AttrOut	src/common/request.go	37;"	w	access:public	ctype:AdSlotType	line:37	type:map[string]bool
@@ -95,8 +95,8 @@ Attribute	src/common/ad.go	43;"	t	access:public	line:43	type:int
 AutoAudio	src/adaptor/mango/data.go	32;"	c	access:public	line:32
 AutoBannerVideo	src/adaptor/mango/data.go	37;"	c	access:public	line:37
 AutoExpandable	src/adaptor/mango/data.go	34;"	c	access:public	line:34
-Awal	src/adaptor/mango/data.go	210;"	c	access:public	line:210
-Awea	src/adaptor/mango/data.go	224;"	c	access:public	line:224
+Awal	src/adaptor/mango/data.go	229;"	c	access:public	line:229
+Awea	src/adaptor/mango/data.go	243;"	c	access:public	line:243
 BOTTOMROLL	src/adaptor/mango/data.go	14;"	c	access:public	line:14
 BOTTOMVIEW	src/adaptor/mango/data.go	12;"	c	access:public	line:12
 BYCAMPAIGN	src/common/ad.go	115;"	c	access:public	line:115
@@ -121,13 +121,13 @@ BidResponse	src/common/response.go	21;"	t	access:public	line:21	type:struct
 Bidid	src/adaptor/mango/response.go	14;"	w	access:public	ctype:BidResponse	line:14	type:string
 Browser	src/common/request.go	16;"	w	access:public	ctype:BidRequest	line:16	type:string
 Btype	src/adaptor/mango/data.go	80;"	w	access:public	ctype:Impression	line:80	type:[]AdType
-Bundle	src/adaptor/mango/data.go	243;"	w	access:public	ctype:Application	line:243	type:string
-CType	src/adaptor/mango/data.go	388;"	w	access:public	ctype:Device	line:388	type:ConnType
-CTypeUnkown	src/adaptor/mango/data.go	532;"	c	access:public	line:532	type:ClickType
-CallPhone	src/adaptor/mango/data.go	537;"	c	access:public	line:537
+Bundle	src/adaptor/mango/data.go	262;"	w	access:public	ctype:Application	line:262	type:string
+CType	src/adaptor/mango/data.go	407;"	w	access:public	ctype:Device	line:407	type:ConnType
+CTypeUnkown	src/adaptor/mango/data.go	557;"	c	access:public	line:557	type:ClickType
+CallPhone	src/adaptor/mango/data.go	562;"	c	access:public	line:562
 CampaignId	src/common/ad.go	120;"	w	access:public	ctype:Order	line:120	type:string
-Carrier	src/adaptor/mango/data.go	382;"	w	access:public	ctype:Device	line:382	type:string
-Cat	src/adaptor/mango/data.go	241;"	w	access:public	ctype:Application	line:241	type:[]AppCat
+Carrier	src/adaptor/mango/data.go	401;"	w	access:public	ctype:Device	line:401	type:string
+Cat	src/adaptor/mango/data.go	260;"	w	access:public	ctype:Application	line:260	type:[]AppCat
 Cat	src/common/request.go	53;"	w	access:public	ctype:UserType	line:53	type:string
 Cat	src/common/request.go	57;"	w	access:public	ctype:SiteType	line:57	type:string
 CatOut	src/common/request.go	36;"	w	access:public	ctype:AdSlotType	line:36	type:map[string]bool
@@ -137,77 +137,77 @@ Cbundle	src/adaptor/mango/response.go	38;"	w	access:public	ctype:Bid	line:38	typ
 Ch1	src/common/ad.go	79;"	w	access:public	ctype:Ad	line:79	type:string
 Ch2	src/common/ad.go	80;"	w	access:public	ctype:Ad	line:80	type:string
 Cid	src/adaptor/mango/response.go	35;"	w	access:public	ctype:Bid	line:35	type:string
-CliTypeOther	src/adaptor/mango/data.go	540;"	c	access:public	line:540
+CliTypeOther	src/adaptor/mango/data.go	565;"	c	access:public	line:565
 ClickAudio	src/adaptor/mango/data.go	33;"	c	access:public	line:33
 ClickBannerVideo	src/adaptor/mango/data.go	38;"	c	access:public	line:38
 ClickExpandable	src/adaptor/mango/data.go	35;"	c	access:public	line:35
 ClickMonitor	src/common/response.go	15;"	w	access:public	ctype:BidAd	line:15	type:string
-ClickType	src/adaptor/mango/data.go	529;"	t	access:public	line:529	type:int
+ClickType	src/adaptor/mango/data.go	554;"	t	access:public	line:554	type:int
 Clothes	src/adaptor/mango/data.go	54;"	c	access:public	line:54
-CmdType	src/manager/manager.go	83;"	t	access:public	line:83	type:int
-Command	src/manager/manager.go	95;"	t	access:public	line:95	type:struct
-Commander	src/manager/manager.go	18;"	t	access:public	line:18	type:struct
-CommanderRoutine	src/manager/manager.go	63;"	f	access:public	line:63	signature:(host string, port uint, rkey string)
-Conn2G	src/adaptor/mango/data.go	358;"	c	access:public	line:358
-Conn3G	src/adaptor/mango/data.go	359;"	c	access:public	line:359
-Conn4G	src/adaptor/mango/data.go	360;"	c	access:public	line:360
-ConnNG	src/adaptor/mango/data.go	357;"	c	access:public	line:357
-ConnType	src/adaptor/mango/data.go	352;"	t	access:public	line:352	type:int
-ConnUnkown	src/adaptor/mango/data.go	355;"	c	access:public	line:355	type:ConnType
-ConnWifi	src/adaptor/mango/data.go	356;"	c	access:public	line:356
+CmdType	src/manager/manager.go	112;"	t	access:public	line:112	type:int
+Command	src/manager/manager.go	124;"	t	access:public	line:124	type:struct
+Commander	src/manager/manager.go	20;"	t	access:public	line:20	type:struct
+CommanderRoutine	src/manager/manager.go	69;"	f	access:public	line:69	signature:(host string, port uint, rkey string)
+Conn2G	src/adaptor/mango/data.go	377;"	c	access:public	line:377
+Conn3G	src/adaptor/mango/data.go	378;"	c	access:public	line:378
+Conn4G	src/adaptor/mango/data.go	379;"	c	access:public	line:379
+ConnNG	src/adaptor/mango/data.go	376;"	c	access:public	line:376
+ConnType	src/adaptor/mango/data.go	371;"	t	access:public	line:371	type:int
+ConnUnkown	src/adaptor/mango/data.go	374;"	c	access:public	line:374	type:ConnType
+ConnWifi	src/adaptor/mango/data.go	375;"	c	access:public	line:375
 Cos	src/adaptor/mango/data.go	55;"	c	access:public	line:55
 CountCost	src/common/ad.go	149;"	w	access:public	ctype:Order	line:149	type:int
-Country	src/adaptor/mango/data.go	381;"	w	access:public	ctype:Device	line:381	type:string
+Country	src/adaptor/mango/data.go	400;"	w	access:public	ctype:Device	line:400	type:string
 CreativeId	src/common/ad.go	83;"	w	access:public	ctype:Ad	line:83	type:int
 Crid	src/adaptor/mango/response.go	36;"	w	access:public	ctype:Bid	line:36	type:string
 Cturl	src/adaptor/mango/response.go	34;"	w	access:public	ctype:Bid	line:34	type:[]string
 Ctype	src/adaptor/mango/response.go	37;"	w	access:public	ctype:Bid	line:37	type:ClickType
-Ctype	src/manager/manager.go	96;"	w	access:public	ctype:Command	line:96	type:CmdType
+Ctype	src/manager/manager.go	125;"	w	access:public	ctype:Command	line:125	type:CmdType
 Curl	src/adaptor/mango/response.go	33;"	w	access:public	ctype:Bid	line:33	type:string
-Cversion	src/manager/manager.go	97;"	w	access:public	ctype:Command	line:97	type:string
+Cversion	src/manager/manager.go	126;"	w	access:public	ctype:Command	line:126	type:string
 DEBUG	src/logger/logger.go	11;"	c	access:public	line:11	type:Level
-DType	src/adaptor/mango/data.go	389;"	w	access:public	ctype:Device	line:389	type:DeviceType
+DType	src/adaptor/mango/data.go	408;"	w	access:public	ctype:Device	line:408	type:DeviceType
 DYNAMICFLASH	src/common/ad.go	55;"	c	access:public	line:55
-Data	src/manager/manager.go	98;"	w	access:public	ctype:Command	line:98	type:interface{}
+Data	src/manager/manager.go	127;"	w	access:public	ctype:Command	line:127	type:interface{}
 Decorate	src/adaptor/mango/data.go	61;"	c	access:public	line:61
-Del	src/common/util.go	35;"	m	access:public	ctype:AdContainer	line:35	signature:(id string)
-Del	src/common/util.go	91;"	m	access:public	ctype:OrderContainer	line:91	signature:(id string)
-DelAd	src/manager/manager.go	443;"	m	access:public	ctype:Command	line:443	signature:()
-DelAd	src/manager/manager.go	92;"	c	access:public	line:92
-DelOrder	src/manager/manager.go	258;"	m	access:public	ctype:Command	line:258	signature:()
-DelOrder	src/manager/manager.go	91;"	c	access:public	line:91
+Del	src/common/util.go	36;"	m	access:public	ctype:AdContainer	line:36	signature:(id string)
+Del	src/common/util.go	92;"	m	access:public	ctype:OrderContainer	line:92	signature:(id string)
+DelAd	src/manager/manager.go	121;"	c	access:public	line:121
+DelAd	src/manager/manager.go	499;"	m	access:public	ctype:Command	line:499	signature:()
+DelOrder	src/manager/manager.go	120;"	c	access:public	line:120
+DelOrder	src/manager/manager.go	294;"	m	access:public	ctype:Command	line:294	signature:()
 Dev	src/adaptor/mango/request.go	16;"	w	access:public	ctype:BidRequest	line:16	type:Device
-DevAndroid	src/adaptor/mango/data.go	368;"	c	access:public	line:368
-DevAndroidPad	src/adaptor/mango/data.go	371;"	c	access:public	line:371
-DevIpad	src/adaptor/mango/data.go	369;"	c	access:public	line:369
-DevIphone	src/adaptor/mango/data.go	367;"	c	access:public	line:367
-DevTv	src/adaptor/mango/data.go	372;"	c	access:public	line:372
-DevUnkown	src/adaptor/mango/data.go	366;"	c	access:public	line:366	type:DeviceType
-DevWphone	src/adaptor/mango/data.go	370;"	c	access:public	line:370
-Device	src/adaptor/mango/data.go	375;"	t	access:public	line:375	type:struct
-DeviceType	src/adaptor/mango/data.go	363;"	t	access:public	line:363	type:int
-Did	src/adaptor/mango/data.go	376;"	w	access:public	ctype:Device	line:376	type:string
+DevAndroid	src/adaptor/mango/data.go	387;"	c	access:public	line:387
+DevAndroidPad	src/adaptor/mango/data.go	390;"	c	access:public	line:390
+DevIpad	src/adaptor/mango/data.go	388;"	c	access:public	line:388
+DevIphone	src/adaptor/mango/data.go	386;"	c	access:public	line:386
+DevTv	src/adaptor/mango/data.go	391;"	c	access:public	line:391
+DevUnkown	src/adaptor/mango/data.go	385;"	c	access:public	line:385	type:DeviceType
+DevWphone	src/adaptor/mango/data.go	389;"	c	access:public	line:389
+Device	src/adaptor/mango/data.go	394;"	t	access:public	line:394	type:struct
+DeviceType	src/adaptor/mango/data.go	382;"	t	access:public	line:382	type:int
+Did	src/adaptor/mango/data.go	395;"	w	access:public	ctype:Device	line:395	type:string
 Did	src/common/request.go	9;"	w	access:public	ctype:BidRequest	line:9	type:string
 DisplayMonitor	src/common/response.go	14;"	w	access:public	ctype:BidAd	line:14	type:string
 Do	src/filter/filter.go	8;"	m	access:public	line:8	ntype:Filter	signature:(ad *common.Ad, req *common.BidRequest)	type:int, bool
 Do	src/filter/specificFilter.go	18;"	m	access:public	ctype:BasicFilter	line:18	signature:(ad *common.Ad, req *common.BidRequest)	type:int, bool
-Do	src/filter/specificFilter.go	36;"	m	access:public	ctype:UrlFilter	line:36	signature:(ad *common.Ad, req *common.BidRequest)	type:int, bool
-Do	src/filter/specificFilter.go	56;"	m	access:public	ctype:SlotFilter	line:56	signature:(ad *common.Ad, req *common.BidRequest)	type:int, bool
-Do	src/filter/specificFilter.go	64;"	m	access:public	ctype:TagFilter	line:64	signature:(ad *common.Ad, req *common.BidRequest)	type:int, bool
-Do	src/filter/specificFilter.go	72;"	m	access:public	ctype:RetargetFilter	line:72	signature:(ad *common.Ad, req *common.BidRequest)	type:int, bool
+Do	src/filter/specificFilter.go	39;"	m	access:public	ctype:UrlFilter	line:39	signature:(ad *common.Ad, req *common.BidRequest)	type:int, bool
+Do	src/filter/specificFilter.go	62;"	m	access:public	ctype:SlotFilter	line:62	signature:(ad *common.Ad, req *common.BidRequest)	type:int, bool
+Do	src/filter/specificFilter.go	70;"	m	access:public	ctype:TagFilter	line:70	signature:(ad *common.Ad, req *common.BidRequest)	type:int, bool
+Do	src/filter/specificFilter.go	78;"	m	access:public	ctype:RetargetFilter	line:78	signature:(ad *common.Ad, req *common.BidRequest)	type:int, bool
 DoFilter	src/filter/filter.go	31;"	m	access:public	ctype:FilterList	line:31	signature:(ad *common.Ad, req *common.BidRequest)	type:int, bool
 Domain	src/adaptor/mango/response.go	40;"	w	access:public	ctype:Bid	line:40	type:string
 Domain	src/common/request.go	18;"	w	access:public	ctype:BidRequest	line:18	type:string
 Domain	src/common/response.go	17;"	w	access:public	ctype:BidAd	line:17	type:string
-DownloadApp	src/adaptor/mango/data.go	534;"	c	access:public	line:534
-Dpid	src/adaptor/mango/data.go	377;"	w	access:public	ctype:Device	line:377	type:string
+DownloadApp	src/adaptor/mango/data.go	559;"	c	access:public	line:559
+Dpid	src/adaptor/mango/data.go	396;"	w	access:public	ctype:Device	line:396	type:string
 Dpid	src/common/request.go	10;"	w	access:public	ctype:BidRequest	line:10	type:string
 Duration	src/common/ad.go	78;"	w	access:public	ctype:Ad	line:78	type:int
 ERROR	src/logger/logger.go	13;"	c	access:public	line:13
 Education	src/adaptor/mango/data.go	60;"	c	access:public	line:60
 Electronic	src/adaptor/mango/data.go	65;"	c	access:public	line:65
-ErrNoCmd	src/manager/manager.go	16;"	v	access:public	line:16	type:error
-Execute	src/manager/manager.go	141;"	m	access:public	ctype:Command	line:141	signature:()
+ErrNoCmd	src/manager/manager.go	18;"	v	access:public	line:18	type:error
+Execute	src/manager/manager.go	170;"	m	access:public	ctype:Command	line:170	signature:()
 Ext	src/adaptor/mango/response.go	41;"	w	access:public	ctype:Bid	line:41	type:External
 Ext	src/common/response.go	18;"	w	access:public	ctype:BidAd	line:18	type:string
 External	src/adaptor/mango/response.go	44;"	t	access:public	line:44	type:struct
@@ -217,31 +217,31 @@ Filter	src/filter/filter.go	7;"	n	access:public	line:7	type:interface
 FilterList	src/filter/filter.go	11;"	t	access:public	line:11	type:struct
 Filters	src/filter/filter.go	12;"	w	access:public	ctype:FilterList	line:12	type:[]Filter
 Finacial	src/adaptor/mango/data.go	67;"	c	access:public	line:67
-Find	src/common/util.go	119;"	m	access:public	ctype:OrderContainer	line:119	signature:(id string)	type:Order, error
-Find	src/common/util.go	56;"	m	access:public	ctype:AdContainer	line:56	signature:(id string)	type:Ad, error
-FindPrice	src/common/util.go	130;"	m	access:public	ctype:OrderContainer	line:130	signature:(id string, adx Adx)	type:int, error
+Find	src/common/util.go	121;"	m	access:public	ctype:OrderContainer	line:121	signature:(id string)	type:Order, error
+Find	src/common/util.go	57;"	m	access:public	ctype:AdContainer	line:57	signature:(id string)	type:Ad, error
+FindPrice	src/common/util.go	132;"	m	access:public	ctype:OrderContainer	line:132	signature:(id string, adx Adx)	type:int, error
 Food	src/adaptor/mango/data.go	62;"	c	access:public	line:62
 FreqCount	src/common/ad.go	133;"	w	access:public	ctype:Order	line:133	type:int
 FreqCtrl	src/common/ad.go	131;"	w	access:public	ctype:Order	line:131	type:FreqCtrlType
 FreqCtrlTimeval	src/common/ad.go	132;"	w	access:public	ctype:Order	line:132	type:int
 FreqCtrlType	src/common/ad.go	111;"	t	access:public	line:111	type:int
-GAdContainer	src/common/util.go	9;"	v	access:public	line:9	type:*AdContainer
+GAdContainer	src/common/util.go	10;"	v	access:public	line:10	type:*AdContainer
 GFilterList	src/filter/filter.go	15;"	v	access:public	line:15	type:*FilterList
 GIF	src/adaptor/mango/data.go	22;"	c	access:public	line:22
 GOOGLE	src/common/ad.go	100;"	c	access:public	line:100	type:Adx
-GOrderContainer	src/common/util.go	10;"	v	access:public	line:10	type:*OrderContainer
+GOrderContainer	src/common/util.go	11;"	v	access:public	line:11	type:*OrderContainer
 Game	src/adaptor/mango/data.go	53;"	c	access:public	line:53	type:AdCategory
-GenBidResponse	src/bid/bid.go	63;"	f	access:public	line:63	signature:(req *common.BidRequest, ad *common.Ad, price int)	type:*common.BidResponse
-GenEmptyBidResponse	src/bid/bid.go	55;"	f	access:public	line:55	signature:(req *common.BidRequest)	type:*common.BidResponse
+GenBidResponse	src/bid/bid.go	65;"	f	access:public	line:65	signature:(req *common.BidRequest, ad *common.Ad, price int)	type:*common.BidResponse
+GenEmptyBidResponse	src/bid/bid.go	57;"	f	access:public	line:57	signature:(req *common.BidRequest)	type:*common.BidResponse
 Gender	src/common/ad.go	147;"	w	access:public	ctype:Order	line:147	type:int
 Gender	src/common/request.go	51;"	w	access:public	ctype:UserType	line:51	type:GenderType
 GenderFemale	src/common/request.go	47;"	c	access:public	line:47
 GenderMale	src/common/request.go	46;"	c	access:public	line:46
 GenderType	src/common/request.go	42;"	t	access:public	line:42	type:int
 GenderUnknown	src/common/request.go	45;"	c	access:public	line:45	type:GenderType
-GetCmd	src/manager/manager.go	46;"	m	access:public	ctype:Commander	line:46	signature:()	type:string, error
+GetCmd	src/manager/manager.go	48;"	m	access:public	ctype:Commander	line:48	signature:()	type:string, error
 GetLevel	src/logger/logger.go	58;"	m	access:public	ctype:Log	line:58	signature:()	type:Level
-GoToAppStore	src/adaptor/mango/data.go	538;"	c	access:public	line:538
+GoToAppStore	src/adaptor/mango/data.go	563;"	c	access:public	line:563
 H	src/adaptor/mango/data.go	78;"	w	access:public	ctype:Impression	line:78	type:int
 H	src/common/ad.go	62;"	w	access:public	ctype:Ad	line:62	type:int
 H	src/common/request.go	34;"	w	access:public	ctype:AdSlotType	line:34	type:int
@@ -253,50 +253,53 @@ HtmlSnippet	src/common/ad.go	75;"	w	access:public	ctype:Ad	line:75	type:string
 IFRAME	src/common/ad.go	52;"	c	access:public	line:52
 INFO	src/logger/logger.go	12;"	c	access:public	line:12
 IT	src/adaptor/mango/data.go	64;"	c	access:public	line:64
-Ibook	src/adaptor/mango/data.go	235;"	c	access:public	line:235
+Ibook	src/adaptor/mango/data.go	254;"	c	access:public	line:254
 Id	src/adaptor/mango/request.go	13;"	w	access:public	ctype:BidRequest	line:13	type:string
 Id	src/adaptor/mango/response.go	13;"	w	access:public	ctype:BidResponse	line:13	type:string
 Id	src/common/ad.go	119;"	w	access:public	ctype:Order	line:119	type:string
 Id	src/common/ad.go	59;"	w	access:public	ctype:Ad	line:59	type:string
 Id	src/common/request.go	62;"	w	access:public	ctype:AppType	line:62	type:string
 Id	src/common/request.go	6;"	w	access:public	ctype:BidRequest	line:6	type:string
-Idmap	src/common/util.go	13;"	w	access:public	ctype:AdContainer	line:13	type:map[string]int
-Idmap	src/common/util.go	69;"	w	access:public	ctype:OrderContainer	line:69	type:map[string]int
+Idmap	src/common/util.go	14;"	w	access:public	ctype:AdContainer	line:14	type:map[string]int
+Idmap	src/common/util.go	70;"	w	access:public	ctype:OrderContainer	line:70	type:map[string]int
 ImpId	src/adaptor/mango/data.go	74;"	w	access:public	ctype:Impression	line:74	type:string
 ImpId	src/common/request.go	31;"	w	access:public	ctype:AdSlotType	line:31	type:string
 ImpId	src/common/response.go	8;"	w	access:public	ctype:BidAd	line:8	type:string
 Impid	src/adaptor/mango/response.go	25;"	w	access:public	ctype:Bid	line:25	type:string
 Impression	src/adaptor/mango/data.go	73;"	t	access:public	line:73	type:struct
 Imps	src/adaptor/mango/request.go	14;"	w	access:public	ctype:BidRequest	line:14	type:[]Impression
-Init	src/adaptor/mango/data.go	545;"	f	access:public	line:545	signature:(path string)
-Init	src/filter/specificFilter.go	84;"	f	access:public	line:84	signature:()
-Init	src/manager/manager.go	460;"	f	access:public	line:460	signature:(path string)
+Init	src/adaptor/mango/data.go	570;"	f	access:public	line:570	signature:(path string)
+Init	src/filter/specificFilter.go	90;"	f	access:public	line:90	signature:()
+Init	src/manager/manager.go	523;"	f	access:public	line:523	signature:(path string)
 Instl	src/adaptor/mango/data.go	82;"	w	access:public	ctype:Impression	line:82	type:bool
 Instl	src/adaptor/mango/response.go	45;"	w	access:public	ctype:External	line:45	type:int
 Instl	src/common/request.go	38;"	w	access:public	ctype:AdSlotType	line:38	type:bool
-Ip	src/adaptor/mango/data.go	380;"	w	access:public	ctype:Device	line:380	type:string
+Ip	src/adaptor/mango/data.go	399;"	w	access:public	ctype:Device	line:399	type:string
 Ip	src/common/request.go	8;"	w	access:public	ctype:BidRequest	line:8	type:string
-Itid	src/adaptor/mango/data.go	244;"	w	access:public	ctype:Application	line:244	type:string
+Itid	src/adaptor/mango/data.go	263;"	w	access:public	ctype:Application	line:263	type:string
 Iurl	src/adaptor/mango/response.go	32;"	w	access:public	ctype:Bid	line:32	type:string
 JS	src/common/ad.go	53;"	c	access:public	line:53
-Keywords	src/adaptor/mango/data.go	247;"	w	access:public	ctype:Application	line:247	type:string
+Keywords	src/adaptor/mango/data.go	266;"	w	access:public	ctype:Application	line:266	type:string
 LTime	src/common/ad.go	135;"	w	access:public	ctype:Order	line:135	type:int
 LandingPage	src/common/response.go	16;"	w	access:public	ctype:BidAd	line:16	type:string
-Language	src/adaptor/mango/data.go	383;"	w	access:public	ctype:Device	line:383	type:string
+Language	src/adaptor/mango/data.go	402;"	w	access:public	ctype:Device	line:402	type:string
 Language	src/common/request.go	19;"	w	access:public	ctype:BidRequest	line:19	type:string
 Level	src/logger/logger.go	8;"	t	access:public	line:8	type:int
-Loc	src/adaptor/mango/data.go	390;"	w	access:public	ctype:Device	line:390	type:string
-Lock	src/common/util.go	15;"	w	access:public	ctype:AdContainer	line:15	type:sync.RWMutex
-Lock	src/common/util.go	71;"	w	access:public	ctype:OrderContainer	line:71	type:sync.RWMutex
+Loc	src/adaptor/mango/data.go	409;"	w	access:public	ctype:Device	line:409	type:string
+Lock	src/common/util.go	16;"	w	access:public	ctype:AdContainer	line:16	type:sync.RWMutex
+Lock	src/common/util.go	72;"	w	access:public	ctype:OrderContainer	line:72	type:sync.RWMutex
 Log	src/logger/logger.go	32;"	t	access:public	line:32	type:struct
 Log	src/logger/logger.go	62;"	m	access:public	ctype:Log	line:62	signature:(l Level, v )
 MANGO	src/common/ad.go	107;"	c	access:public	line:107
 MIAOZHEN	src/common/ad.go	106;"	c	access:public	line:106
 MRAID	src/adaptor/mango/data.go	24;"	c	access:public	line:24
-Mac	src/adaptor/mango/data.go	378;"	w	access:public	ctype:Device	line:378	type:string
+Mac	src/adaptor/mango/data.go	397;"	w	access:public	ctype:Device	line:397	type:string
 Mac	src/common/request.go	11;"	w	access:public	ctype:BidRequest	line:11	type:string
-Maker	src/adaptor/mango/data.go	384;"	w	access:public	ctype:Device	line:384	type:string
-MangoHandler	src/server.go	35;"	f	access:public	line:35	signature:(w http.ResponseWriter, r *http.Request)
+Maker	src/adaptor/mango/data.go	403;"	w	access:public	ctype:Device	line:403	type:string
+MangoBidHandler	src/server.go	33;"	f	access:public	line:33	signature:(w http.ResponseWriter, r *http.Request)
+MangoClickHandler	src/server.go	15;"	f	access:public	line:15	signature:(w http.ResponseWriter, r *http.Request)
+MangoDisplayHandler	src/server.go	21;"	f	access:public	line:21	signature:(w http.ResponseWriter, r *http.Request)
+MangoWinHandler	src/server.go	27;"	f	access:public	line:27	signature:(w http.ResponseWriter, r *http.Request)
 MarkDynamic	src/common/ad.go	128;"	w	access:public	ctype:Order	line:128	type:bool
 MaxPrice	src/common/ad.go	124;"	w	access:public	ctype:Order	line:124	type:[]int
 Media	src/common/request.go	20;"	w	access:public	ctype:BidRequest	line:20	type:string
@@ -307,43 +310,43 @@ MimeUnknown	src/common/ad.go	27;"	c	access:public	line:27	type:MimeType
 MimeVideo	src/common/ad.go	28;"	c	access:public	line:28
 MimeX_FLV	src/common/ad.go	29;"	c	access:public	line:29
 Mobile	src/common/request.go	7;"	w	access:public	ctype:BidRequest	line:7	type:bool
-ModAd	src/manager/manager.go	90;"	c	access:public	line:90
-ModOrder	src/manager/manager.go	89;"	c	access:public	line:89
-Model	src/adaptor/mango/data.go	385;"	w	access:public	ctype:Device	line:385	type:string
+ModAd	src/manager/manager.go	119;"	c	access:public	line:119
+ModOrder	src/manager/manager.go	118;"	c	access:public	line:118
+Model	src/adaptor/mango/data.go	404;"	w	access:public	ctype:Device	line:404	type:string
 NADX	src/common/ad.go	108;"	c	access:public	line:108
-Name	src/adaptor/mango/data.go	240;"	w	access:public	ctype:Application	line:240	type:string
+Name	src/adaptor/mango/data.go	259;"	w	access:public	ctype:Application	line:259	type:string
 Nbr	src/adaptor/mango/response.go	15;"	w	access:public	ctype:BidResponse	line:15	type:int
 Net	src/adaptor/mango/data.go	56;"	c	access:public	line:56
-NewAdContainer	src/common/util.go	18;"	f	access:public	ctype:AdContainer	line:18	signature:()	type:*AdContainer
+NewAdContainer	src/common/util.go	19;"	f	access:public	ctype:AdContainer	line:19	signature:()	type:*AdContainer
 NewBasicFilter	src/filter/specificFilter.go	14;"	f	access:public	ctype:BasicFilter	line:14	signature:()	type:*BasicFilter
 NewBidRequest	src/adaptor/mango/request.go	21;"	f	access:public	ctype:BidRequest	line:21	signature:(r *http.Request)	type:*BidRequest
-NewCommand	src/manager/manager.go	101;"	f	access:public	ctype:Command	line:101	signature:()	type:*Command
-NewCommander	src/manager/manager.go	26;"	f	access:public	ctype:Commander	line:26	signature:(host string, port uint, rkey string)	type:*Commander
+NewCommand	src/manager/manager.go	130;"	f	access:public	ctype:Command	line:130	signature:()	type:*Command
+NewCommander	src/manager/manager.go	28;"	f	access:public	ctype:Commander	line:28	signature:(host string, port uint, rkey string)	type:*Commander
 NewFilterList	src/filter/filter.go	17;"	f	access:public	ctype:FilterList	line:17	signature:()	type:*FilterList
 NewLog	src/logger/logger.go	40;"	f	access:public	ctype:Log	line:40	signature:(path string)	type:*Log
-NewOrderContainer	src/common/util.go	74;"	f	access:public	ctype:OrderContainer	line:74	signature:()	type:*OrderContainer
-NewRetargetFilter	src/filter/specificFilter.go	68;"	f	access:public	ctype:RetargetFilter	line:68	signature:()	type:*RetargetFilter
-NewSlotFilter	src/filter/specificFilter.go	52;"	f	access:public	ctype:SlotFilter	line:52	signature:()	type:*SlotFilter
-NewTagFilter	src/filter/specificFilter.go	60;"	f	access:public	ctype:TagFilter	line:60	signature:()	type:*TagFilter
-NewUrlFilter	src/filter/specificFilter.go	32;"	f	access:public	ctype:UrlFilter	line:32	signature:()	type:*UrlFilter
-NilCmd	src/manager/manager.go	86;"	c	access:public	line:86	type:CmdType
+NewOrderContainer	src/common/util.go	75;"	f	access:public	ctype:OrderContainer	line:75	signature:()	type:*OrderContainer
+NewRetargetFilter	src/filter/specificFilter.go	74;"	f	access:public	ctype:RetargetFilter	line:74	signature:()	type:*RetargetFilter
+NewSlotFilter	src/filter/specificFilter.go	58;"	f	access:public	ctype:SlotFilter	line:58	signature:()	type:*SlotFilter
+NewTagFilter	src/filter/specificFilter.go	66;"	f	access:public	ctype:TagFilter	line:66	signature:()	type:*TagFilter
+NewUrlFilter	src/filter/specificFilter.go	35;"	f	access:public	ctype:UrlFilter	line:35	signature:()	type:*UrlFilter
+NilCmd	src/manager/manager.go	115;"	c	access:public	line:115	type:CmdType
 Nurl	src/adaptor/mango/response.go	28;"	w	access:public	ctype:Bid	line:28	type:string
-OpenMap	src/adaptor/mango/data.go	539;"	c	access:public	line:539
-OpenWeb	src/adaptor/mango/data.go	535;"	c	access:public	line:535
+OpenMap	src/adaptor/mango/data.go	564;"	c	access:public	line:564
+OpenWeb	src/adaptor/mango/data.go	560;"	c	access:public	line:560
 Operator	src/adaptor/mango/data.go	68;"	c	access:public	line:68
 Order	src/common/ad.go	118;"	t	access:public	line:118	type:struct
-OrderContainer	src/common/util.go	68;"	t	access:public	line:68	type:struct
+OrderContainer	src/common/util.go	69;"	t	access:public	line:69	type:struct
 OrderId	src/common/ad.go	81;"	w	access:public	ctype:Ad	line:81	type:string
 OrderId	src/common/response.go	7;"	w	access:public	ctype:BidAd	line:7	type:string
-Orders	src/common/util.go	70;"	w	access:public	ctype:OrderContainer	line:70	type:[]Order
-Orientation	src/adaptor/mango/data.go	393;"	w	access:public	ctype:Device	line:393	type:int
-Os	src/adaptor/mango/data.go	386;"	w	access:public	ctype:Device	line:386	type:string
+Orders	src/common/util.go	71;"	w	access:public	ctype:OrderContainer	line:71	type:[]Order
+Orientation	src/adaptor/mango/data.go	412;"	w	access:public	ctype:Device	line:412	type:int
+Os	src/adaptor/mango/data.go	405;"	w	access:public	ctype:Device	line:405	type:string
 Os	src/common/request.go	15;"	w	access:public	ctype:BidRequest	line:15	type:string
-Osv	src/adaptor/mango/data.go	387;"	w	access:public	ctype:Device	line:387	type:string
+Osv	src/adaptor/mango/data.go	406;"	w	access:public	ctype:Device	line:406	type:string
 PIC	src/adaptor/mango/data.go	21;"	c	access:public	line:21
 PIC	src/common/ad.go	48;"	c	access:public	line:48
-Paid	src/adaptor/mango/data.go	245;"	w	access:public	ctype:Application	line:245	type:bool
-Parse	src/manager/manager.go	106;"	m	access:public	ctype:Command	line:106	signature:(jsonCmd string)	type:bool
+Paid	src/adaptor/mango/data.go	264;"	w	access:public	ctype:Application	line:264	type:bool
+Parse	src/manager/manager.go	135;"	m	access:public	ctype:Command	line:135	signature:(jsonCmd string)	type:bool
 ParseFromCommon	src/adaptor/mango/response.go	146;"	m	access:public	ctype:BidResponse	line:146	signature:(cr *common.BidResponse)
 ParseToCommon	src/adaptor/mango/request.go	135;"	m	access:public	ctype:BidRequest	line:135	signature:()	type:*common.BidRequest
 Person	src/adaptor/mango/data.go	57;"	c	access:public	line:57
@@ -352,14 +355,14 @@ Pos	src/adaptor/mango/data.go	79;"	w	access:public	ctype:Impression	line:79	type
 Price	src/adaptor/mango/response.go	26;"	w	access:public	ctype:Bid	line:26	type:int
 Price	src/common/response.go	9;"	w	access:public	ctype:BidAd	line:9	type:int
 Priority	src/common/ad.go	63;"	w	access:public	ctype:Ad	line:63	type:int
-Publisher	src/adaptor/mango/data.go	249;"	w	access:public	ctype:Application	line:249	type:string
-PublisherId	src/adaptor/mango/data.go	248;"	w	access:public	ctype:Application	line:248	type:string
+Publisher	src/adaptor/mango/data.go	268;"	w	access:public	ctype:Application	line:268	type:string
+PublisherId	src/adaptor/mango/data.go	267;"	w	access:public	ctype:Application	line:267	type:string
 Quality	src/common/request.go	58;"	w	access:public	ctype:SiteType	line:58	type:int
 Quality	src/common/request.go	63;"	w	access:public	ctype:AppType	line:63	type:int
 RealProperty	src/adaptor/mango/data.go	69;"	c	access:public	line:69
 Record	src/common/ad.go	127;"	w	access:public	ctype:Order	line:127	type:bool
 Region	src/common/request.go	12;"	w	access:public	ctype:BidRequest	line:12	type:string
-Repair	src/manager/manager.go	36;"	m	access:public	ctype:Commander	line:36	signature:()	type:bool
+Repair	src/manager/manager.go	38;"	m	access:public	ctype:Commander	line:38	signature:()	type:bool
 ReqId	src/common/response.go	22;"	w	access:public	ctype:BidResponse	line:22	type:string
 Response	src/adaptor/mango/response.go	102;"	m	access:public	ctype:BidResponse	line:102	signature:(w http.ResponseWriter)
 Retail	src/adaptor/mango/data.go	58;"	c	access:public	line:58
@@ -370,55 +373,55 @@ SOHU	src/common/ad.go	105;"	c	access:public	line:105
 Seat	src/adaptor/mango/response.go	21;"	w	access:public	ctype:SeatBid	line:21	type:string
 SeatBid	src/adaptor/mango/response.go	19;"	t	access:public	line:19	type:struct
 Seatbid	src/adaptor/mango/response.go	16;"	w	access:public	ctype:BidResponse	line:16	type:[]SeatBid
-SendMail	src/adaptor/mango/data.go	533;"	c	access:public	line:533
-SendMsg	src/adaptor/mango/data.go	536;"	c	access:public	line:536
-SetAid	src/adaptor/mango/data.go	269;"	m	access:public	ctype:Application	line:269	signature:(m *map[string]interface{})	type:bool
+SendMail	src/adaptor/mango/data.go	558;"	c	access:public	line:558
+SendMsg	src/adaptor/mango/data.go	561;"	c	access:public	line:561
+SetAid	src/adaptor/mango/data.go	288;"	m	access:public	ctype:Application	line:288	signature:(m *map[string]interface{})	type:bool
 SetApp	src/adaptor/mango/request.go	87;"	m	access:public	ctype:BidRequest	line:87	signature:(m *map[string]interface{})	type:bool
 SetBadv	src/adaptor/mango/request.go	122;"	m	access:public	ctype:BidRequest	line:122	signature:(m *map[string]interface{})
-SetBattr	src/adaptor/mango/data.go	156;"	m	access:public	ctype:Impression	line:156	signature:(m *map[string]interface{})
+SetBattr	src/adaptor/mango/data.go	175;"	m	access:public	ctype:Impression	line:175	signature:(m *map[string]interface{})
 SetBcat	src/adaptor/mango/request.go	109;"	m	access:public	ctype:BidRequest	line:109	signature:(m *map[string]interface{})
 SetBidFloor	src/adaptor/mango/data.go	112;"	m	access:public	ctype:Impression	line:112	signature:(m *map[string]interface{})
-SetBidFloorCur	src/adaptor/mango/data.go	118;"	m	access:public	ctype:Impression	line:118	signature:(m *map[string]interface{})
-SetBtype	src/adaptor/mango/data.go	143;"	m	access:public	ctype:Impression	line:143	signature:(m *map[string]interface{})
-SetBundle	src/adaptor/mango/data.go	304;"	m	access:public	ctype:Application	line:304	signature:(m *map[string]interface{})
-SetCType	src/adaptor/mango/data.go	489;"	m	access:public	ctype:Device	line:489	signature:(m *map[string]interface{})
-SetCarrier	src/adaptor/mango/data.go	453;"	m	access:public	ctype:Device	line:453	signature:(m *map[string]interface{})
-SetCat	src/adaptor/mango/data.go	285;"	m	access:public	ctype:Application	line:285	signature:(m *map[string]interface{})
-SetCountry	src/adaptor/mango/data.go	447;"	m	access:public	ctype:Device	line:447	signature:(m *map[string]interface{})
-SetDType	src/adaptor/mango/data.go	497;"	m	access:public	ctype:Device	line:497	signature:(m *map[string]interface{})
+SetBidFloorCur	src/adaptor/mango/data.go	123;"	m	access:public	ctype:Impression	line:123	signature:(m *map[string]interface{})
+SetBtype	src/adaptor/mango/data.go	162;"	m	access:public	ctype:Impression	line:162	signature:(m *map[string]interface{})
+SetBundle	src/adaptor/mango/data.go	323;"	m	access:public	ctype:Application	line:323	signature:(m *map[string]interface{})
+SetCType	src/adaptor/mango/data.go	508;"	m	access:public	ctype:Device	line:508	signature:(m *map[string]interface{})
+SetCarrier	src/adaptor/mango/data.go	472;"	m	access:public	ctype:Device	line:472	signature:(m *map[string]interface{})
+SetCat	src/adaptor/mango/data.go	304;"	m	access:public	ctype:Application	line:304	signature:(m *map[string]interface{})
+SetCountry	src/adaptor/mango/data.go	466;"	m	access:public	ctype:Device	line:466	signature:(m *map[string]interface{})
+SetDType	src/adaptor/mango/data.go	516;"	m	access:public	ctype:Device	line:516	signature:(m *map[string]interface{})
 SetDevice	src/adaptor/mango/request.go	100;"	m	access:public	ctype:BidRequest	line:100	signature:(m *map[string]interface{})
-SetDid	src/adaptor/mango/data.go	417;"	m	access:public	ctype:Device	line:417	signature:(m *map[string]interface{})
-SetDpid	src/adaptor/mango/data.go	423;"	m	access:public	ctype:Device	line:423	signature:(m *map[string]interface{})
-SetH	src/adaptor/mango/data.go	130;"	m	access:public	ctype:Impression	line:130	signature:(m *map[string]interface{})
+SetDid	src/adaptor/mango/data.go	436;"	m	access:public	ctype:Device	line:436	signature:(m *map[string]interface{})
+SetDpid	src/adaptor/mango/data.go	442;"	m	access:public	ctype:Device	line:442	signature:(m *map[string]interface{})
+SetH	src/adaptor/mango/data.go	140;"	m	access:public	ctype:Impression	line:140	signature:(m *map[string]interface{})
 SetId	src/adaptor/mango/request.go	58;"	m	access:public	ctype:BidRequest	line:58	signature:(m *map[string]interface{})	type:bool
 SetImpId	src/adaptor/mango/data.go	102;"	m	access:public	ctype:Impression	line:102	signature:(m *map[string]interface{})	type:bool
 SetImps	src/adaptor/mango/request.go	68;"	m	access:public	ctype:BidRequest	line:68	signature:(m *map[string]interface{})	type:bool
-SetInstl	src/adaptor/mango/data.go	169;"	m	access:public	ctype:Impression	line:169	signature:(m *map[string]interface{})
-SetIp	src/adaptor/mango/data.go	441;"	m	access:public	ctype:Device	line:441	signature:(m *map[string]interface{})
-SetItid	src/adaptor/mango/data.go	310;"	m	access:public	ctype:Application	line:310	signature:(m *map[string]interface{})
-SetKeywords	src/adaptor/mango/data.go	334;"	m	access:public	ctype:Application	line:334	signature:(m *map[string]interface{})
-SetLanguage	src/adaptor/mango/data.go	459;"	m	access:public	ctype:Device	line:459	signature:(m *map[string]interface{})
+SetInstl	src/adaptor/mango/data.go	188;"	m	access:public	ctype:Impression	line:188	signature:(m *map[string]interface{})
+SetIp	src/adaptor/mango/data.go	460;"	m	access:public	ctype:Device	line:460	signature:(m *map[string]interface{})
+SetItid	src/adaptor/mango/data.go	329;"	m	access:public	ctype:Application	line:329	signature:(m *map[string]interface{})
+SetKeywords	src/adaptor/mango/data.go	353;"	m	access:public	ctype:Application	line:353	signature:(m *map[string]interface{})
+SetLanguage	src/adaptor/mango/data.go	478;"	m	access:public	ctype:Device	line:478	signature:(m *map[string]interface{})
 SetLevel	src/logger/logger.go	54;"	m	access:public	ctype:Log	line:54	signature:(l Level)
-SetLoc	src/adaptor/mango/data.go	505;"	m	access:public	ctype:Device	line:505	signature:(m *map[string]interface{})
-SetMac	src/adaptor/mango/data.go	429;"	m	access:public	ctype:Device	line:429	signature:(m *map[string]interface{})
-SetMaker	src/adaptor/mango/data.go	465;"	m	access:public	ctype:Device	line:465	signature:(m *map[string]interface{})
-SetModel	src/adaptor/mango/data.go	471;"	m	access:public	ctype:Device	line:471	signature:(m *map[string]interface{})
-SetName	src/adaptor/mango/data.go	279;"	m	access:public	ctype:Application	line:279	signature:(m *map[string]interface{})
-SetOrientation	src/adaptor/mango/data.go	523;"	m	access:public	ctype:Device	line:523	signature:(m *map[string]interface{})
-SetOs	src/adaptor/mango/data.go	477;"	m	access:public	ctype:Device	line:477	signature:(m *map[string]interface{})
-SetOsv	src/adaptor/mango/data.go	483;"	m	access:public	ctype:Device	line:483	signature:(m *map[string]interface{})
-SetPaid	src/adaptor/mango/data.go	316;"	m	access:public	ctype:Application	line:316	signature:(m *map[string]interface{})
-SetPos	src/adaptor/mango/data.go	136;"	m	access:public	ctype:Impression	line:136	signature:(m *map[string]interface{})
-SetPublisher	src/adaptor/mango/data.go	346;"	m	access:public	ctype:Application	line:346	signature:(m *map[string]interface{})
-SetPublisherId	src/adaptor/mango/data.go	340;"	m	access:public	ctype:Application	line:340	signature:(m *map[string]interface{})
-SetSh	src/adaptor/mango/data.go	517;"	m	access:public	ctype:Device	line:517	signature:(m *map[string]interface{})
-SetSplash	src/adaptor/mango/data.go	182;"	m	access:public	ctype:Impression	line:182	signature:(m *map[string]interface{})
-SetStoreurl	src/adaptor/mango/data.go	328;"	m	access:public	ctype:Application	line:328	signature:(m *map[string]interface{})
-SetSw	src/adaptor/mango/data.go	511;"	m	access:public	ctype:Device	line:511	signature:(m *map[string]interface{})
-SetUa	src/adaptor/mango/data.go	435;"	m	access:public	ctype:Device	line:435	signature:(m *map[string]interface{})
-SetVer	src/adaptor/mango/data.go	298;"	m	access:public	ctype:Application	line:298	signature:(m *map[string]interface{})
-SetW	src/adaptor/mango/data.go	124;"	m	access:public	ctype:Impression	line:124	signature:(m *map[string]interface{})
-Sh	src/adaptor/mango/data.go	392;"	w	access:public	ctype:Device	line:392	type:int
+SetLoc	src/adaptor/mango/data.go	524;"	m	access:public	ctype:Device	line:524	signature:(m *map[string]interface{})
+SetMac	src/adaptor/mango/data.go	448;"	m	access:public	ctype:Device	line:448	signature:(m *map[string]interface{})
+SetMaker	src/adaptor/mango/data.go	484;"	m	access:public	ctype:Device	line:484	signature:(m *map[string]interface{})
+SetModel	src/adaptor/mango/data.go	490;"	m	access:public	ctype:Device	line:490	signature:(m *map[string]interface{})
+SetName	src/adaptor/mango/data.go	298;"	m	access:public	ctype:Application	line:298	signature:(m *map[string]interface{})
+SetOrientation	src/adaptor/mango/data.go	546;"	m	access:public	ctype:Device	line:546	signature:(m *map[string]interface{})
+SetOs	src/adaptor/mango/data.go	496;"	m	access:public	ctype:Device	line:496	signature:(m *map[string]interface{})
+SetOsv	src/adaptor/mango/data.go	502;"	m	access:public	ctype:Device	line:502	signature:(m *map[string]interface{})
+SetPaid	src/adaptor/mango/data.go	335;"	m	access:public	ctype:Application	line:335	signature:(m *map[string]interface{})
+SetPos	src/adaptor/mango/data.go	151;"	m	access:public	ctype:Impression	line:151	signature:(m *map[string]interface{})
+SetPublisher	src/adaptor/mango/data.go	365;"	m	access:public	ctype:Application	line:365	signature:(m *map[string]interface{})
+SetPublisherId	src/adaptor/mango/data.go	359;"	m	access:public	ctype:Application	line:359	signature:(m *map[string]interface{})
+SetSh	src/adaptor/mango/data.go	538;"	m	access:public	ctype:Device	line:538	signature:(m *map[string]interface{})
+SetSplash	src/adaptor/mango/data.go	201;"	m	access:public	ctype:Impression	line:201	signature:(m *map[string]interface{})
+SetStoreurl	src/adaptor/mango/data.go	347;"	m	access:public	ctype:Application	line:347	signature:(m *map[string]interface{})
+SetSw	src/adaptor/mango/data.go	530;"	m	access:public	ctype:Device	line:530	signature:(m *map[string]interface{})
+SetUa	src/adaptor/mango/data.go	454;"	m	access:public	ctype:Device	line:454	signature:(m *map[string]interface{})
+SetVer	src/adaptor/mango/data.go	317;"	m	access:public	ctype:Application	line:317	signature:(m *map[string]interface{})
+SetW	src/adaptor/mango/data.go	129;"	m	access:public	ctype:Impression	line:129	signature:(m *map[string]interface{})
+Sh	src/adaptor/mango/data.go	411;"	w	access:public	ctype:Device	line:411	type:int
 Shaky	src/adaptor/mango/data.go	41;"	c	access:public	line:41
 Site	src/common/request.go	26;"	w	access:public	ctype:BidRequest	line:26	type:SiteType
 SiteType	src/common/request.go	56;"	t	access:public	line:56	type:struct
@@ -429,13 +432,13 @@ SlotPrice	src/common/ad.go	94;"	w	access:public	ctype:Ad	line:94	type:map[string
 Slots	src/common/request.go	21;"	w	access:public	ctype:BidRequest	line:21	type:[]AdSlotType
 Splash	src/adaptor/mango/data.go	83;"	w	access:public	ctype:Impression	line:83	type:bool
 Splash	src/common/request.go	39;"	w	access:public	ctype:AdSlotType	line:39	type:bool
-Storeurl	src/adaptor/mango/data.go	246;"	w	access:public	ctype:Application	line:246	type:string
+Storeurl	src/adaptor/mango/data.go	265;"	w	access:public	ctype:Application	line:265	type:string
 String	src/common/ad.go	13;"	m	access:public	ctype:AdType	line:13	signature:()	type:string
 String	src/common/ad.go	32;"	m	access:public	ctype:MimeType	line:32	signature:()	type:string
 String	src/logger/logger.go	17;"	m	access:public	ctype:Level	line:17	signature:()	type:string
 SuggestitiveImagery	src/adaptor/mango/data.go	40;"	c	access:public	line:40
 Surveys	src/adaptor/mango/data.go	42;"	c	access:public	line:42
-Sw	src/adaptor/mango/data.go	391;"	w	access:public	ctype:Device	line:391	type:int
+Sw	src/adaptor/mango/data.go	410;"	w	access:public	ctype:Device	line:410	type:int
 SysX	src/common/ad.go	142;"	w	access:public	ctype:Order	line:142	type:int
 SysXUseMulti	src/common/ad.go	143;"	w	access:public	ctype:Order	line:143	type:bool
 TAOBAO	src/common/ad.go	102;"	c	access:public	line:102
@@ -446,13 +449,12 @@ TEXTLINK	src/common/ad.go	51;"	c	access:public	line:51
 TOPROLL	src/adaptor/mango/data.go	13;"	c	access:public	line:13
 TOPVIEW	src/adaptor/mango/data.go	11;"	c	access:public	line:11
 TagFilter	src/filter/specificFilter.go	11;"	t	access:public	line:11	type:struct
-TestManager	src/server.go	14;"	f	access:public	line:14	signature:()
 TextOnly	src/adaptor/mango/data.go	43;"	c	access:public	line:43
 TmpName	src/common/ad.go	74;"	w	access:public	ctype:Ad	line:74	type:string
 Traffic	src/adaptor/mango/data.go	63;"	c	access:public	line:63
 Type	src/common/ad.go	60;"	w	access:public	ctype:Ad	line:60	type:AdType
 UNKOWN	src/common/ad.go	46;"	c	access:public	line:46	type:Attribute
-Ua	src/adaptor/mango/data.go	379;"	w	access:public	ctype:Device	line:379	type:string
+Ua	src/adaptor/mango/data.go	398;"	w	access:public	ctype:Device	line:398	type:string
 Ua	src/common/request.go	14;"	w	access:public	ctype:BidRequest	line:14	type:string
 Url	src/common/request.go	17;"	w	access:public	ctype:BidRequest	line:17	type:string
 UrlClickMonitor	src/common/ad.go	70;"	w	access:public	ctype:Ad	line:70	type:string
@@ -472,7 +474,7 @@ UserType	src/common/request.go	50;"	t	access:public	line:50	type:struct
 Uuid	src/common/request.go	13;"	w	access:public	ctype:BidRequest	line:13	type:string
 VIDEO	src/adaptor/mango/data.go	25;"	c	access:public	line:25
 VIDEO	src/common/ad.go	50;"	c	access:public	line:50
-Ver	src/adaptor/mango/data.go	242;"	w	access:public	ctype:Application	line:242	type:string
+Ver	src/adaptor/mango/data.go	261;"	w	access:public	ctype:Application	line:261	type:string
 Video	src/common/ad.go	10;"	c	access:public	line:10
 Visibility	src/common/request.go	35;"	w	access:public	ctype:AdSlotType	line:35	type:int
 W	src/adaptor/mango/data.go	77;"	w	access:public	ctype:Impression	line:77	type:int
@@ -480,15 +482,16 @@ W	src/common/ad.go	61;"	w	access:public	ctype:Ad	line:61	type:int
 W	src/common/request.go	33;"	w	access:public	ctype:AdSlotType	line:33	type:int
 W	src/common/response.go	12;"	w	access:public	ctype:BidAd	line:12	type:int
 WinUrl	src/common/response.go	10;"	w	access:public	ctype:BidAd	line:10	type:string
-WinUrl	src/common/util.go	8;"	v	access:public	line:8	type:string
+WinUrl	src/common/util.go	9;"	v	access:public	line:9	type:string
 WindowsDialogStyle	src/adaptor/mango/data.go	45;"	c	access:public	line:45
 adaptor/mango	src/server.go	4;"	i	line:4
-basicFilter	src/filter/specificFilter.go	78;"	v	access:private	line:78	type:BasicFilter
+basicFilter	src/filter/specificFilter.go	84;"	v	access:private	line:84	type:BasicFilter
 bid	src/bid/bid.go	1;"	p	line:1
 bid	src/server.go	5;"	i	line:5
 bidRequest	src/cli.go	21;"	v	access:private	line:21	type:string
 bytes	src/manager/manager.go	4;"	i	line:4
-cli	src/manager/manager.go	22;"	w	access:private	ctype:Commander	line:22	type:*redis.Client
+cli	src/manager/manager.go	24;"	w	access:private	ctype:Commander	line:24	type:*redis.Client
+cmdTable	src/manager/manager.go	17;"	v	access:private	line:17	type:string
 common	src/adaptor/mango/request.go	8;"	i	line:8
 common	src/adaptor/mango/response.go	8;"	i	line:8
 common	src/bid/bid.go	10;"	i	line:10
@@ -499,13 +502,16 @@ common	src/common/util.go	1;"	p	line:1
 common	src/filter/filter.go	4;"	i	line:4
 common	src/filter/specificFilter.go	4;"	i	line:4
 common	src/manager/manager.go	11;"	i	line:11
+common	src/server.go	6;"	i	line:6
 crypto/md5	src/bid/bid.go	4;"	i	line:4
 curLevel	src/logger/logger.go	33;"	w	access:private	ctype:Log	line:33	type:Level
+currentTimeString	src/logGen.go	12;"	f	access:private	line:12	signature:()	type:string
 debugLogger	src/logger/logger.go	34;"	w	access:private	ctype:Log	line:34	type:*log.Logger
 encoding/json	src/adaptor/mango/request.go	4;"	i	line:4
 encoding/json	src/adaptor/mango/response.go	4;"	i	line:4
+encoding/json	src/logGen.go	4;"	i	line:4
 encoding/json	src/manager/manager.go	5;"	i	line:5
-err	src/manager/manager.go	23;"	w	access:private	ctype:Commander	line:23	type:error
+err	src/manager/manager.go	25;"	w	access:private	ctype:Commander	line:25	type:error
 errorLogger	src/logger/logger.go	36;"	w	access:private	ctype:Log	line:36	type:*log.Logger
 errors	src/common/util.go	4;"	i	line:4
 errors	src/manager/manager.go	6;"	i	line:6
@@ -514,16 +520,19 @@ fillMap	src/adaptor/mango/response.go	50;"	m	access:private	ctype:Bid	line:50	si
 filter	src/bid/bid.go	11;"	i	line:11
 filter	src/filter/filter.go	1;"	p	line:1
 filter	src/filter/specificFilter.go	1;"	p	line:1
-filter	src/server.go	6;"	i	line:6
-find	src/common/util.go	112;"	m	access:private	ctype:OrderContainer	line:112	signature:(id string)	type:int
+filter	src/server.go	7;"	i	line:7
+find	src/common/util.go	113;"	m	access:private	ctype:OrderContainer	line:113	signature:(id string)	type:int
 fmt	src/adaptor/mango/response.go	5;"	i	line:5
 fmt	src/bid/bid.go	5;"	i	line:5
 fmt	src/cli.go	4;"	i	line:4
-fmt	src/server.go	9;"	i	line:9
-genBidId	src/bid/bid.go	51;"	f	access:private	line:51	signature:()	type:string
-genMd5	src/bid/bid.go	45;"	f	access:private	line:45	signature:(str string)	type:string
-github.com/gosexy/redis	src/manager/manager.go	12;"	i	line:12
-host	src/manager/manager.go	19;"	w	access:private	ctype:Commander	line:19	type:string
+fmt	src/common/util.go	5;"	i	line:5
+fmt	src/server.go	10;"	i	line:10
+genBidId	src/bid/bid.go	53;"	f	access:private	line:53	signature:()	type:string
+genBidLog	src/logGen.go	24;"	f	access:private	line:24	signature:(l *logger.Log)
+genMd5	src/bid/bid.go	47;"	f	access:private	line:47	signature:(str string)	type:string
+github.com/brg-liuwei/golevel	src/manager/manager.go	12;"	i	line:12
+github.com/gosexy/redis	src/manager/manager.go	13;"	i	line:13
+host	src/manager/manager.go	21;"	w	access:private	ctype:Commander	line:21	type:string
 infoLogger	src/logger/logger.go	35;"	w	access:private	ctype:Log	line:35	type:*log.Logger
 io	src/bid/bid.go	6;"	i	line:6
 io/ioutil	src/adaptor/mango/request.go	5;"	i	line:5
@@ -531,38 +540,47 @@ log	src/logger/logger.go	4;"	i	line:4
 logger	src/adaptor/mango/data.go	4;"	i	line:4
 logger	src/adaptor/mango/request.go	9;"	i	line:9
 logger	src/adaptor/mango/response.go	9;"	i	line:9
+logger	src/logGen.go	5;"	i	line:5
 logger	src/logger/logger.go	1;"	p	line:1
-logger	src/manager/manager.go	13;"	i	line:13
+logger	src/manager/manager.go	14;"	i	line:14
 main	src/cli.go	1;"	p	line:1
-main	src/cli.go	51;"	f	access:private	line:51	signature:()
+main	src/cli.go	52;"	f	access:private	line:52	signature:()
+main	src/logGen.go	1;"	p	line:1
+main	src/logGen.go	61;"	f	access:private	line:61	signature:()
 main	src/server.go	1;"	p	line:1
-main	src/server.go	53;"	f	access:private	line:53	signature:()
+main	src/server.go	55;"	f	access:private	line:55	signature:()
 manager	src/manager/manager.go	1;"	p	line:1
-manager	src/server.go	7;"	i	line:7
-managerLogger	src/manager/manager.go	458;"	v	access:private	line:458	type:*logger.Log
+manager	src/server.go	8;"	i	line:8
+managerLogger	src/manager/manager.go	521;"	v	access:private	line:521	type:*logger.Log
 mango	src/adaptor/mango/data.go	1;"	p	line:1
 mango	src/adaptor/mango/request.go	1;"	p	line:1
 mango	src/adaptor/mango/response.go	1;"	p	line:1
-mangoLogger	src/adaptor/mango/data.go	543;"	v	access:private	line:543	type:*logger.Log
+mangoLogger	src/adaptor/mango/data.go	568;"	v	access:private	line:568	type:*logger.Log
 math/rand	src/bid/bid.go	7;"	i	line:7
+math/rand	src/logGen.go	6;"	i	line:6
 net/http	src/adaptor/mango/request.go	6;"	i	line:6
 net/http	src/adaptor/mango/response.go	6;"	i	line:6
 net/http	src/cli.go	5;"	i	line:5
-net/http	src/server.go	10;"	i	line:10
-once	src/filter/specificFilter.go	76;"	v	access:private	line:76	type:sync.Once
+net/http	src/server.go	11;"	i	line:11
+once	src/filter/specificFilter.go	82;"	v	access:private	line:82	type:sync.Once
+os	src/logGen.go	7;"	i	line:7
 os	src/logger/logger.go	5;"	i	line:5
-port	src/manager/manager.go	20;"	w	access:private	ctype:Commander	line:20	type:uint
-postAddr	src/cli.go	49;"	v	access:private	line:49	type:string
-retargetFilter	src/filter/specificFilter.go	82;"	v	access:private	line:82	type:RetargetFilter
-rkey	src/manager/manager.go	21;"	w	access:private	ctype:Commander	line:21	type:string
-runtime	src/server.go	11;"	i	line:11
-slotFilter	src/filter/specificFilter.go	80;"	v	access:private	line:80	type:SlotFilter
+port	src/manager/manager.go	22;"	w	access:private	ctype:Commander	line:22	type:uint
+postAddr	src/cli.go	50;"	v	access:private	line:50	type:string
+price	src/logGen.go	20;"	f	access:private	line:20	signature:()	type:string
+retargetFilter	src/filter/specificFilter.go	88;"	v	access:private	line:88	type:RetargetFilter
+rkey	src/manager/manager.go	23;"	w	access:private	ctype:Commander	line:23	type:string
+runtime	src/server.go	12;"	i	line:12
+slotFilter	src/filter/specificFilter.go	86;"	v	access:private	line:86	type:SlotFilter
 strconv	src/bid/bid.go	8;"	i	line:8
+strconv	src/logGen.go	8;"	i	line:8
 strconv	src/manager/manager.go	7;"	i	line:7
 strings	src/cli.go	6;"	i	line:6
 strings	src/manager/manager.go	8;"	i	line:8
-sync	src/common/util.go	5;"	i	line:5
+sync	src/common/util.go	6;"	i	line:6
 sync	src/filter/specificFilter.go	5;"	i	line:5
-tagFilter	src/filter/specificFilter.go	81;"	v	access:private	line:81	type:TagFilter
+tagFilter	src/filter/specificFilter.go	87;"	v	access:private	line:87	type:TagFilter
+time	src/logGen.go	9;"	i	line:9
 time	src/manager/manager.go	9;"	i	line:9
-urlFilter	src/filter/specificFilter.go	79;"	v	access:private	line:79	type:UrlFilter
+urlFilter	src/filter/specificFilter.go	85;"	v	access:private	line:85	type:UrlFilter
+uuid	src/logGen.go	16;"	f	access:private	line:16	signature:()	type:string

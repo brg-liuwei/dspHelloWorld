@@ -9,10 +9,12 @@ import (
 	"time"
 
 	"common"
+	level "github.com/brg-liuwei/golevel"
 	redis "github.com/gosexy/redis"
 	"logger"
 )
 
+var cmdTable string
 var ErrNoCmd error = errors.New("No Cmd")
 
 type Commander struct {
@@ -65,8 +67,28 @@ func (c *Commander) GetCmd() (cmd string, err error) {
 }
 
 func CommanderRoutine(host string, port uint, rkey string) {
-	c := NewCommander(host, port, rkey)
+	level.Init(4)
+	defer level.Cleanup()
+	level.Open(&cmdTable)
+	defer level.Close(&cmdTable)
+
 	command := NewCommand()
+
+	cNum := 100000
+	itr, err := level.NewIterator(&cmdTable)
+	if err != nil {
+		panic(err)
+	}
+	for itr.SeekToFirst(); itr.Valid(); itr.Next() {
+		cmd := itr.Value()
+		if command.Parse(cmd) {
+			command.Execute()
+		}
+		cNum++
+	}
+	itr.Destroy()
+
+	c := NewCommander(host, port, rkey)
 	for {
 		cmd, err := c.GetCmd()
 		switch err {
@@ -75,6 +97,9 @@ func CommanderRoutine(host string, port uint, rkey string) {
 		case nil:
 			if command.Parse(cmd) {
 				command.Execute()
+				key := strconv.Itoa(cNum)
+				level.Put(&cmdTable, &key, &cmd)
+				cNum++
 			}
 		default:
 			managerLogger.Log(logger.ERROR, "redis connect err:", err)
@@ -174,7 +199,7 @@ func (c *Command) AddOrder() {
 		Exchange      []string
 
 		/* waiting to add more exchange */
-		Max_price_mango string
+		Max_price_mo string
 
 		Record_data string
 		Is_dm       string
@@ -219,7 +244,7 @@ func (c *Command) AddOrder() {
 					managerLogger.Log(logger.ERROR, "Exchange Code Error: ", e)
 				}
 			}
-			dst.MaxPrice[common.MANGO], _ = strconv.Atoi(src.Max_price_mango)
+			dst.MaxPrice[common.MANGO], _ = strconv.Atoi(src.Max_price_mo)
 			if src.Record_data == "1" {
 				dst.Record = true
 			} else {
@@ -301,27 +326,29 @@ func (c *Command) AddAd() {
 	}
 
 	type AdAddFmt struct {
-		Ad_id             string
-		Order_id          string
-		Adtype            string
-		Duration          string
-		Mimes             string
-		Channel           string
-		Cs                string
-		Size              string
-		Tmp_name          string
-		Priority          string
-		Thirdparty_url    string
-		Landingpage_url   string
-		Creative_url      string
-		Html_snippet      string
-		Exchange          []string // 在哪儿？
-		Category          []string
-		Category_product  []string
-		Attribute         string
-		Buyer_creative_id string
-		Advertiser_name   string
-		Active            string
+		Ad_id              string
+		Order_id           string
+		Adtype             string
+		Duration           string
+		Mimes              string
+		Channel            string
+		Cs                 string
+		Size               string
+		Tmp_name           string
+		Priority           string
+		Clickmonitor_url   string
+		Displaymonitor_url string
+		Thirdparty_url     string
+		Landingpage_url    string
+		Creative_url       string
+		Html_snippet       string
+		Exchange           []string // 在哪儿？
+		Category           []string
+		Category_product   []string
+		Attribute          string
+		Buyer_creative_id  string
+		Advertiser_name    string
+		Active             string
 
 		Url_in    []string
 		Url_out   []string
@@ -368,6 +395,9 @@ func (c *Command) AddAd() {
 			dst.Ch1 = src.Channel
 			dst.Ch2 = src.Cs
 			s := strings.SplitN(src.Size, "x", 2)
+			if len(s) != 2 {
+				s = strings.SplitN(src.Size, "X", 2)
+			}
 			if len(s) == 2 {
 				w, _ := strconv.Atoi(s[0])
 				h, _ := strconv.Atoi(s[1])
@@ -378,6 +408,8 @@ func (c *Command) AddAd() {
 			}
 			dst.TmpName = src.Tmp_name
 			dst.Priority, _ = strconv.Atoi(src.Priority)
+			dst.UrlDisplayMonitor = src.Displaymonitor_url
+			dst.UrlClickMonitor = src.Clickmonitor_url
 			dst.UrlThirdMonitor = src.Thirdparty_url
 			dst.UrlLanding = src.Landingpage_url
 			dst.UrlCreative = src.Creative_url
@@ -490,4 +522,5 @@ var managerLogger *logger.Log
 
 func Init(path string) {
 	managerLogger = logger.NewLog(path)
+	cmdTable = "/opt/dspHelloWorld/dspCmd"
 }

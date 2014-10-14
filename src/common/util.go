@@ -2,6 +2,7 @@ package common
 
 import (
 	"errors"
+	"fmt"
 	"sync"
 )
 
@@ -28,7 +29,7 @@ func (c *AdContainer) Add(ad *Ad) {
 	if _, ok := c.Idmap[ad.Id]; ok {
 		return
 	}
-	c.Idmap[ad.Id] = len(c.Ads) + 1
+	c.Idmap[ad.Id] = len(c.Ads)
 	c.Ads = append(c.Ads, *ad)
 }
 
@@ -84,7 +85,7 @@ func (c *OrderContainer) Add(order *Order) {
 	if _, ok := c.Idmap[order.Id]; ok {
 		return
 	}
-	c.Idmap[order.Id] = len(c.Orders) + 1
+	c.Idmap[order.Id] = len(c.Orders)
 	c.Orders = append(c.Orders, *order)
 }
 
@@ -110,6 +111,7 @@ func (c *OrderContainer) Del(id string) {
 }
 
 func (c *OrderContainer) find(id string) int {
+	fmt.Printf("Idmap = %#v\n", c.Idmap)
 	if idx, ok := c.Idmap[id]; ok {
 		return idx
 	}

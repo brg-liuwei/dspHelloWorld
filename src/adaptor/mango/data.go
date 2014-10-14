@@ -111,7 +111,12 @@ func (imp *Impression) SetImpId(m *map[string]interface{}) bool {
 
 func (imp *Impression) SetBidFloor(m *map[string]interface{}) {
 	if v, ok := (*m)["bidfloor"]; ok {
-		imp.BidFloor, _ = v.(int)
+		f64, ok := v.(float64)
+		if !ok {
+			println("json bidfloor type error")
+		} else {
+			imp.BidFloor = int(f64)
+		}
 	}
 }
 
@@ -123,20 +128,34 @@ func (imp *Impression) SetBidFloorCur(m *map[string]interface{}) {
 
 func (imp *Impression) SetW(m *map[string]interface{}) {
 	if v, ok := (*m)["w"]; ok {
-		imp.W, _ = v.(int)
+		f64, ok := v.(float64)
+		if !ok {
+			println("json w type error")
+		} else {
+			imp.W = int(f64)
+		}
 	}
 }
 
 func (imp *Impression) SetH(m *map[string]interface{}) {
 	if v, ok := (*m)["h"]; ok {
-		imp.H, _ = v.(int)
+		f64, ok := v.(float64)
+		if !ok {
+			println("json h type error")
+		} else {
+			imp.H = int(f64)
+		}
 	}
 }
 
 func (imp *Impression) SetPos(m *map[string]interface{}) {
 	if v, ok := (*m)["pos"]; ok {
-		pos, _ := v.(int)
-		imp.Pos = AdPosition(pos)
+		f64, ok := v.(float64)
+		if !ok {
+			println("json h type error")
+		} else {
+			imp.Pos = AdPosition(int(f64))
+		}
 	}
 }
 
@@ -168,8 +187,8 @@ func (imp *Impression) SetBattr(m *map[string]interface{}) {
 
 func (imp *Impression) SetInstl(m *map[string]interface{}) {
 	if v, ok := (*m)["instl"]; ok {
-		if instl, ok := v.(int); ok {
-			switch instl {
+		if instl, ok := v.(float64); ok {
+			switch int(instl) {
 			case 0:
 				imp.Instl = false // 非插屏广告
 			default:
@@ -181,8 +200,8 @@ func (imp *Impression) SetInstl(m *map[string]interface{}) {
 
 func (imp *Impression) SetSplash(m *map[string]interface{}) {
 	if v, ok := (*m)["splash"]; ok {
-		if splash, ok := v.(int); ok {
-			switch splash {
+		if splash, ok := v.(float64); ok {
+			switch int(splash) {
 			case 0:
 				imp.Splash = false // 非开屏广告
 			case 1:
@@ -315,8 +334,8 @@ func (app *Application) SetItid(m *map[string]interface{}) {
 
 func (app *Application) SetPaid(m *map[string]interface{}) {
 	if v, ok := (*m)["paid"]; ok {
-		paid, _ := v.(int)
-		switch paid {
+		paid, _ := v.(float64)
+		switch int(paid) {
 		case 0:
 			app.Paid = false
 		default:
@@ -488,16 +507,16 @@ func (dev *Device) SetOsv(m *map[string]interface{}) {
 
 func (dev *Device) SetCType(m *map[string]interface{}) {
 	if v, ok := (*m)["connectiontype"]; ok {
-		if conn, ok := v.(int); ok {
-			dev.CType = ConnType(conn)
+		if conn, ok := v.(float64); ok {
+			dev.CType = ConnType(int(conn))
 		}
 	}
 }
 
 func (dev *Device) SetDType(m *map[string]interface{}) {
 	if v, ok := (*m)["devicetype"]; ok {
-		if dtype, ok := v.(int); ok {
-			dev.DType = DeviceType(dtype)
+		if dtype, ok := v.(float64); ok {
+			dev.DType = DeviceType(int(dtype))
 		}
 	}
 }
@@ -510,19 +529,25 @@ func (dev *Device) SetLoc(m *map[string]interface{}) {
 
 func (dev *Device) SetSw(m *map[string]interface{}) {
 	if v, ok := (*m)["sw"]; ok {
-		dev.Sw, _ = v.(int)
+		if sw, ok := v.(float64); ok {
+			dev.Sw = int(sw)
+		}
 	}
 }
 
 func (dev *Device) SetSh(m *map[string]interface{}) {
 	if v, ok := (*m)["sh"]; ok {
-		dev.Sh, _ = v.(int)
+		if sh, ok := v.(float64); ok {
+			dev.Sh = int(sh)
+		}
 	}
 }
 
 func (dev *Device) SetOrientation(m *map[string]interface{}) {
 	if v, ok := (*m)["orientation"]; ok {
-		dev.Orientation, _ = v.(int)
+		if orie, ok := v.(float64); ok {
+			dev.Orientation = int(orie)
+		}
 	}
 }
 

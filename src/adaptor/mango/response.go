@@ -122,8 +122,8 @@ func (r *BidResponse) Response(w http.ResponseWriter) {
 		}
 
 		// bid
-		bidSlice := make([]map[string]interface{}, len(r.Seatbid[i].Bid))
-		for j := 0; j != len(bidSlice); j++ {
+		bidSlice := make([]map[string]interface{}, 0, len(r.Seatbid[i].Bid))
+		for j := 0; j != len(r.Seatbid[i].Bid); j++ {
 			bidMap := make(map[string]interface{})
 			bid := r.Seatbid[i].Bid[j]
 			bid.fillMap(&bidMap)
@@ -136,7 +136,7 @@ func (r *BidResponse) Response(w http.ResponseWriter) {
 
 end:
 	response, _ := json.Marshal(rmap)
-	w.Header().Set("Content-Length", fmt.Sprint("%d", len(response)))
+	w.Header().Set("Content-Length", fmt.Sprintf("%d", len(response)))
 	w.Write(response)
 
 	/* log bid response */
@@ -166,8 +166,10 @@ func (r *BidResponse) ParseFromCommon(cr *common.BidResponse) {
 	mongoBid.Adh = commonBid.H
 	mongoBid.Iurl = commonBid.DisplayMonitor
 	mongoBid.Curl = commonBid.LandingPage
-	mongoBid.Cturl = make([]string, 0, 1)
-	mongoBid.Cturl = append(mongoBid.Cturl, commonBid.ClickMonitor)
+	mongoBid.Cturl = make([]string, 0)
+	if len(commonBid.ClickMonitor) != 0 {
+		mongoBid.Cturl = append(mongoBid.Cturl, commonBid.ClickMonitor)
+	}
 	/* TODO:
 	   mongoBid.Cid
 	   mongoBid.Crid

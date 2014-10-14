@@ -3,6 +3,7 @@ package main
 import (
 	"adaptor/mango"
 	"bid"
+	"common"
 	"filter"
 	"manager"
 
@@ -11,33 +12,31 @@ import (
 	"runtime"
 )
 
-func TestManager() {
-	c := manager.NewCommand()
-	jstr := `{
-        "oper_type":"4",
-        "fmt_ver":"1",
-        "data":
-        [   
-        "adfaf2131dfafb",
-        "adfaf2131dfafb",
-        "adfaf2131dfafb"
-        ]   
-    }`
-	if c.Parse(jstr) {
-		fmt.Println("order_type: ", c.Ctype)
-		fmt.Println("version: ", c.Cversion)
-		fmt.Println("data: ", c.Data)
-	} else {
-		fmt.Println("Parse error")
-	}
+func MangoClickHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Printf("\n[CLICK] %#v", *r)
+	// log to bid event
+	w.Write([]byte("ok"))
 }
 
-func MangoHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("bidrequest: ", *r)
+func MangoDisplayHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Printf("\n[WIN] %#v", *r)
+	// log to bid event
+	w.Write([]byte("ok"))
+}
+
+func MangoWinHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Printf("\n[WIN] %#v", *r)
+	// log to bid event
+	w.Write([]byte("ok"))
+}
+
+func MangoBidHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("\nbidrequest: \n", *r)
 	bidRequest := mango.NewBidRequest(r)
 	if bidRequest == nil {
 		return
 	}
+	fmt.Printf("\nmango bidrequest: %#v\n", *bidRequest)
 
 	//fmt.Println("mango bid request:")
 	//fmt.Printf("%+v\n", *bidRequest)
@@ -45,7 +44,9 @@ func MangoHandler(w http.ResponseWriter, r *http.Request) {
 	//fmt.Printf("%#v\n", *bidRequest)
 
 	commonRequest := bidRequest.ParseToCommon()
+	fmt.Printf("\ncommon bidrequest: %#v\n", *commonRequest)
 	commonResponse := bid.Bid(commonRequest)
+	fmt.Printf("\ncommon response: %#v\n", *commonResponse)
 	bidResponse := new(mango.BidResponse)
 	bidResponse.ParseFromCommon(commonResponse)
 	bidResponse.Response(w)
@@ -58,8 +59,13 @@ func main() {
 	mango.Init("mango.log")
 	filter.Init()
 
-	//common.WinUrl = //...
-	go manager.CommanderRoutine("<redis-ip>", 0 /* <redis port> */, "dcc-<dsp-ip>")
-	http.HandleFunc("/mango", MangoHandler)
+	// =========== debug ===========
+	common.WinUrl = "124.232.133.211:18124/mango/win"
+	// =========== debug ===========
+	go manager.CommanderRoutine("124.232.133.211", 6379, "dcc-124.232.133.211")
+	http.HandleFunc("/mango/bid", MangoBidHandler)
+	http.HandleFunc("/mango/win", MangoWinHandler)
+	http.HandleFunc("/mango/click", MangoClickHandler)
+	http.HandleFunc("/mango/display", MangoDisplayHandler)
 	panic(http.ListenAndServe(":18124", nil))
 }
