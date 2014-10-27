@@ -1,0 +1,80 @@
+message MgxBidResponse
+{
+    // BidResponse结构版本，当前为1
+    required int32 version = 1;
+
+    // 广告请求的唯一ID
+    required string bid_guid = 2;
+
+    //********广告位购买信息*********
+    message AdSlot {
+        // 在页面上广告位的序列id，Video和mobile默认为1
+        required int32 id = 1; 
+
+        // 当前广告位在Menlo Ad Exchange中唯一的Id
+        required int32 megax_aid = 2;
+
+        // 买方对该广告位的购买价格(人民币:分/千次展现)
+        //在固定交易时只要购买价格>=协议价格，即以协议价格成交
+        required int64 max_cpm_micros = 3;
+
+        // 参与程序化购买的买方在Menlo Ad Exchange中的唯一ID
+        required string buyer_id = 4; 
+
+        //广告主在买方平台中的唯一id（用于广告主审核）
+        required string advertiser_id = 5; 
+
+        // 提供素材的方式
+        //1:图片, 2: flash（无线广告不支持）
+        //3:flv（无线广告不支持）
+        //4:代码（iframe/html代码，视频和无线广告不支持）
+        required int32 creative_format = 6;
+
+        //素材的文件地址/代码/
+        //若为代码则必须实现点击宏，一共有3种
+        //非编码支持跳转点击宏：%%MGX_CLICK_URL%%
+        //编码点击宏：%%MGX_CLICK_URL_ESC%%
+        //两次编码点击宏：%%MGX_CLICK_URL_ESC_ESC%%
+        // 在广告点击时调用该宏来帮Ad Exchange监测点击数据
+        required string creative_content = 7; 
+
+        // 素材高度
+        required int32 creative_height = 8;
+
+        // 素材宽度
+        required int32 creative_width = 9; 
+
+        //视频广告播放时长，视频广告展现形式为贴片使用
+        optional uint32 duration = 15;
+
+        // 创意在DSP中的唯一ID，用于数据对比、创意审核以及素材托管
+        optional string creative_id= 10;
+
+        // 广告点击目标地址，素材使用代码时不需要
+        optional string click_through_url = 11;
+
+        // 预留PV监测，素材使用代码时不需要
+        repeated string impression_tracking= 12;
+
+        // 预留点击监测，素材使用代码时不需要
+        repeated string click_tracking= 13;
+
+        // 自定义数据(会返回给bidresult)
+        optional string extend_data = 14;
+    }
+    repeated AdSlot adslot = 3;  
+
+    //********竞价联动广告位信息*********
+    message AdSlot_Union {  
+        // adslot的序列id组合，用于联动广告的售卖方式
+        repeated int32 adslot_index_ids = 1;
+
+        // DSP对该广告位的出价价格(人民币:分/千次展现) 
+        required int64 max_cpm_price = 2;
+
+        //参与竞价的DSP(buyer)在MegaMeida中的唯一ID，由MegaMeida固定分配
+        required string buyer_id = 3;
+    }
+    optional AdSlot_Union adslot_union = 4;
+}
+

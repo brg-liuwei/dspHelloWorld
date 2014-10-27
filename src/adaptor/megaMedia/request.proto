@@ -1,0 +1,165 @@
+message MgxBidRequest
+{
+    // BidRequest结构版本，当前版本号为1
+    required int32 version = 1;
+
+    // 长度为32字节的广告请求唯一id
+    required string bid_guid = 2;
+
+    // 是否测试流量，用来标识是否对买方平台进行验证请求
+    //买方平台需要按照正常请求的标准进行响应，但需标识为测试请求
+    optional bool is_test = 3 [default=false];
+
+    // 是否心跳测试，用来标识是否对买方平台的服务器链接进行测试
+    //买方平台响应Response时仅需要request中的bid_guid值
+    optional bool is_ping = 4 [default=false]; 
+
+    // 当前用户在Menlo Ad Exchange平台中的唯一ID （当前Cookie的Visitor ID）
+    required int64 visitor_id = 5;
+
+    //DSP托管的cookie用户标识ID
+    optional string dsp_user_id = 19;
+
+    // 当前用户的IP地址(如192.168.1.1)
+    required string ip = 6;
+
+    // 当前用户客户端的user agent信息
+    required string user_agent = 7;
+
+    // 当前用户的客户端flash版本，0为未知
+    optional int32 flash_version = 8 [default=0]; 
+
+    //当前用户的屏幕尺寸，格式为“长*宽”，例如1024*768
+    optional string screen_size = 9; 
+
+    //当前用户的系统语言
+    optional string language = 10; 
+
+    // 当前用户的人群标签
+    repeated string user_segment = 11;
+
+    //当前用户的内容标签
+    repeated string content_tags = 12;
+
+    //在Ad Exchange中的网站标识
+    required string site_id = 13; 
+
+    // 广告位所在的页面URL
+    optional string url = 14; 
+
+    //********广告位信息*********
+    message AdSlot {
+        //在页面上广告位的序列id，Video和Mobile固定为1个
+        required int32 id = 1; 
+
+        // 当前广告位在Ad Exchange中唯一标识
+        required int32 megax_aid = 2;
+
+        // 不允许的敏感广告行业类别
+        repeated int32 exclude_sensitive_category = 3;
+
+        // 允许的展现形式
+        //1:固定，2:浮窗
+        //3:视频贴片，in-stream是视频内容流中的广告(前贴片/中贴片/后贴片)
+        //5:视频非贴片，overlay是视频内容层之上的展示广告(角标/暂停等) 
+        //Mobile APP形式(4:无线横幅)
+        required int32 view_type = 4; 
+
+        //允许创意素材格式
+        //1:jpg, 2:png, 3:gif, 4:swf, 5:flv, 6:MP4, 7:html, 8:html5
+        repeated string creative_files = 12;
+
+        // 广告位宽度
+        required int32 ads_width = 5;
+
+        // 广告位高度
+        required int32 ads_height = 6;
+
+        // 广告位所在页面的屏幕位置，Video和mobile固定为1
+        required int32 page_num= 7; 
+
+        //所属的媒体分类
+        repeated int32 media_type = 10;
+
+        //所属的交易类型（1:竞价，2:固定价格）
+        repeated int32 transaction_type = 11;
+
+        //买方id集合
+        repeated string buyer_id = 9;
+
+        //不同买方对应不同的交易价格，通过集合下标来映射关系
+        //不同买方对应的交易价格集合(人民币:分/千次展现)
+        repeated uint32 buyer_min_price = 8;
+    }
+    repeated AdSlot adslot = 15;
+
+    //********竞价联动广告位信息*********
+    message AdSlot_union {  
+        // adslot的序列id组合，用于联动广告的售卖方式
+        repeated int32 adslot_index_ids = 1;
+
+        //不同买家对应的最小竞价的集合(人民币:分/千次展现)
+        repeated uint32 buyer_min_price = 2; 
+        //买家id集合
+        repeated string buyer_id = 3; 
+
+        //所属的交易类型（1:竞价，2:固定价格）
+        repeated int32 transaction_type= 4;
+    }
+    optional AdSlot_union adslot_union = 16;
+
+    //********Video扩展信息*********
+    message Video {
+
+        //视频广告最短播放时长
+        optional uint32 minduration = 1;
+
+        //视频广告最长播放时长
+        optional uint32 maxduration = 2; 
+
+        //视频广告播放协议VAST（1:1.0，2:2.0，3:3.0）
+        //默认为空，暂时不支持VAST协议
+        optional uint32 protocol = 3;  
+    }
+    optional Video video = 17;
+
+    //********Mobile扩展信息**********
+    message Mobile {
+
+        //当前应用在Menlo Ad Exchange中唯一的Id
+        required int32 app_id = 1;
+
+        //Mobile设备唯一标识类型
+        //1:mac (终端mac地址，适用于iOS7以前版本及android设备) 
+        //2:imei（设备身份码，仅适用于android） 
+        //3:anid（android ID，仅适用于android） 
+        //4:idfa（iOS设备身份码，仅适用于iOS6以后版本设备） 
+        //5:ouid（OpenUDID，适用于android和iOS设备） 
+        //6:vdid（Vendor标示符，仅适用于iOS） 
+        //7:ctmid(自定义唯一标识，适用于所有设备)
+        required int32 device_unique_type = 2;
+
+        //设备唯一标识
+        required string device_unique_id = 3;
+
+        //设备品牌,例如：Google，Apple
+        required string device_brand = 4;
+
+        //设备型号，例如：Nexus%20S
+        required string device_model = 5;
+
+        //设备操作系统（完整名称，带版本号），例如：Android%204.2.2
+        required string device_os = 6;
+
+        //设备分辨率（当前屏幕方向，widthxheight），例如：640x480
+        required string device_rs = 7;
+
+        //终端上网方式（0:未知，1:Wifi，2:2G，3:3G，4:4G）
+        required int32 device_net = 8;
+
+        //终端运营商，0:移动，1:联通（网通），2:电信
+        //3:其他（如铁通、教育网，政府网，国外等）
+        required int32 device_communication_operators_id = 9;
+    }
+    optional Mobile mobile = 18;
+}

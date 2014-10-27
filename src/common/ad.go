@@ -97,14 +97,15 @@ type Ad struct {
 type Adx int
 
 const (
-	GOOGLE   Adx = iota + 1 // 1
-	ALLYES                  // 2
-	TAOBAO                  // 3
-	SINA                    // 4
-	TENCENT                 // 5
-	SOHU                    // 6
-	MIAOZHEN                // 7
-	MANGO                   // 8
+	GOOGLE    Adx = iota + 1 // 1
+	ALLYES                   // 2
+	TAOBAO                   // 3
+	SINA                     // 4
+	TENCENT                  // 5
+	SOHU                     // 6
+	MIAOZHEN                 // 7
+	MANGO                    // 8
+	MEGAMEDIA                // 9
 	NADX
 )
 

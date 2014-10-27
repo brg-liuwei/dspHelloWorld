@@ -25,6 +25,9 @@ type BidRequest struct {
 	User UserType
 	Site SiteType
 	App  AppType
+
+	// TODO:
+	// cookie string
 }
 
 type AdSlotType struct {

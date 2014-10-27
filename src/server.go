@@ -2,6 +2,7 @@ package main
 
 import (
 	"adaptor/mango"
+	"adaptor/megaMedia"
 	"bid"
 	"common"
 	"filter"
@@ -52,6 +53,25 @@ func MangoBidHandler(w http.ResponseWriter, r *http.Request) {
 	bidResponse.Response(w)
 }
 
+func YeskyBidHandler(w http.ResponseWriter, r *http.Request) {
+	bidRequest := megaMedia.NewBidRequest(r)
+	if bidRequest == nil {
+		return
+	}
+	fmt.Printf("\nyesky bidrequest: %#v\n", *bidRequest)
+
+	commonRequest := bidRequest.ParseToCommon()
+	fmt.Printf("\ncommon bidrequest: %#v\n", *commonRequest)
+
+	commonResponse := bid.Bid(commonRequest)
+	fmt.Printf("\ncommon response: %#v\n", *commonResponse)
+
+	bidResponse := new(megaMedia.MgxBidResponse)
+	bidResponse.ParseFromCommon(commonResponse)
+
+	bidResponse.Response(w)
+}
+
 func main() {
 	runtime.GOMAXPROCS(runtime.NumCPU())
 
@@ -63,9 +83,13 @@ func main() {
 	common.WinUrl = "124.232.133.211:18124/mango/win"
 	// =========== debug ===========
 	go manager.CommanderRoutine("124.232.133.211", 6379, "dcc-124.232.133.211")
+
 	http.HandleFunc("/mango/bid", MangoBidHandler)
 	http.HandleFunc("/mango/win", MangoWinHandler)
 	http.HandleFunc("/mango/click", MangoClickHandler)
 	http.HandleFunc("/mango/display", MangoDisplayHandler)
+
+	http.HandleFunc("/yesky/bid", YeskyBidHandler)
+
 	panic(http.ListenAndServe(":18124", nil))
 }

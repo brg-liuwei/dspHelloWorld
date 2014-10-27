@@ -20,13 +20,13 @@ type BidRequest struct {
 
 func NewBidRequest(r *http.Request) *BidRequest {
 	if r.Method != "POST" {
-		mangoLogger.Log(logger.ERROR, "http.Request Method error: ", r.Method)
+		mangoLogger.Log(logger.ERROR, "mango http.Request Method error: ", r.Method)
 		return nil
 	}
 
 	var m map[string]interface{}
 	if body, err := ioutil.ReadAll(r.Body); err != nil {
-		mangoLogger.Log(logger.ERROR, "read ttp.Request.Body error: ", err)
+		mangoLogger.Log(logger.ERROR, "mango read http.Request.Body error: ", err)
 		return nil
 	} else {
 		m = make(map[string]interface{})
