@@ -11,6 +11,7 @@ import (
 	"fmt"
 	"net/http"
 	"runtime"
+	"time"
 )
 
 func MangoClickHandler(w http.ResponseWriter, r *http.Request) {
@@ -54,6 +55,8 @@ func MangoBidHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func YeskyBidHandler(w http.ResponseWriter, r *http.Request) {
+	t := time.Now()
+	fmt.Println(t, "yesky request: ", *r)
 	bidRequest := megaMedia.NewBidRequest(r)
 	if bidRequest == nil {
 		return
@@ -70,6 +73,7 @@ func YeskyBidHandler(w http.ResponseWriter, r *http.Request) {
 	bidResponse.ParseFromCommon(commonResponse)
 
 	bidResponse.Response(w)
+	fmt.Println("======> delta time: ", time.Since(t))
 }
 
 func main() {
@@ -77,6 +81,7 @@ func main() {
 
 	manager.Init("manager.log")
 	mango.Init("mango.log")
+	megaMedia.Init("mega.log")
 	filter.Init()
 
 	// =========== debug ===========

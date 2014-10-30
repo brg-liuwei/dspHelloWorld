@@ -13,6 +13,7 @@ import (
 func (resp *MgxBidResponse) ParseFromCommon(cb *common.BidResponse) {
 	resp.Version = proto.Int32(1)
 	resp.BidGuid = proto.String(cb.ReqId)
+
 	if len(cb.Ads) != 0 {
 		resp.Adslot = make([]*MgxBidResponse_AdSlot, len(cb.Ads))
 		for i, s := range cb.Ads {
@@ -22,9 +23,10 @@ func (resp *MgxBidResponse) ParseFromCommon(cb *common.BidResponse) {
 			// s.price的单位是微分/CPM，这里需要转换成分/CPM
 			resp.Adslot[i].MaxCpmMicros = proto.Int64(int64(s.Price / 1000))
 			// TODO: add our buyer id, advertise id
-			// resp.Adslot[i].BuyerId = proto.String(ourid)
+			resp.Adslot[i].BuyerId = proto.String("331080")
+
 			// resp.Adslot[i].AdvertiserId = proto.String(aderId)
-			// resp.CreativeFormat = proto.Int32(): 1,图片， 2，flash，3，flv，4,html或者iframe代码
+			// resp.Adslot[i].CreativeFormat = proto.Int32(): 1,图片， 2，flash，3，flv，4,html或者iframe代码
 
 			//---------------- 注意 -------------
 			//这个Adm代码需要实现点击宏

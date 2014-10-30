@@ -419,10 +419,10 @@ MRAID	src/adaptor/mango/data.go	24;"	c	access:public	line:24
 Mac	src/adaptor/mango/data.go	397;"	w	access:public	ctype:Device	line:397	type:string
 Mac	src/common/request.go	11;"	w	access:public	ctype:BidRequest	line:11	type:string
 Maker	src/adaptor/mango/data.go	403;"	w	access:public	ctype:Device	line:403	type:string
-MangoBidHandler	src/server.go	34;"	f	access:public	line:34	signature:(w http.ResponseWriter, r *http.Request)
-MangoClickHandler	src/server.go	16;"	f	access:public	line:16	signature:(w http.ResponseWriter, r *http.Request)
-MangoDisplayHandler	src/server.go	22;"	f	access:public	line:22	signature:(w http.ResponseWriter, r *http.Request)
-MangoWinHandler	src/server.go	28;"	f	access:public	line:28	signature:(w http.ResponseWriter, r *http.Request)
+MangoBidHandler	src/server.go	35;"	f	access:public	line:35	signature:(w http.ResponseWriter, r *http.Request)
+MangoClickHandler	src/server.go	17;"	f	access:public	line:17	signature:(w http.ResponseWriter, r *http.Request)
+MangoDisplayHandler	src/server.go	23;"	f	access:public	line:23	signature:(w http.ResponseWriter, r *http.Request)
+MangoWinHandler	src/server.go	29;"	f	access:public	line:29	signature:(w http.ResponseWriter, r *http.Request)
 MarkDynamic	src/common/ad.go	129;"	w	access:public	ctype:Order	line:129	type:bool
 MaxCpmMicros	src/adaptor/megaMedia/response.pb.go	73;"	w	access:public	ctype:MgxBidResponse_AdSlot	line:73	type:*int64
 MaxCpmPrice	src/adaptor/megaMedia/response.pb.go	223;"	w	access:public	ctype:MgxBidResponse_AdSlot_Union	line:223	type:*int64
@@ -525,7 +525,7 @@ Reset	src/adaptor/megaMedia/response.pb.go	109;"	m	access:public	ctype:MgxBidRes
 Reset	src/adaptor/megaMedia/response.pb.go	229;"	m	access:public	ctype:MgxBidResponse_AdSlot_Union	line:229	signature:()
 Reset	src/adaptor/megaMedia/response.pb.go	33;"	m	access:public	ctype:MgxBidResponse	line:33	signature:()
 Response	src/adaptor/mango/response.go	102;"	m	access:public	ctype:BidResponse	line:102	signature:(w http.ResponseWriter)
-Response	src/adaptor/megaMedia/response.go	49;"	m	access:public	ctype:MgxBidResponse	line:49	signature:(w http.ResponseWriter)
+Response	src/adaptor/megaMedia/response.go	51;"	m	access:public	ctype:MgxBidResponse	line:51	signature:(w http.ResponseWriter)
 Retail	src/adaptor/mango/data.go	58;"	c	access:public	line:58
 RetargetFilter	src/filter/specificFilter.go	12;"	t	access:public	line:12	type:struct
 RollExpandable	src/adaptor/mango/data.go	36;"	c	access:public	line:36
@@ -673,7 +673,7 @@ XXX_unrecognized	src/adaptor/megaMedia/request.pb.go	60;"	w	access:public	ctype:
 XXX_unrecognized	src/adaptor/megaMedia/response.pb.go	106;"	w	access:public	ctype:MgxBidResponse_AdSlot	line:106	type:[]byte
 XXX_unrecognized	src/adaptor/megaMedia/response.pb.go	226;"	w	access:public	ctype:MgxBidResponse_AdSlot_Union	line:226	type:[]byte
 XXX_unrecognized	src/adaptor/megaMedia/response.pb.go	30;"	w	access:public	ctype:MgxBidResponse	line:30	type:[]byte
-YeskyBidHandler	src/server.go	56;"	f	access:public	line:56	signature:(w http.ResponseWriter, r *http.Request)
+YeskyBidHandler	src/server.go	57;"	f	access:public	line:57	signature:(w http.ResponseWriter, r *http.Request)
 adaptor/mango	src/server.go	4;"	i	line:4
 adaptor/megaMedia	src/server.go	5;"	i	line:5
 basicFilter	src/filter/specificFilter.go	84;"	v	access:private	line:84	type:BasicFilter
@@ -752,7 +752,7 @@ main	src/cli.go	52;"	f	access:private	line:52	signature:()
 main	src/logGen.go	1;"	p	line:1
 main	src/logGen.go	61;"	f	access:private	line:61	signature:()
 main	src/server.go	1;"	p	line:1
-main	src/server.go	75;"	f	access:private	line:75	signature:()
+main	src/server.go	79;"	f	access:private	line:79	signature:()
 manager	src/manager/manager.go	1;"	p	line:1
 manager	src/server.go	9;"	i	line:9
 managerLogger	src/manager/manager.go	521;"	v	access:private	line:521	type:*logger.Log
@@ -797,5 +797,6 @@ sync	src/filter/specificFilter.go	5;"	i	line:5
 tagFilter	src/filter/specificFilter.go	87;"	v	access:private	line:87	type:TagFilter
 time	src/logGen.go	9;"	i	line:9
 time	src/manager/manager.go	9;"	i	line:9
+time	src/server.go	14;"	i	line:14
 urlFilter	src/filter/specificFilter.go	85;"	v	access:private	line:85	type:UrlFilter
 uuid	src/logGen.go	16;"	f	access:private	line:16	signature:()	type:string

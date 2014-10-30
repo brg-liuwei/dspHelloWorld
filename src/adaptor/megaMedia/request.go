@@ -25,9 +25,9 @@ func NewBidRequest(r *http.Request) (req *MgxBidRequest) {
 		return nil
 	}
 
-	if *req.IsTest == true {
+	if req.IsTest != nil && *req.IsTest == true {
 		megaMediaLogger.Log(logger.DEBUG, "megaMedia test package")
-	} else if *req.IsPing == true {
+	} else if req.IsPing != nil && *req.IsPing == true {
 		megaMediaLogger.Log(logger.DEBUG, "megaMedia ping package")
 	}
 	return req
@@ -58,8 +58,19 @@ func (req *MgxBidRequest) ParseToCommon() (cb *common.BidRequest) {
 	for i, s := range req.GetAdslot() {
 		// megaMedia 需要回复广告位序列ID和广告位在adx中的唯一ID，拼接成ImpId存储
 		cb.Slots[i].ImpId = ImpIdEncoding(s.GetId(), s.GetMegaxAid())
-		//TODO: 根据买方集合ID来获取底价
-		//cb.BidFloor =
+
+		if len(s.BuyerId) != len(s.BuyerMinPrice) {
+			megaMediaLogger.Log(logger.ERROR, "len of buyer id and buyer min price not equal")
+		} else {
+			for j, buyer := range s.BuyerId {
+				megaMediaLogger.Log(logger.INFO, "buyer id", buyer, "floorPrice:", s.BuyerMinPrice[j])
+
+				if buyer == "331080" {
+					cb.Slots[i].BidFloor = int(s.BuyerMinPrice[j] / 1000)
+				}
+			}
+		}
+
 		cb.Slots[i].W = int(s.GetAdsWidth())
 		cb.Slots[i].H = int(s.GetAdsHeight())
 		if s.GetPageNum() == 1 {
