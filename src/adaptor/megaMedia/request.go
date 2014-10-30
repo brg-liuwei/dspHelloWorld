@@ -66,7 +66,7 @@ func (req *MgxBidRequest) ParseToCommon() (cb *common.BidRequest) {
 				megaMediaLogger.Log(logger.INFO, "buyer id", buyer, "floorPrice:", s.BuyerMinPrice[j])
 
 				if buyer == "331080" {
-					cb.Slots[i].BidFloor = int(s.BuyerMinPrice[j] / 1000)
+					cb.Slots[i].BidFloor = int(s.BuyerMinPrice[j] * 1000)
 				}
 			}
 		}
