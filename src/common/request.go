@@ -31,15 +31,16 @@ type BidRequest struct {
 }
 
 type AdSlotType struct {
-	ImpId      string
-	BidFloor   int // 微分(0.0001 RMB/CPM)
-	W          int
-	H          int
-	Visibility int
-	CatOut     map[string]bool
-	AttrOut    map[string]bool
-	Instl      bool // 是否全插屏广告（移动端）
-	Splash     bool // 是否开屏广告（移动端）
+	ImpId        string
+	BidFloor     int // 微分(0.0001 RMB/CPM)
+	W            int
+	H            int
+	CreativeType []AdType
+	Visibility   int
+	CatOut       map[string]bool
+	AttrOut      map[string]bool
+	Instl        bool // 是否全插屏广告（移动端）
+	Splash       bool // 是否开屏广告（移动端）
 }
 
 type GenderType int

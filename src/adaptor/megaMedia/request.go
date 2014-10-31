@@ -41,7 +41,7 @@ func (req *MgxBidRequest) ParseToCommon() (cb *common.BidRequest) {
 		// cb.cookie = GetMegaCookieMapping(strconv.Itoa((int)(*cb.VisitorId)))
 	}
 	if req.DspUserId != nil {
-		megaMediaLogger.Log(logger.INFO, "megaMedia why dsp user id != nil?: ", *req.DspUserId)
+		megaMediaLogger.Log(logger.INFO, "megaMedia why dsp user id != nil?: ", req.GetDspUserId())
 	}
 
 	cb.Ip = req.GetIp()
@@ -60,13 +60,12 @@ func (req *MgxBidRequest) ParseToCommon() (cb *common.BidRequest) {
 		cb.Slots[i].ImpId = ImpIdEncoding(s.GetId(), s.GetMegaxAid())
 
 		if len(s.BuyerId) != len(s.BuyerMinPrice) {
-			megaMediaLogger.Log(logger.ERROR, "len of buyer id and buyer min price not equal")
+			megaMediaLogger.Log(logger.ERROR, "len(Id) isnot equal to len(MinPrice)")
 		} else {
 			for j, buyer := range s.BuyerId {
-				megaMediaLogger.Log(logger.INFO, "buyer id", buyer, "floorPrice:", s.BuyerMinPrice[j])
-
 				if buyer == "331080" {
 					cb.Slots[i].BidFloor = int(s.BuyerMinPrice[j] * 1000)
+					break
 				}
 			}
 		}
@@ -78,6 +77,29 @@ func (req *MgxBidRequest) ParseToCommon() (cb *common.BidRequest) {
 		} else {
 			cb.Slots[i].Visibility = 0
 		}
+
+		creatives := s.GetCreativeFiles()
+		if len(creatives) > 0 {
+			cb.Slots[i].CreativeType = make([]common.AdType, len(creatives))
+			for j, creative := range creatives {
+				switch {
+				// jpg, png, gif
+				case creative == "1" || creative == "2" || creative == "3":
+					cb.Slots[i].CreativeType[j] = common.Banner
+				case creative == "4": // swf
+					cb.Slots[i].CreativeType[j] = common.Flash
+					// flv, mp4
+				case creative == "5" || creative == "6":
+					cb.Slots[i].CreativeType[j] = common.Video
+					// html, html5
+				case creative == "7" || creative == "8":
+					cb.Slots[i].CreativeType[j] = common.Html
+				default:
+					cb.Slots[i].CreativeType[j] = common.AdtypeUnknown
+				}
+			}
+		}
+
 	}
 	return
 }

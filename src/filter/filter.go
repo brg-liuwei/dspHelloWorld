@@ -39,7 +39,8 @@ func (fl *FilterList) DoFilter(ad *common.Ad, req *common.BidRequest) (int, bool
 	}
 
 	/* last filter */
-	if basePrice, err := common.GOrderContainer.FindPrice(ad.OrderId, common.MANGO); err != nil {
+	//if basePrice, err := common.GOrderContainer.FindPrice(ad.OrderId, common.MANGO); err != nil {
+	if basePrice, err := common.GOrderContainer.FindPrice(ad.OrderId, common.MEGAMEDIA); err != nil {
 		return 0, false
 	} else {
 		bidPrice := basePrice * (100 + rate)

@@ -29,6 +29,23 @@ func (f BasicFilter) Do(ad *common.Ad, req *common.BidRequest) (int, bool) {
 		println("basic filter: ad w,h error", ad.Id)
 		return 0, false
 	}
+
+	/* type filter */
+	if len(req.Slots[0].CreativeType) > 0 {
+		typeIllegal := true
+		for _, ctype := range req.Slots[0].CreativeType {
+			println("basic filter: creative type: ", ctype, "ad type: ", ad.Type)
+			if common.AdType(ctype) == ad.Type {
+				typeIllegal = false
+				break
+			}
+		}
+		if typeIllegal {
+			println("basic filter: type illegal: ", ad.Type)
+			return 0, false
+		}
+	}
+	println("basic filter pass")
 	return 0, true
 }
 
@@ -51,7 +68,7 @@ func (f UrlFilter) Do(ad *common.Ad, req *common.BidRequest) (int, bool) {
 		}
 	}
 	rate, _ := ad.UrlPrice[url]
-	println(ad.Id, " pass url filter, rate: ", rate)
+	println("adid: ", ad.Id, " pass url filter, rate: ", rate)
 	return rate, true
 }
 
@@ -92,8 +109,8 @@ func Init() {
 		GFilterList = NewFilterList()
 		GFilterList.Add(basicFilter)
 		GFilterList.Add(urlFilter)
-		GFilterList.Add(slotFilter)
-		GFilterList.Add(tagFilter)
-		GFilterList.Add(retargetFilter)
+		//GFilterList.Add(slotFilter)
+		//GFilterList.Add(tagFilter)
+		//GFilterList.Add(retargetFilter)
 	})
 }

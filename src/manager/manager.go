@@ -200,6 +200,7 @@ func (c *Command) AddOrder() {
 
 		/* waiting to add more exchange */
 		Max_price_mo string
+		//Max_price  []string
 
 		Record_data string
 		Is_dm       string
@@ -244,7 +245,21 @@ func (c *Command) AddOrder() {
 					managerLogger.Log(logger.ERROR, "Exchange Code Error: ", e)
 				}
 			}
-			dst.MaxPrice[common.MANGO], _ = strconv.Atoi(src.Max_price_mo)
+
+			/* Waiting for update:
+			sentinel := int(common.NADX)
+			if sentinel > len(src.Max_price) {
+				sentinel = len(src.Max_price)
+			}
+			for i := 0; i < sentinel; i++ {
+				dst.MaxPrice[i], _ = strconv.Atoi(src.Max_price[i])
+			}
+			*/
+
+			//dst.MaxPrice[common.MANGO], _ = strconv.Atoi(src.Max_price_mo)
+			// tmp: for testing
+			dst.MaxPrice[common.MEGAMEDIA] = 5000
+
 			if src.Record_data == "1" {
 				dst.Record = true
 			} else {
@@ -328,7 +343,7 @@ func (c *Command) AddAd() {
 	type AdAddFmt struct {
 		Ad_id              string
 		Order_id           string
-		Adtype             string
+		Ad_type            string
 		Duration           string
 		Mimes              string
 		Channel            string
@@ -375,12 +390,13 @@ func (c *Command) AddAd() {
 		func(dst *common.Ad, src *AdAddFmt) {
 			dst.Id = src.Ad_id
 			dst.OrderId = src.Order_id
-			switch src.Adtype {
-			case "banner":
+			switch src.Ad_type {
+			case "1":
 				dst.Type = common.AdType(common.Banner)
-			case "video":
+			case "2":
 				dst.Type = common.AdType(common.Video)
 			default:
+				managerLogger.Log(logger.ERROR, "Ad_type unknow: ", src.Ad_type)
 				dst.Type = common.AdType(common.AdtypeUnknown)
 			}
 			dst.Duration, _ = strconv.Atoi(src.Duration)

@@ -1,6 +1,8 @@
 package mango
 
 import (
+	"net/http"
+
 	"logger"
 )
 
@@ -23,6 +25,7 @@ const (
 	HTML         = "4"
 	MRAID        = "5"
 	VIDEO        = "6"
+	FLASH        = "7"
 )
 
 type AdAttr string
@@ -569,4 +572,9 @@ var mangoLogger *logger.Log
 
 func Init(path string) {
 	mangoLogger = logger.NewLog(path)
+
+	http.HandleFunc("/mango/bid", MangoBidHandler)
+	http.HandleFunc("/mango/win", MangoWinHandler)
+	http.HandleFunc("/mango/click", MangoClickHandler)
+	http.HandleFunc("/mango/display", MangoDisplayHandler)
 }

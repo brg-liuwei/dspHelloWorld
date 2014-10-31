@@ -160,7 +160,7 @@ func (r *BidResponse) ParseFromCommon(cr *common.BidResponse) {
 	mongoBid.Impid = commonBid.ImpId
 	mongoBid.Price = commonBid.Price
 	mongoBid.Adid = commonBid.AdId
-	mongoBid.Nurl = commonBid.WinUrl
+	mongoBid.Nurl = "124.232.133.211:18124/mango/win"
 	mongoBid.Adm = commonBid.Adm
 	mongoBid.Adw = commonBid.W
 	mongoBid.Adh = commonBid.H

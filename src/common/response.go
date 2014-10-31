@@ -8,6 +8,7 @@ type BidAd struct {
 	ImpId          string
 	Price          int
 	WinUrl         string // win notice url
+	CreativeType   AdType
 	Adm            string // html snippet or url
 	W              int
 	H              int

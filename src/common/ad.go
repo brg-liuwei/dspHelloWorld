@@ -8,14 +8,20 @@ const (
 	AdtypeUnknown AdType = iota
 	Banner
 	Video
+	Flash
+	Html
 )
 
 func (t *AdType) String() string {
 	switch *t {
 	case Banner:
 		return "BANNER"
+	case Flash:
+		return "FLASH"
 	case Video:
 		return "VIDEO"
+	case Html:
+		return "HTML"
 	default:
 		return "UnknownAdType"
 	}

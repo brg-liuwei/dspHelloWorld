@@ -26,16 +26,19 @@ func Bid(req *common.BidRequest) *common.BidResponse {
 				ids = append(ids, c.Ads[idx].Id)
 				prices = append(prices, price)
 				if len(ids) >= 3 {
+					fmt.Println("anomy func return")
 					return
 				}
 			}
 		}
+		fmt.Println("in anomy func, len(ids): ", len(ids))
 	}()
 	if len(ids) == 0 {
+		fmt.Println("bid len(ids) == 0")
 		return GenEmptyBidResponse(req)
 	} else {
 		idx := rand.Int() % len(ids)
-		fmt.Println("idx = ", idx, "ids[idx] = ", ids[idx])
+		fmt.Println("bid idx = ", idx, "ids[idx] = ", ids[idx])
 		ad, err := common.GAdContainer.Find(ids[idx])
 		if err != nil {
 			return GenEmptyBidResponse(req)
@@ -75,7 +78,8 @@ func GenBidResponse(req *common.BidRequest, ad *common.Ad, price int) *common.Bi
 	rep.Ads[0].OrderId = ad.OrderId
 	rep.Ads[0].ImpId = req.Slots[0].ImpId
 	rep.Ads[0].Price = price
-	rep.Ads[0].WinUrl = common.WinUrl
+	//rep.Ads[0].WinUrl = common.WinUrl
+	rep.Ads[0].CreativeType = ad.Type
 	//rep.Ads[0].Adm = ad.HtmlSnippet
 	rep.Ads[0].Adm = ad.UrlCreative
 	rep.Ads[0].W = ad.W

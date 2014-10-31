@@ -1,14 +1,26 @@
 package megaMedia
 
 import (
+	"aes"
 	"logger"
+
+	"net/http"
 	"strconv"
 )
 
 var megaMediaLogger *logger.Log
 
 func Init(path string) {
+	aes.Init()
+	defer aes.Destroy()
+	aes.SetKey("haha, I will never push this key to my github")
+
 	megaMediaLogger = logger.NewLog(path)
+
+	http.HandleFunc("/yesky/click", YeskyClickHandler)
+	http.HandleFunc("/yesky/display", YeskyDisplayHandler)
+	http.HandleFunc("/yesky/bid", YeskyBidHandler)
+	http.HandleFunc("/yesky/win", YeskyWinHandler)
 }
 
 func ImpIdEncoding(id int32, aid int32) string {

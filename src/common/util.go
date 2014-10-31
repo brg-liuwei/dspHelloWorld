@@ -6,7 +6,7 @@ import (
 	"sync"
 )
 
-var WinUrl string
+//var WinUrl string (这个应该是各个handler自己填)
 var GAdContainer *AdContainer = NewAdContainer()
 var GOrderContainer *OrderContainer = NewOrderContainer()
 
