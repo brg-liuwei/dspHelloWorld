@@ -74,7 +74,7 @@ func CommanderRoutine(host string, port uint, rkey string) {
 
 	command := NewCommand()
 
-	cNum := 100000
+	cNum := 100000000 // to keep cmd by order
 	itr, err := level.NewIterator(&cmdTable)
 	if err != nil {
 		panic(err)
@@ -82,6 +82,7 @@ func CommanderRoutine(host string, port uint, rkey string) {
 	for itr.SeekToFirst(); itr.Valid(); itr.Next() {
 		cmd := itr.Value()
 		if command.Parse(cmd) {
+			managerLogger.Log(logger.DEBUG, cmd)
 			command.Execute()
 		}
 		cNum++
@@ -96,10 +97,12 @@ func CommanderRoutine(host string, port uint, rkey string) {
 			time.Sleep(5 * time.Second)
 		case nil:
 			if command.Parse(cmd) {
-				command.Execute()
-				key := strconv.Itoa(cNum)
-				level.Put(&cmdTable, &key, &cmd)
-				cNum++
+				// if execute cmd successful, we store this cmd
+				if command.Execute() {
+					key := strconv.Itoa(cNum)
+					level.Put(&cmdTable, &key, &cmd)
+					cNum++
+				}
 			}
 		default:
 			managerLogger.Log(logger.ERROR, "redis connect err:", err)
@@ -145,13 +148,19 @@ func (c *Command) Parse(jsonCmd string) bool {
 		managerLogger.Log(logger.ERROR, "decode cmd err: ", jsonCmd, err)
 		return false
 	}
+	if slice, ok := cmd.Data.([]interface{}); ok {
+		if len(slice) != 1 {
+			managerLogger.Log(logger.ERROR, "cmd Data slice len should be 1 ", jsonCmd)
+			return false
+		}
+	}
 	switch cmd.Oper_type {
 	case "1":
 		c.Ctype = AddOrder
 	case "2":
 		c.Ctype = AddAd
-	// case "3":
-	// 	c.Ctype = ModOrder
+	case "3":
+		c.Ctype = ModOrder
 	// case "4":
 	// 	c.Ctype = ModAd
 	case "5":
@@ -167,20 +176,24 @@ func (c *Command) Parse(jsonCmd string) bool {
 	return true
 }
 
-func (c *Command) Execute() {
+func (c *Command) Execute() bool {
 	switch c.Ctype {
 	case AddOrder:
-		c.AddOrder()
+		return c.AddOrder()
 	case AddAd:
-		c.AddAd()
+		return c.AddAd()
+	case ModOrder:
+		return c.ModOrder()
 	case DelOrder:
-		c.DelOrder()
+		return c.DelOrder()
 	case DelAd:
-		c.DelAd()
+		return c.DelAd()
 	}
+	managerLogger.Log(logger.ERROR, "Execute cmd type error: ", c.Ctype)
+	return false
 }
 
-func (c *Command) AddOrder() {
+func (c *Command) ModOrder() bool {
 	var data []interface{}
 	if dataSlice, ok := c.Data.([]interface{}); ok {
 		data = dataSlice
@@ -189,7 +202,43 @@ func (c *Command) AddOrder() {
 		data = append(data, d)
 	} else {
 		managerLogger.Log(logger.ERROR, "in AddOrder data err")
-		return
+		return false
+	}
+
+	type OrderModFmt struct {
+		Order_id   string
+		Count_cost string
+	}
+
+	for _, d := range data {
+		var orderFmt OrderModFmt
+		b, e := json.Marshal(d)
+		if e != nil {
+			managerLogger.Log(logger.ERROR, "Marshal json err: ", e)
+			continue
+		}
+		dec := json.NewDecoder(bytes.NewReader(b))
+		if e = dec.Decode(&orderFmt); e != nil {
+			continue
+		}
+		if cost, err := strconv.ParseFloat(orderFmt.Count_cost, 64); err == nil {
+			common.GOrderContainer.SetCost(orderFmt.Order_id, int(cost))
+		}
+	}
+	// always return false, to tell manager do NOT save this cmd
+	return false
+}
+
+func (c *Command) AddOrder() bool {
+	var data []interface{}
+	if dataSlice, ok := c.Data.([]interface{}); ok {
+		data = dataSlice
+	} else if d, ok := c.Data.(map[string]interface{}); ok {
+		data = make([]interface{}, 0, 1)
+		data = append(data, d)
+	} else {
+		managerLogger.Log(logger.ERROR, "in AddOrder data err")
+		return false
 	}
 
 	type OrderAddFmt struct {
@@ -220,16 +269,18 @@ func (c *Command) AddOrder() {
 		Active string
 	}
 
+	// len(data) should be 1
 	for _, d := range data {
 		var orderFmt OrderAddFmt
 		b, e := json.Marshal(d)
 		if e != nil {
-			managerLogger.Log(logger.ERROR, "Marshal json err: ", e)
-			continue
+			managerLogger.Log(logger.ERROR, "add order Marshal json err: ", e)
+			return false
 		}
 		dec := json.NewDecoder(bytes.NewReader(b))
 		if e := dec.Decode(&orderFmt); e != nil {
-			continue
+			managerLogger.Log(logger.ERROR, "add order json decode err: ", e)
+			return false
 		}
 
 		var order common.Order
@@ -301,12 +352,14 @@ func (c *Command) AddOrder() {
 				dst.Active = false
 			}
 		}(&order, &orderFmt)
-		common.GOrderContainer.Add(&order)
-		managerLogger.Log(logger.INFO, "add order successfully: ", d)
+		norder := common.GOrderContainer.Add(&order)
+		managerLogger.Log(logger.INFO, "add order successfully: ", d, "norders: ", norder)
+		return true
 	}
+	return false
 }
 
-func (c *Command) DelOrder() {
+func (c *Command) DelOrder() bool {
 	var data []interface{}
 	if dataSlice, ok := c.Data.([]interface{}); ok {
 		data = dataSlice
@@ -315,20 +368,24 @@ func (c *Command) DelOrder() {
 		data = append(data, d)
 	} else {
 		managerLogger.Log(logger.ERROR, "in DelOrder data err")
-		return
+		return false
 	}
 
+	// len(data) == 1
 	for _, d := range data {
 		if id, ok := d.(string); ok {
-			common.GOrderContainer.Del(id)
-			managerLogger.Log(logger.INFO, "del order successfully: ", d)
+			norder := common.GOrderContainer.Del(id)
+			managerLogger.Log(logger.INFO, "del order successfully: ", d, "orders: ", norder)
+			return true
 		} else {
 			managerLogger.Log(logger.ERROR, "in DelOrder, data array fmt err")
+			return false
 		}
 	}
+	return false
 }
 
-func (c *Command) AddAd() {
+func (c *Command) AddAd() bool {
 	var data []interface{}
 	if dataSlice, ok := c.Data.([]interface{}); ok {
 		data = dataSlice
@@ -337,7 +394,7 @@ func (c *Command) AddAd() {
 		data = append(data, d)
 	} else {
 		managerLogger.Log(logger.ERROR, "in AddAd data err")
-		return
+		return false
 	}
 
 	type AdAddFmt struct {
@@ -507,12 +564,19 @@ func (c *Command) AddAd() {
 				}
 			}
 		}(&ad, &adFmt)
-		common.GAdContainer.Add(&ad)
-		managerLogger.Log(logger.INFO, "add ad successfully: ", d)
+		if _, err := common.GOrderContainer.Find(ad.OrderId); err == nil {
+			nad := common.GAdContainer.Add(&ad)
+			managerLogger.Log(logger.INFO, "add ad successfully: ", d, ", ads: ", nad)
+			return true
+		} else {
+			managerLogger.Log(logger.ERROR, "add ad error: ", d, ", err: ", err)
+			return false
+		}
 	}
+	return false
 }
 
-func (c *Command) DelAd() {
+func (c *Command) DelAd() bool {
 	var data []interface{}
 	if dataSlice, ok := c.Data.([]interface{}); ok {
 		data = dataSlice
@@ -521,17 +585,21 @@ func (c *Command) DelAd() {
 		data = append(data, d)
 	} else {
 		managerLogger.Log(logger.ERROR, "in DelAd data err")
-		return
+		return false
 	}
 
+	// len(data) == 1
 	for _, d := range data {
 		if id, ok := d.(string); ok {
-			common.GAdContainer.Del(id)
-			managerLogger.Log(logger.INFO, "del ad successfully: ", d)
+			nad := common.GAdContainer.Del(id)
+			managerLogger.Log(logger.INFO, "del ad successfully: ", d, "ads: ", nad)
+			return true
 		} else {
 			managerLogger.Log(logger.ERROR, "in DelAd, data array fmt err")
+			return false
 		}
 	}
+	return false
 }
 
 var managerLogger *logger.Log

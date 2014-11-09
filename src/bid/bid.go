@@ -22,7 +22,13 @@ func Bid(req *common.BidRequest) *common.BidResponse {
 		idx := rand.Int()
 		for i := 0; i < len(c.Ads) && i < 256; i++ {
 			idx = idx % len(c.Ads)
+
+			if !common.GOrderContainer.FeeEnough(c.Ads[idx].OrderId) {
+				continue
+			}
+
 			if price, ok := filter.GFilterList.DoFilter(&c.Ads[idx], req); ok {
+				println("ad ", c.Ads[idx].Id, "pass filter ok")
 				ids = append(ids, c.Ads[idx].Id)
 				prices = append(prices, price)
 				if len(ids) >= 3 {
@@ -43,6 +49,7 @@ func Bid(req *common.BidRequest) *common.BidResponse {
 		if err != nil {
 			return GenEmptyBidResponse(req)
 		}
+		common.GOrderContainer.FeeDecr(ad.OrderId, prices[idx])
 		return GenBidResponse(req, &ad, prices[idx])
 	}
 }

@@ -21,6 +21,36 @@ func price() string {
 	return strconv.FormatInt(rand.Int63()%500, 10)
 }
 
+func genWinLog(l *logger.Log) {
+	m := make(map[string]interface{})
+
+	m["v"] = "1"
+	m["log_type"] = "32"
+	m["time_stamp"] = currentTimeString()
+	m["ad_id"] = "cafefeed"
+	m["order_id"] = "deadbeaf"
+	m["exchange_user_id"] = "9"
+	//m["dsp_user_id"] = ?
+	m["media_type"] = "2"
+	m["uuid"] = uuid()
+	m["adexchange_id"] = "9" // yesky
+	m["user_id"] = "abcd"
+	m["user_agent"] = ""
+	m["strike_price"] = strconv.Itoa(rand.Int() % 200)
+	m["region_id"] = ""
+	m["browser"] = "chrome"
+	m["operation"] = "MacOS"
+	m["language"] = "zh"
+	m["agent_price"] = "110"
+	m["advertiser_price"] = "120"
+	m["reffer"] = ""
+	m["adslot_id"] = strconv.Itoa(rand.Int() % 10)
+	//m["adslot_position_relative"] = ?
+	m["bid_id"] = uuid()
+	m["price"] = m["strike_price"]
+	m["key"] = "abcdef1234567"
+}
+
 func genBidLog(l *logger.Log) {
 	m := make(map[string]interface{})
 
@@ -59,16 +89,21 @@ func genBidLog(l *logger.Log) {
 }
 
 func main() {
-	if len(os.Args) != 2 {
-		println("Usage: ", os.Args[0], " <log path>")
+	if len(os.Args) != 3 {
+		println("Usage: ", os.Args[0], " <bid log path> <win log path>")
 		return
 	}
 	lw := logger.NewLog(os.Args[1])
 	if lw == nil {
 		panic("log path " + os.Args[1] + " error")
 	}
+	wlog := logger.NewLog(os.Args[2])
+	if wlog == nil {
+		panic("log path " + os.Args[2] + " error")
+	}
 	for {
 		genBidLog(lw)
+		genWinLog(wlog)
 		time.Sleep(time.Second)
 	}
 }
