@@ -2,6 +2,7 @@ package filter
 
 import (
 	"common"
+	"fmt"
 )
 
 type Filter interface {
@@ -38,9 +39,12 @@ func (fl *FilterList) DoFilter(ad *common.Ad, req *common.BidRequest) (int, bool
 		}
 	}
 
+	println("ad", ad.Id, " pass filter list")
+
 	/* last filter */
 	//if basePrice, err := common.GOrderContainer.FindPrice(ad.OrderId, common.MANGO); err != nil {
 	if basePrice, err := common.GOrderContainer.FindPrice(ad.OrderId, common.MEGAMEDIA); err != nil {
+		fmt.Println("find basePrice err: ", err)
 		return 0, false
 	} else {
 		bidPrice := basePrice * (100 + rate)

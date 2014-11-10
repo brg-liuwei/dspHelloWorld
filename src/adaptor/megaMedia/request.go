@@ -12,7 +12,7 @@ import (
 
 func NewBidRequest(r *http.Request) (req *MgxBidRequest) {
 	if r.Method != "POST" {
-		megaMediaLogger.Log(logger.ERROR, "megaMedia http.Request Method error: ", r.Method)
+		megaMediaLogger.Log(logger.ERROR, "megaMedia http.Request Method error: ", r.Method, ", r: ", *r)
 		return nil
 	}
 

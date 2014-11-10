@@ -23,26 +23,27 @@ func NewAdContainer() *AdContainer {
 	}
 }
 
-func (c *AdContainer) Add(ad *Ad) {
+func (c *AdContainer) Add(ad *Ad) int {
 	c.Lock.Lock()
 	defer c.Lock.Unlock()
 	if _, ok := c.Idmap[ad.Id]; ok {
-		return
+		return len(c.Ads)
 	}
 	c.Idmap[ad.Id] = len(c.Ads)
 	c.Ads = append(c.Ads, *ad)
+	return len(c.Ads)
 }
 
-func (c *AdContainer) Del(id string) {
+func (c *AdContainer) Del(id string) int {
 	c.Lock.Lock()
 	defer c.Lock.Unlock()
 	idx, ok := c.Idmap[id]
 	if !ok {
-		return
+		return len(c.Ads)
 	}
 	defer delete(c.Idmap, id)
 	if idx >= len(c.Ads) {
-		return
+		return len(c.Ads)
 	}
 	idx2 := len(c.Ads) - 1
 	defer func() {
@@ -52,6 +53,7 @@ func (c *AdContainer) Del(id string) {
 		c.Ads[idx] = c.Ads[idx2]
 		c.Idmap[c.Ads[idx2].Id] = idx
 	}
+	return len(c.Ads)
 }
 
 func (c *AdContainer) Find(id string) (ad Ad, err error) {
@@ -79,26 +81,39 @@ func NewOrderContainer() *OrderContainer {
 	}
 }
 
-func (c *OrderContainer) Add(order *Order) {
+func (c *OrderContainer) SetCost(orderId string, cost int) {
+	c.Lock.Lock()
+	defer c.Lock.Unlock()
+	for _, order := range c.Orders {
+		if order.Id == orderId {
+			order.CountCost = cost
+			return
+		}
+	}
+	fmt.Println("order: ", orderId, "not exist")
+}
+
+func (c *OrderContainer) Add(order *Order) int {
 	c.Lock.Lock()
 	defer c.Lock.Unlock()
 	if _, ok := c.Idmap[order.Id]; ok {
-		return
+		return len(c.Orders)
 	}
 	c.Idmap[order.Id] = len(c.Orders)
 	c.Orders = append(c.Orders, *order)
+	return len(c.Orders)
 }
 
-func (c *OrderContainer) Del(id string) {
+func (c *OrderContainer) Del(id string) int {
 	c.Lock.Lock()
 	defer c.Lock.Unlock()
 	idx, ok := c.Idmap[id]
 	if !ok {
-		return
+		return len(c.Orders)
 	}
 	defer delete(c.Idmap, id)
 	if idx >= len(c.Orders) {
-		return
+		return len(c.Orders)
 	}
 	idx2 := len(c.Orders) - 1
 	defer func() {
@@ -108,6 +123,7 @@ func (c *OrderContainer) Del(id string) {
 		c.Orders[idx] = c.Orders[idx2]
 		c.Idmap[c.Orders[idx2].Id] = idx
 	}
+	return len(c.Orders)
 }
 
 func (c *OrderContainer) find(id string) int {
@@ -138,5 +154,31 @@ func (c *OrderContainer) FindPrice(id string, adx Adx) (int, error) {
 		return 0, errors.New("order " + id + " price slice error")
 	} else {
 		return c.Orders[idx].MaxPrice[int(adx)], nil
+	}
+}
+
+func (c *OrderContainer) FeeEnough(id string) bool {
+	c.Lock.RLock()
+	defer c.Lock.RUnlock()
+	if idx := c.find(id); idx == -1 {
+		return false
+	} else if c.Orders[idx].CountCost >= 0 {
+		return true
+	} else {
+		return false
+	}
+}
+
+func (c *OrderContainer) FeeDecr(id string, cost int) {
+	if cost <= 0 {
+		fmt.Println("FeeDecr: cost shoud be a post number")
+		return
+	}
+	c.Lock.RLock()
+	defer c.Lock.RUnlock()
+	if idx := c.find(id); idx == -1 {
+		return
+	} else {
+		c.Orders[idx].CountCost -= cost
 	}
 }

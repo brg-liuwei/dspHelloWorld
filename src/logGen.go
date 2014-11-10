@@ -49,6 +49,11 @@ func genWinLog(l *logger.Log) {
 	m["bid_id"] = uuid()
 	m["price"] = m["strike_price"]
 	m["key"] = "abcdef1234567"
+	if b, e := json.Marshal(m); e != nil {
+		return
+	} else {
+		l.Log(logger.INFO, string(b))
+	}
 }
 
 func genBidLog(l *logger.Log) {

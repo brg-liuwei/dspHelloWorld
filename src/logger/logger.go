@@ -75,3 +75,11 @@ func (log *Log) Log(l Level, v ...interface{}) {
 		}
 	}
 }
+
+func (log *Log) JsonLog(m map[string]interface{}) bool {
+	if b, err := json.Marshal(m); e != nil {
+		return false
+	} else {
+		return true
+	}
+}

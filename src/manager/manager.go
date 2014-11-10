@@ -247,9 +247,7 @@ func (c *Command) AddOrder() bool {
 		Advertiser_id string
 		Exchange      []string
 
-		/* waiting to add more exchange */
-		Max_price_mo string
-		//Max_price  []string
+		Max_price []string
 
 		Record_data string
 		Is_dm       string
@@ -297,7 +295,6 @@ func (c *Command) AddOrder() bool {
 				}
 			}
 
-			/* Waiting for update:
 			sentinel := int(common.NADX)
 			if sentinel > len(src.Max_price) {
 				sentinel = len(src.Max_price)
@@ -305,11 +302,6 @@ func (c *Command) AddOrder() bool {
 			for i := 0; i < sentinel; i++ {
 				dst.MaxPrice[i], _ = strconv.Atoi(src.Max_price[i])
 			}
-			*/
-
-			//dst.MaxPrice[common.MANGO], _ = strconv.Atoi(src.Max_price_mo)
-			// tmp: for testing
-			dst.MaxPrice[common.MEGAMEDIA] = 5000
 
 			if src.Record_data == "1" {
 				dst.Record = true

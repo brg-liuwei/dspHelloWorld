@@ -17,10 +17,10 @@ func Init(path string) {
 
 	megaMediaLogger = logger.NewLog(path)
 
-	http.HandleFunc("/yesky/click", YeskyClickHandler)
-	http.HandleFunc("/yesky/display", YeskyDisplayHandler)
-	http.HandleFunc("/yesky/bid", YeskyBidHandler)
-	http.HandleFunc("/yesky/win", YeskyWinHandler)
+	http.HandleFunc("/click/yesky", YeskyClickHandler)
+	http.HandleFunc("/display/yesky", YeskyDisplayHandler)
+	http.HandleFunc("/bid/yesky", YeskyBidHandler)
+	http.HandleFunc("/win/yesky", YeskyWinHandler)
 }
 
 func ImpIdEncoding(id int32, aid int32) string {

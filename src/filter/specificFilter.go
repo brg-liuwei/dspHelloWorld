@@ -26,7 +26,7 @@ func (f BasicFilter) Do(ad *common.Ad, req *common.BidRequest) (int, bool) {
 	}
 	/* Now, we only deal with situation len(slots) == 1 */
 	if req.Slots[0].W != ad.W || req.Slots[0].H != ad.H {
-		println("basic filter: ad w,h error", ad.Id)
+		println("basic filter: ad w,h error", ad.Id, " ad.W:", ad.W, "ad.H:", ad.H)
 		return 0, false
 	}
 
