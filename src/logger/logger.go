@@ -1,6 +1,7 @@
 package logger
 
 import (
+	"encoding/json"
 	"log"
 	"os"
 )
