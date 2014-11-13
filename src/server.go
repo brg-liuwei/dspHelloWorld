@@ -14,6 +14,12 @@ import (
 func main() {
 	runtime.GOMAXPROCS(runtime.NumCPU())
 
+	logger.WinLog = logger.NewLog("win.log")
+	logger.ClickLog = logger.NewLog("click.log")
+	logger.DisplayLog = logger.NewLog("display.log")
+	logger.BidLog = logger.NewLog("bid.log")
+	logger.GiveupLog = logger.NewLog("giveup.log")
+
 	mango.Init("mango.log")
 	megaMedia.Init("mega.log")
 	filter.Init()

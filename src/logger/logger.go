@@ -38,6 +38,12 @@ type Log struct {
 	fatalLogger *log.Logger
 }
 
+var WinLog *Log
+var ClickLog *Log
+var DisplayLog *Log
+var BidLog *Log
+var GiveupLog *Log
+
 func NewLog(path string) *Log {
 	f, e := os.OpenFile(path, os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0666)
 	if e != nil {
@@ -77,10 +83,11 @@ func (log *Log) Log(l Level, v ...interface{}) {
 	}
 }
 
-func (log *Log) JsonLog(m map[string]interface{}) bool {
-	if b, err := json.Marshal(m); e != nil {
+func (log *Log) JsonLog(l Level, m map[string]interface{}) bool {
+	if b, err := json.Marshal(m); err != nil {
 		return false
 	} else {
+		log.Log(l, string(b))
 		return true
 	}
 }
