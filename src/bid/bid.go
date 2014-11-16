@@ -11,7 +11,7 @@ import (
 	"filter"
 )
 
-func Bid(req *common.BidRequest) *common.BidResponse {
+func Bid(req *common.BidRequest) (rep *common.BidResponse, isBid bool) {
 	ids := make([]string, 0, 4)
 	prices := make([]int, 0, 4)
 	fmt.Println("\nin bid len(ads): ", len(common.GAdContainer.Ads))
@@ -41,16 +41,16 @@ func Bid(req *common.BidRequest) *common.BidResponse {
 	}()
 	if len(ids) == 0 {
 		fmt.Println("bid len(ids) == 0")
-		return GenEmptyBidResponse(req)
+		return GenEmptyBidResponse(req), false
 	} else {
 		idx := rand.Int() % len(ids)
 		fmt.Println("bid idx = ", idx, "ids[idx] = ", ids[idx])
 		ad, err := common.GAdContainer.Find(ids[idx])
 		if err != nil {
-			return GenEmptyBidResponse(req)
+			return GenEmptyBidResponse(req), false
 		}
 		common.GOrderContainer.FeeDecr(ad.OrderId, prices[idx])
-		return GenBidResponse(req, &ad, prices[idx])
+		return GenBidResponse(req, &ad, prices[idx]), true
 	}
 }
 

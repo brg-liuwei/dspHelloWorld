@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"log"
 	"os"
+	"strconv"
+	"time"
 )
 
 type Level int
@@ -90,4 +92,12 @@ func (log *Log) JsonLog(l Level, m map[string]interface{}) bool {
 		log.Log(l, string(b))
 		return true
 	}
+}
+
+func CurrentTimeString() string {
+	return strconv.FormatInt(time.Now().Unix(), 10)
+}
+
+func UUID() string {
+	return strconv.FormatInt(rand.Int63(), 10)
 }

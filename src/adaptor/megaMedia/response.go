@@ -60,10 +60,10 @@ func (resp *MgxBidResponse) ParseFromCommon(cb *common.BidResponse) {
 
 			resp.Adslot[i].ImpressionTracking = make([]string, 2)
 			resp.Adslot[i].ImpressionTracking[0] = s.DisplayMonitor + "/yesky"
+
 			// 获胜监测
 			resp.Adslot[i].ImpressionTracking[1] = "<img src=\"http:124.232.133.211:18124/win/yesky?win_price=%%winning_price%%&key_version=%%key_version%%&ext=%%extend_data%%\" style=\"display: none;\"/>"
 
-			//resp.Adslot[i].ExtendData = proto.String(s.Ext)
 			orderIdParam := "order_id=" + s.OrderId
 			adIdParam := "ad_id=" + s.AdId
 			resp.Adslot[i].ExtendData = proto.String("yesky&" + orderIdParam + "&" + adIdParam)

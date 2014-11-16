@@ -7,6 +7,7 @@ import (
 
 	"fmt"
 	"net/http"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -35,24 +36,49 @@ func YeskyDisplayHandler(w http.ResponseWriter, r *http.Request) {
 
 func YeskyBidHandler(w http.ResponseWriter, r *http.Request) {
 	t := time.Now()
-	fmt.Println(t, "yesky request: ", *r)
+	//fmt.Println(t, "yesky request: ", *r)
 	bidRequest := NewBidRequest(r)
 	if bidRequest == nil {
-		return
+		goto giveup
 	}
-	fmt.Printf("\nyesky bidrequest: %#v\n", *bidRequest)
+	//fmt.Printf("\nyesky bidrequest: %#v\n", *bidRequest)
 
 	commonRequest := bidRequest.ParseToCommon()
-	fmt.Printf("\ncommon bidrequest: %#v\n", *commonRequest)
+	//fmt.Printf("\ncommon bidrequest: %#v\n", *commonRequest)
 
-	commonResponse := bid.Bid(commonRequest)
-	fmt.Printf("\ncommon response: %#v\n", *commonResponse)
+	commonResponse, isBid := bid.Bid(commonRequest)
+	//fmt.Printf("\ncommon response: %#v\n", *commonResponse)
+
+	if !isBid {
+		goto giveup
+	}
 
 	bidResponse := new(MgxBidResponse)
 	bidResponse.ParseFromCommon(commonResponse)
 
 	bidResponse.Response(w)
-	fmt.Println("======> delta time: ", time.Since(t))
+	thinkTime := time.Since(t)
+	//fmt.Println("thinking time: ", thinkTime)
+	m := make(map[string]interface{})
+	m["v"] = 1
+	m["time_stamp"] = logger.CurrentTimeString()
+	m["exchange_user_id"] = strconv.Itoa(int(common.MEGAMEDIA))
+	m["think_time"] = strconv.Itoa(int(thinkTime) / 1000000) /* ms */
+
+bidlog:
+	m["log_type"] = "30"
+	m["uuid"] = logger.UUID()
+	m["bid_id"] = commonResponse.BidId
+	m["ad_id"] = commonResponse.AdId
+	m["order_id"] = commonResponse.OrderId
+	m["creative_price"] = commonResponse.Ads[0].Price
+	logger.BidLog.JsonLog(logger.INFO, m)
+	return
+
+giveuplog:
+	m["log_type"] = "31"
+	m["uuid"] = ""
+	logger.GiveupLog.JsonLog(logger.INFO, m)
 }
 
 func YeskyWinHandler(w http.ResponseWriter, r *http.Request) {
@@ -80,8 +106,21 @@ func YeskyWinHandler(w http.ResponseWriter, r *http.Request) {
 		goto end_error
 	}
 	price = aes.GetDecryptedPrice(eprice)
-	// TODO: write win log
+
 	megaMediaLogger.Log(logger.INFO, "mega win price: ", price, "adId:", adId, "orderId: ", orderId)
+
+	m := make(map[string]interface{})
+	m["v"] = "1"
+	m["log_type"] = "32"
+	m["time_stamp"] = logger.CurrentTimeString()
+	m["ad_id"] = adId
+	m["order_id"] = orderId
+	m["exchange_user_id"] = strconv.Itoa(int(common.MEGAMEDIA))
+	m["dsp_user_id"] = ""
+	m["media_type"] = ""
+	m["uuid"] = logger.UUID()
+	m["price"] = strconv.Itoa(price)
+	logger.WinLog.JsonLog(logger.INFO, m)
 
 	OkRep(w)
 	return
