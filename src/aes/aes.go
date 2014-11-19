@@ -70,12 +70,22 @@ char *jstring2ch(jstring jstr)
 
 jstring ch2jstring(const char* pat)
 {
-    jclass strClass = (*env)->FindClass(env, "java/lang/String");
-    jmethodID ctorID = (*env)->GetMethodID(env, strClass, "<init>", "([BLjava/lang/String;)V");
-    jbyteArray bytes = (*env)->NewByteArray(env, strlen(pat));
-    (*env)->SetByteArrayRegion(env, bytes, 0, strlen(pat), (jbyte*)pat);
-    jstring encoding = (*env)->NewStringUTF(env, "utf-8");
-    return (jstring)(*env)->NewObject(env, strClass, ctorID, bytes, encoding);
+    // fprintf(stderr, "<<< ch2jstring-1\n");
+    // jclass strClass = (*env)->FindClass(env, "java/lang/String");
+    // fprintf(stderr, "<<< ch2jstring-2 strClass: %p\n", strClass);
+    // jmethodID ctorID = (*env)->GetMethodID(env, strClass, "<init>", "([BLjava/lang/String;)V");
+    // fprintf(stderr, "<<< ch2jstring-3 ctorId: %p\n", ctorID);
+    // jbyteArray bytes = (*env)->NewByteArray(env, strlen(pat));
+    // fprintf(stderr, "<<< ch2jstring-4\n");
+    // (*env)->SetByteArrayRegion(env, bytes, 0, strlen(pat), (jbyte*)pat);
+    // fprintf(stderr, "<<< ch2jstring-5\n");
+    // jstring encoding = (*env)->NewStringUTF(env, "utf-8");
+    // fprintf(stderr, "<<< ch2jstring-6\n");
+    // return (jstring)(*env)->NewObject(env, strClass, ctorID, bytes, encoding);
+
+    //jclass strClass = (*env)->FindClass(env, "java/lang/String");
+    jstring str = (*env)->NewStringUTF(env, pat);
+    return str;
 }
 
 static jclass getPriceEncryptHelper()
@@ -83,14 +93,18 @@ static jclass getPriceEncryptHelper()
     static jclass helper = NULL;
 
     if (helper) {
+        fprintf(stderr, "~~~~~~~~find helper: %p\n", helper);
         return helper;
     }
 
+    fprintf(stderr, "find class helper: env = %p\n", *env);
     helper = (*env)->FindClass(env, "PriceEncryptHelper");
+    fprintf(stderr, "find class helper after\n");
     if (!helper) {
-        printf("cannot find PriceEncryptHelper\n");
+        fprintf(stderr, "cannot find PriceEncryptHelper, exit\n");
         exit(-1);
     }
+    fprintf(stderr, "find class helper = %p\n", helper);
     return helper;
 }
 
@@ -115,14 +129,16 @@ static jmethodID getDecryptedPriceMethod(jclass helper)
     static jmethodID mid = NULL;
 
     if (mid) {
+        fprintf(stderr, "~~~~ found static mid %p\n", mid);
         return mid;
     }
 
     mid = (*env)->GetStaticMethodID(env, helper, "getDecryptedPrice", "(Ljava/lang/String;Ljava/lang/String;)LPriceEncryptInfo;");
     if (!mid) {
-        printf("cannot find method getDecryptedPriceMethod\n");
+        fprintf(stderr, "cannot find method getDecryptedPriceMethod\n");
         exit(-1);
     }
+    fprintf(stderr, "find jmethodId mid: %p\n", mid);
     return mid;
 }
 
@@ -144,17 +160,34 @@ static jfieldID getPriceFieldId(jclass info)
 
 long getDecryptedPrice(const char *ePrice, const char *key)
 {
+    fprintf(stderr, "--------------> aes: getDecryptedPrice invoke\n");
     jclass helper = getPriceEncryptHelper();
+    fprintf(stderr, "--------------> aes: getHelper: %p\n", (void *)helper);
     jmethodID mid = getDecryptedPriceMethod(helper);
+    fprintf(stderr, "==============> aes: get mid: %p\n", (void *)mid);
     jstring encryptedPrice = ch2jstring(ePrice);
+    fprintf(stderr, "##############> aes: get jprice: %p\n", (void *)encryptedPrice);
     jstring jkey = ch2jstring(key);
-    jobject info = (*env)->CallStaticObjectMethod(env, helper, mid, encryptedPrice, jkey);
+    fprintf(stderr, "--------------> aes: get jkey: %p\n", (void *)jkey);
+
+    jobjectArray args = (*env)->NewObjectArray(env, 2, (*env)->FindClass(env, "java/lang/String"), NULL);
+    (*env)->SetObjectArrayElement(env, args, 0, encryptedPrice);
+    (*env)->SetObjectArrayElement(env, args, 1, jkey);
+
+    fprintf(stderr, "set price and key ok\n");
+    //jobject info = (*env)->CallStaticObjectMethod(env, helper, mid, encryptedPrice, jkey);
+    jobject info = (*env)->CallStaticObjectMethod(env, helper, mid, args);
+
+    fprintf(stderr, "!!!!!!!-> aes: after call staitc obj method\n");
     if (!info) {
         printf("getDecryptedPrice error\n");
         return 0;
     }
+    fprintf(stderr, "befor get price encrypt info\n");
     jclass infoCls = getPriceEncryptInfo();
+    fprintf(stderr, "befor get price field id \n");
     jfieldID priceId = getPriceFieldId(infoCls);
+    fprintf(stderr, "after get price field id \n");
     return (long)(*env)->GetLongField(env, info, priceId);
 }
 
@@ -171,15 +204,21 @@ void jprice_destroy()
 import "C"
 
 import (
-	//"fmt"
-	//"time"
+	"fmt"
+	"sync"
 	"unsafe"
+	//"net/url"
+	//"time"
 )
 
 var decodeKey *C.char
 
 func Init() {
 	C.jprice_init()
+	ePrice := "RlVGLhEdwomHYLliu4pjMTsqNfh66FL3yb0LbmrOnwQ="
+	SetKey("0swvdch0ocmsd0m2viy7c0brrrnhmwpu")
+	price := GetDecryptedPrice(ePrice)
+	fmt.Println("small cook price: ", price)
 }
 
 func Destroy() {
@@ -196,10 +235,20 @@ func SetKey(key string) {
 	decodeKey = C.CString(key)
 }
 
+var mutex sync.Mutex
+
 func GetDecryptedPrice(code string) int {
-	eprice := C.CString(code)
-	defer C.free(unsafe.Pointer(eprice))
-	return int(C.getDecryptedPrice(eprice, decodeKey))
+	//_ = mutex
+	mutex.Lock()
+	defer mutex.Unlock()
+
+	fmt.Println("code = ", code)
+	encryPrice := C.CString(code)
+	fmt.Println("get c price = ", encryPrice)
+	defer C.free(unsafe.Pointer(encryPrice))
+
+	fmt.Println("aes: this decode key = ", C.GoString(decodeKey))
+	return int(C.getDecryptedPrice(encryPrice, decodeKey))
 }
 
 // func main() {

@@ -40,7 +40,7 @@ func MangoBidHandler(w http.ResponseWriter, r *http.Request) {
 
 	commonRequest := bidRequest.ParseToCommon()
 	fmt.Printf("\ncommon bidrequest: %#v\n", *commonRequest)
-	commonResponse := bid.Bid(commonRequest)
+	commonResponse, _ := bid.Bid(commonRequest)
 	fmt.Printf("\ncommon response: %#v\n", *commonResponse)
 	bidResponse := new(BidResponse)
 	bidResponse.ParseFromCommon(commonResponse)

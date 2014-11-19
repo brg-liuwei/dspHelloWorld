@@ -47,10 +47,18 @@ func (fl *FilterList) DoFilter(ad *common.Ad, req *common.BidRequest) (int, bool
 		fmt.Println("find basePrice err: ", err)
 		return 0, false
 	} else {
-		bidPrice := basePrice * (100 + rate)
+		/***********  fix libo's bug  ************************/
+		if basePrice == 0 {
+			fmt.Println("filter.go DoFilter, need to fix libo bug")
+			basePrice = 1000
+		}
+
+		bidPrice := (basePrice + 1) * (100 + rate)
 		bidPrice /= 100
 		if len(req.Slots) != 0 && bidPrice >= req.Slots[0].BidFloor {
 			return bidPrice, true
+		} else {
+			fmt.Println("filter.go: req.Slots len = ", len(req.Slots), " bid Price = ", bidPrice, " req.Slots[0].BidFloor: ", req.Slots[0].BidFloor)
 		}
 	}
 	return 0, false

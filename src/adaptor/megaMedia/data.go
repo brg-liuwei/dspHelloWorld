@@ -1,7 +1,7 @@
 package megaMedia
 
 import (
-	"aes"
+	//"aes"
 	"logger"
 
 	"net/http"
@@ -11,9 +11,10 @@ import (
 var megaMediaLogger *logger.Log
 
 func Init(path string) {
-	aes.Init()
-	defer aes.Destroy()
-	aes.SetKey("haha, I will never push this key to my github")
+	//aes.Init()
+
+	//aes.SetKey("haha, I will never push this key to my github")
+	//aes.SetKey("c59olrpd069n9re1r6wycx17q5yydl65")
 
 	megaMediaLogger = logger.NewLog(path)
 

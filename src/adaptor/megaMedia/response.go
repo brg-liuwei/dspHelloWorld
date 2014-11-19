@@ -56,17 +56,19 @@ func (resp *MgxBidResponse) ParseFromCommon(cb *common.BidResponse) {
 			resp.Adslot[i].ClickThroughUrl = proto.String(s.LandingPage)
 
 			resp.Adslot[i].ClickTracking = make([]string, 1)
-			resp.Adslot[i].ClickTracking[0] = s.ClickMonitor + "/yesky"
+			//resp.Adslot[i].ClickTracking[0] = s.ClickMonitor + "/yesky"
+			resp.Adslot[i].ClickTracking[0] = "http://124.232.133.211:18124/click/yesky?ad_id=" + s.AdId + "&order_id=" + s.OrderId + "&bid_id=" + *resp.BidGuid
 
 			resp.Adslot[i].ImpressionTracking = make([]string, 2)
-			resp.Adslot[i].ImpressionTracking[0] = s.DisplayMonitor + "/yesky"
+			//resp.Adslot[i].ImpressionTracking[0] = s.DisplayMonitor + "/yesky"
+			resp.Adslot[i].ImpressionTracking[0] = "http://124.232.133.211:18124/display/yesky?ad_id=" + s.AdId + "&order_id=" + s.OrderId + "&bid_id=" + *resp.BidGuid
 
 			// 获胜监测
-			resp.Adslot[i].ImpressionTracking[1] = "<img src=\"http:124.232.133.211:18124/win/yesky?win_price=%%winning_price%%&key_version=%%key_version%%&ext=%%extend_data%%\" style=\"display: none;\"/>"
+			resp.Adslot[i].ImpressionTracking[1] = "http://124.232.133.211:18124/win/yesky?win_price=%%winning_price%%&key_version=%%key_version%%&extend_data=%%extend_data%%"
 
 			orderIdParam := "order_id=" + s.OrderId
 			adIdParam := "ad_id=" + s.AdId
-			resp.Adslot[i].ExtendData = proto.String("yesky&" + orderIdParam + "&" + adIdParam)
+			resp.Adslot[i].ExtendData = proto.String("yesky&" + orderIdParam + "&" + adIdParam + "&bid_id=" + *resp.BidGuid)
 		}
 	}
 }

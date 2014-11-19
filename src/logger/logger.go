@@ -3,6 +3,7 @@ package logger
 import (
 	"encoding/json"
 	"log"
+	"math/rand"
 	"os"
 	"strconv"
 	"time"

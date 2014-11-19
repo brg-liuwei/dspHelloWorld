@@ -4,6 +4,7 @@ import (
 	"adaptor/mango"
 	"adaptor/megaMedia"
 	"filter"
+	"logger"
 	"manager"
 
 	//"fmt"
@@ -13,6 +14,7 @@ import (
 
 func main() {
 	runtime.GOMAXPROCS(runtime.NumCPU())
+	//runtime.GOMAXPROCS(1)
 
 	logger.WinLog = logger.NewLog("win.log")
 	logger.ClickLog = logger.NewLog("click.log")
@@ -22,6 +24,7 @@ func main() {
 
 	mango.Init("mango.log")
 	megaMedia.Init("mega.log")
+
 	filter.Init()
 
 	manager.Init("manager.log")
