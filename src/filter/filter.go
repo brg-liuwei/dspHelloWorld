@@ -50,11 +50,12 @@ func (fl *FilterList) DoFilter(ad *common.Ad, req *common.BidRequest) (int, bool
 		/***********  fix libo's bug  ************************/
 		if basePrice == 0 {
 			fmt.Println("filter.go DoFilter, need to fix libo bug")
-			basePrice = 1000
+			basePrice = 7000
 		}
 
 		bidPrice := (basePrice + 1) * (100 + rate)
 		bidPrice /= 100
+		fmt.Println("basePrice: ", basePrice, " bidPrice: ", bidPrice, " floor: ", req.Slots[0].BidFloor)
 		if len(req.Slots) != 0 && bidPrice >= req.Slots[0].BidFloor {
 			return bidPrice, true
 		} else {

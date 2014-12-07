@@ -201,13 +201,14 @@ func (c *Command) ModOrder() bool {
 		data = make([]interface{}, 0, 1)
 		data = append(data, d)
 	} else {
-		managerLogger.Log(logger.ERROR, "in AddOrder data err")
+		managerLogger.Log(logger.ERROR, "in ModOrder data err")
 		return false
 	}
 
 	type OrderModFmt struct {
 		Order_id   string
-		Count_cost string
+		Balance    string /* Balance是该订单还剩余的钱数 */
+		Count_cost string /* Count_cost是订单总价 */
 	}
 
 	for _, d := range data {
@@ -219,10 +220,14 @@ func (c *Command) ModOrder() bool {
 		}
 		dec := json.NewDecoder(bytes.NewReader(b))
 		if e = dec.Decode(&orderFmt); e != nil {
+			managerLogger.Log(logger.ERROR, "mod order json decode err: ", e)
 			continue
 		}
-		if cost, err := strconv.ParseFloat(orderFmt.Count_cost, 64); err == nil {
+
+		if cost, err := strconv.ParseFloat(orderFmt.Balance, 64); err == nil {
 			common.GOrderContainer.SetCost(orderFmt.Order_id, int(cost))
+		} else {
+			managerLogger.Log(logger.ERROR, "in ModOrder Balance err:", err)
 		}
 	}
 	// always return false, to tell manager do NOT save this cmd
@@ -295,12 +300,13 @@ func (c *Command) AddOrder() bool {
 				}
 			}
 
-			sentinel := int(common.NADX)
+			sentinel := int(common.NADX) - 1
 			if sentinel > len(src.Max_price) {
 				sentinel = len(src.Max_price)
 			}
 			for i := 0; i < sentinel; i++ {
-				dst.MaxPrice[i], _ = strconv.Atoi(src.Max_price[i])
+				// Adx编号是从1开始的
+				dst.MaxPrice[i+1], _ = strconv.Atoi(src.Max_price[i])
 			}
 
 			if src.Record_data == "1" {

@@ -84,13 +84,13 @@ func NewOrderContainer() *OrderContainer {
 func (c *OrderContainer) SetCost(orderId string, cost int) {
 	c.Lock.Lock()
 	defer c.Lock.Unlock()
-	for _, order := range c.Orders {
-		if order.Id == orderId {
-			order.CountCost = cost
+	for i := 0; i < len(c.Orders); i++ {
+		if c.Orders[i].Id == orderId {
+			c.Orders[i].CountCost = cost
 			return
 		}
 	}
-	fmt.Println("order: ", orderId, "not exist")
+	fmt.Println("SetCost order: ", orderId, "not exist")
 }
 
 func (c *OrderContainer) Add(order *Order) int {
@@ -127,7 +127,7 @@ func (c *OrderContainer) Del(id string) int {
 }
 
 func (c *OrderContainer) find(id string) int {
-	fmt.Printf("Idmap = %#v\n", c.Idmap)
+	//fmt.Printf("Idmap = %#v\n", c.Idmap)
 	if idx, ok := c.Idmap[id]; ok {
 		return idx
 	}
@@ -165,6 +165,7 @@ func (c *OrderContainer) FeeEnough(id string) bool {
 	} else if c.Orders[idx].CountCost >= 0 {
 		return true
 	} else {
+		fmt.Println("order ", id, "CountCost not enough: ", c.Orders[idx].CountCost)
 		return false
 	}
 }

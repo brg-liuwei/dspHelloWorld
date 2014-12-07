@@ -93,6 +93,46 @@ func genBidLog(l *logger.Log) {
 	}
 }
 
+func genClickLog(l *logger.Log) {
+	m := make(map[string]interface{})
+
+	m["v"] = "1"
+	m["log_type"] = "9"
+	m["time_stamp"] = logger.CurrentTimeString()
+	m["ad_id"] = "1001"
+	m["order_id"] = "abcdefg"
+	m["exchange_user_id"] = strconv.Itoa(8)
+	m["uuid"] = logger.UUID()
+	m["bid_id"] = "8888"
+	m["user_ip"] = "192.168.100.22"
+
+	if b, e := json.Marshal(m); e != nil {
+		return
+	} else {
+		l.Log(logger.INFO, string(b))
+	}
+}
+
+func genDisplayLog(l *logger.Log) {
+	m := make(map[string]interface{})
+
+	m["v"] = "1"
+	m["log_type"] = "8"
+	m["time_stamp"] = logger.CurrentTimeString()
+	m["ad_id"] = "9999"
+	m["order_id"] = "abcdefg"
+	m["exchange_user_id"] = strconv.Itoa(8)
+	m["uuid"] = logger.UUID()
+	m["bid_id"] = "8888"
+	m["user_ip"] = "192.168.100.23"
+
+	if b, e := json.Marshal(m); e != nil {
+		return
+	} else {
+		l.Log(logger.INFO, string(b))
+	}
+}
+
 func main() {
 	if len(os.Args) != 3 {
 		println("Usage: ", os.Args[0], " <bid log path> <win log path>")
@@ -107,8 +147,10 @@ func main() {
 		panic("log path " + os.Args[2] + " error")
 	}
 	for {
-		genBidLog(lw)
-		genWinLog(wlog)
+		//genBidLog(lw)
+		//genWinLog(wlog)
+		genClickLog(lw)
+		genDisplayLog(wlog)
 		time.Sleep(time.Second)
 	}
 }
