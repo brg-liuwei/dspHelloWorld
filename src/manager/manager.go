@@ -148,12 +148,7 @@ func (c *Command) Parse(jsonCmd string) bool {
 		managerLogger.Log(logger.ERROR, "decode cmd err: ", jsonCmd, err)
 		return false
 	}
-	if slice, ok := cmd.Data.([]interface{}); ok {
-		if len(slice) != 1 {
-			managerLogger.Log(logger.ERROR, "cmd Data slice len should be 1 ", jsonCmd)
-			return false
-		}
-	}
+
 	switch cmd.Oper_type {
 	case "1":
 		c.Ctype = AddOrder
@@ -273,6 +268,10 @@ func (c *Command) AddOrder() bool {
 	}
 
 	// len(data) should be 1
+	if len(data) != 1 {
+		managerLogger.Log(logger.ERROR, "add order data slice length should be 1")
+		return false
+	}
 	for _, d := range data {
 		var orderFmt OrderAddFmt
 		b, e := json.Marshal(d)
@@ -370,6 +369,10 @@ func (c *Command) DelOrder() bool {
 	}
 
 	// len(data) == 1
+	if len(data) != 1 {
+		managerLogger.Log(logger.ERROR, "del order data slice length should be 1")
+		return false
+	}
 	for _, d := range data {
 		if id, ok := d.(string); ok {
 			norder := common.GOrderContainer.Del(id)
@@ -429,6 +432,11 @@ func (c *Command) AddAd() bool {
 		Slotid_price []map[string]string
 	}
 
+	// len(data) should == 1
+	if len(data) != 1 {
+		managerLogger.Log(logger.ERROR, "add ad data slice length should be 1")
+		return false
+	}
 	for _, d := range data {
 		var adFmt AdAddFmt
 		b, e := json.Marshal(d)
@@ -587,6 +595,10 @@ func (c *Command) DelAd() bool {
 	}
 
 	// len(data) == 1
+	if len(data) != 1 {
+		managerLogger.Log(logger.ERROR, "del ad data slice length should be 1")
+		return false
+	}
 	for _, d := range data {
 		if id, ok := d.(string); ok {
 			nad := common.GAdContainer.Del(id)
