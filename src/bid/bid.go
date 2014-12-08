@@ -24,6 +24,7 @@ func Bid(req *common.BidRequest) (rep *common.BidResponse, isBid bool) {
 			idx = idx % len(c.Ads)
 
 			if !common.GOrderContainer.FeeEnough(c.Ads[idx].OrderId) {
+				fmt.Println("FeeEnough error, oid: ", c.Ads[idx].OrderId)
 				continue
 			}
 

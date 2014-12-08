@@ -31,9 +31,9 @@ Add	src/common/util.go	26;"	m	access:public	ctype:AdContainer	line:26	signature:
 Add	src/common/util.go	96;"	m	access:public	ctype:OrderContainer	line:96	signature:(order *Order)	type:int
 Add	src/filter/filter.go	24;"	m	access:public	ctype:FilterList	line:24	signature:(f Filter)
 AddAd	src/manager/manager.go	120;"	c	access:public	line:120
-AddAd	src/manager/manager.go	386;"	m	access:public	ctype:Command	line:386	signature:()	type:bool
+AddAd	src/manager/manager.go	389;"	m	access:public	ctype:Command	line:389	signature:()	type:bool
 AddOrder	src/manager/manager.go	119;"	c	access:public	line:119
-AddOrder	src/manager/manager.go	237;"	m	access:public	ctype:Command	line:237	signature:()	type:bool
+AddOrder	src/manager/manager.go	232;"	m	access:public	ctype:Command	line:232	signature:()	type:bool
 Ade	src/adaptor/mango/response.go	47;"	w	access:public	ctype:External	line:47	type:string
 Adh	src/adaptor/mango/response.go	31;"	w	access:public	ctype:Bid	line:31	type:int
 Adid	src/adaptor/mango/response.go	27;"	w	access:public	ctype:Bid	line:27	type:string
@@ -209,9 +209,9 @@ Default_MgxBidRequest_IsTest	src/adaptor/megaMedia/request.pb.go	67;"	c	access:p
 Del	src/common/util.go	107;"	m	access:public	ctype:OrderContainer	line:107	signature:(id string)	type:int
 Del	src/common/util.go	37;"	m	access:public	ctype:AdContainer	line:37	signature:(id string)	type:int
 DelAd	src/manager/manager.go	124;"	c	access:public	line:124
-DelAd	src/manager/manager.go	577;"	m	access:public	ctype:Command	line:577	signature:()	type:bool
+DelAd	src/manager/manager.go	585;"	m	access:public	ctype:Command	line:585	signature:()	type:bool
 DelOrder	src/manager/manager.go	123;"	c	access:public	line:123
-DelOrder	src/manager/manager.go	360;"	m	access:public	ctype:Command	line:360	signature:()	type:bool
+DelOrder	src/manager/manager.go	359;"	m	access:public	ctype:Command	line:359	signature:()	type:bool
 Destroy	src/aes/aes.go	224;"	f	access:public	line:224	signature:()
 Dev	src/adaptor/mango/request.go	16;"	w	access:public	ctype:BidRequest	line:16	type:Device
 DevAndroid	src/adaptor/mango/data.go	390;"	c	access:public	line:390
@@ -257,7 +257,7 @@ Electronic	src/adaptor/mango/data.go	68;"	c	access:public	line:68
 ErrNoCmd	src/manager/manager.go	18;"	v	access:public	line:18	type:error
 ErrorRep	src/adaptor/megaMedia/util.go	18;"	f	access:public	line:18	signature:(w http.ResponseWriter)
 ExcludeSensitiveCategory	src/adaptor/megaMedia/request.pb.go	211;"	w	access:public	ctype:MgxBidRequest_AdSlot	line:211	type:[]int32
-Execute	src/manager/manager.go	179;"	m	access:public	ctype:Command	line:179	signature:()	type:bool
+Execute	src/manager/manager.go	174;"	m	access:public	ctype:Command	line:174	signature:()	type:bool
 Ext	src/adaptor/mango/response.go	41;"	w	access:public	ctype:Bid	line:41	type:External
 Ext	src/common/response.go	19;"	w	access:public	ctype:BidAd	line:19	type:string
 ExtendData	src/adaptor/megaMedia/response.pb.go	105;"	w	access:public	ctype:MgxBidResponse_AdSlot	line:105	type:*string
@@ -265,7 +265,7 @@ External	src/adaptor/mango/response.go	44;"	t	access:public	line:44	type:struct
 FATAL	src/logger/logger.go	18;"	c	access:public	line:18
 FLASH	src/adaptor/mango/data.go	28;"	c	access:public	line:28
 FLASH	src/common/ad.go	55;"	c	access:public	line:55
-FeeDecr	src/common/util.go	173;"	m	access:public	ctype:OrderContainer	line:173	signature:(id string, cost int)
+FeeDecr	src/common/util.go	174;"	m	access:public	ctype:OrderContainer	line:174	signature:(id string, cost int)
 FeeEnough	src/common/util.go	160;"	m	access:public	ctype:OrderContainer	line:160	signature:(id string)	type:bool
 Filter	src/filter/filter.go	8;"	n	access:public	line:8	type:interface
 FilterList	src/filter/filter.go	12;"	t	access:public	line:12	type:struct
@@ -287,8 +287,8 @@ GIF	src/adaptor/mango/data.go	24;"	c	access:public	line:24
 GOOGLE	src/common/ad.go	106;"	c	access:public	line:106	type:Adx
 GOrderContainer	src/common/util.go	11;"	v	access:public	line:11	type:*OrderContainer
 Game	src/adaptor/mango/data.go	56;"	c	access:public	line:56	type:AdCategory
-GenBidResponse	src/bid/bid.go	75;"	f	access:public	line:75	signature:(req *common.BidRequest, ad *common.Ad, price int)	type:*common.BidResponse
-GenEmptyBidResponse	src/bid/bid.go	67;"	f	access:public	line:67	signature:(req *common.BidRequest)	type:*common.BidResponse
+GenBidResponse	src/bid/bid.go	76;"	f	access:public	line:76	signature:(req *common.BidRequest, ad *common.Ad, price int)	type:*common.BidResponse
+GenEmptyBidResponse	src/bid/bid.go	68;"	f	access:public	line:68	signature:(req *common.BidRequest)	type:*common.BidResponse
 Gender	src/common/ad.go	154;"	w	access:public	ctype:Order	line:154	type:int
 Gender	src/common/request.go	55;"	w	access:public	ctype:UserType	line:55	type:GenderType
 GenderFemale	src/common/request.go	51;"	c	access:public	line:51
@@ -405,7 +405,7 @@ Init	src/adaptor/mango/data.go	573;"	f	access:public	line:573	signature:(path st
 Init	src/adaptor/megaMedia/data.go	13;"	f	access:public	line:13	signature:(path string)
 Init	src/aes/aes.go	216;"	f	access:public	line:216	signature:()
 Init	src/filter/specificFilter.go	107;"	f	access:public	line:107	signature:()
-Init	src/manager/manager.go	605;"	f	access:public	line:605	signature:(path string)
+Init	src/manager/manager.go	617;"	f	access:public	line:617	signature:(path string)
 Instl	src/adaptor/mango/data.go	85;"	w	access:public	ctype:Impression	line:85	type:bool
 Instl	src/adaptor/mango/response.go	45;"	w	access:public	ctype:External	line:45	type:int
 Instl	src/common/request.go	42;"	w	access:public	ctype:AdSlotType	line:42	type:bool
@@ -469,7 +469,7 @@ Mobile	src/adaptor/megaMedia/request.pb.go	59;"	w	access:public	ctype:MgxBidRequ
 Mobile	src/common/request.go	7;"	w	access:public	ctype:BidRequest	line:7	type:bool
 ModAd	src/manager/manager.go	122;"	c	access:public	line:122
 ModOrder	src/manager/manager.go	121;"	c	access:public	line:121
-ModOrder	src/manager/manager.go	196;"	m	access:public	ctype:Command	line:196	signature:()	type:bool
+ModOrder	src/manager/manager.go	191;"	m	access:public	ctype:Command	line:191	signature:()	type:bool
 Model	src/adaptor/mango/data.go	407;"	w	access:public	ctype:Device	line:407	type:string
 NADX	src/common/ad.go	115;"	c	access:public	line:115
 Name	src/adaptor/mango/data.go	262;"	w	access:public	ctype:Application	line:262	type:string
@@ -759,11 +759,11 @@ fmt	src/bid/bid.go	5;"	i	line:5
 fmt	src/cli.go	4;"	i	line:4
 fmt	src/common/util.go	5;"	i	line:5
 fmt	src/filter/filter.go	5;"	i	line:5
-genBidId	src/bid/bid.go	63;"	f	access:private	line:63	signature:()	type:string
+genBidId	src/bid/bid.go	64;"	f	access:private	line:64	signature:()	type:string
 genBidLog	src/logGen.go	59;"	f	access:private	line:59	signature:(l *logger.Log)
 genClickLog	src/logGen.go	96;"	f	access:private	line:96	signature:(l *logger.Log)
 genDisplayLog	src/logGen.go	116;"	f	access:private	line:116	signature:(l *logger.Log)
-genMd5	src/bid/bid.go	57;"	f	access:private	line:57	signature:(str string)	type:string
+genMd5	src/bid/bid.go	58;"	f	access:private	line:58	signature:(str string)	type:string
 genWinLog	src/logGen.go	24;"	f	access:private	line:24	signature:(l *logger.Log)
 getDecryptedPriceFromServer	src/adaptor/megaMedia/util.go	230;"	f	access:private	line:230	signature:(eprice string)	type:int
 github.com/brg-liuwei/golevel	src/manager/manager.go	12;"	i	line:12
@@ -796,7 +796,7 @@ main	src/server.go	15;"	f	access:private	line:15	signature:()
 main	src/server.go	1;"	p	line:1
 manager	src/manager/manager.go	1;"	p	line:1
 manager	src/server.go	8;"	i	line:8
-managerLogger	src/manager/manager.go	603;"	v	access:private	line:603	type:*logger.Log
+managerLogger	src/manager/manager.go	615;"	v	access:private	line:615	type:*logger.Log
 mango	src/adaptor/mango/data.go	1;"	p	line:1
 mango	src/adaptor/mango/request.go	1;"	p	line:1
 mango	src/adaptor/mango/response.go	1;"	p	line:1

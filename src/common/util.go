@@ -161,6 +161,7 @@ func (c *OrderContainer) FeeEnough(id string) bool {
 	c.Lock.RLock()
 	defer c.Lock.RUnlock()
 	if idx := c.find(id); idx == -1 {
+		fmt.Println("cannot found order id: ", id)
 		return false
 	} else if c.Orders[idx].CountCost >= 0 {
 		return true

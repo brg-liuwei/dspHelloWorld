@@ -35,11 +35,12 @@ func (fl *FilterList) DoFilter(ad *common.Ad, req *common.BidRequest) (int, bool
 		if r, ok := f.Do(ad, req); ok {
 			rate += r
 		} else {
+			fmt.Println("ad", ad.Id, " ******* not pass filter list")
 			return 0, false
 		}
 	}
 
-	println("ad", ad.Id, " pass filter list")
+	fmt.Println("ad", ad.Id, " pass filter list")
 
 	/* last filter */
 	//if basePrice, err := common.GOrderContainer.FindPrice(ad.OrderId, common.MANGO); err != nil {
